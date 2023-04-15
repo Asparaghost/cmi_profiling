@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* background-image: url("https://transparenttextures.com/patterns/hoffman.png"); */
+}
+
+h3{
+    text-align: center;
+    letter-spacing: 1px;
+    padding-top: 20px;
+    font-family: Poppins;
+    color: #008000;
+}
+
+.add_form, .edit_form{
+    padding: 20px 6% 25px 6%;
+    color: #044104;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #66b366;
+    margin: 0 25%;
+    border-radius: 1px;
+}
+
+.add_form input, .edit_form input{
+    padding-left: 10px;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.add_form .btn, .edit_form .btn{
+    color: rgb(255, 255, 255);
+    border: 1px;
+    font-family: Poppins;
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding: 8px 15px;
+    background-color: #008000;
+    text-decoration: none;
+}
+
+.add_form .skip{
+    color: #008000;
+    text-decoration: none;
+}
+
+.add_form .btn:hover, .edit_form .btn:hover{
+    color: white;
+    background: #339933;
+}
+
+.add_form input::placeholder{
+    color: #008000;
+}
+
+.add_form input[type=submit]{
+    background-color: #008000; 
+    padding: 12px 20px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.add_form label{
+    font-family: Poppins;
+    font-weight: 800;
+    color: #044104;
+}
+
+textarea{
+    height: 150px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 1px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 13px;
+    text-decoration: none;
+    outline:none;
+    font-family: Poppins;
+}
+
+textarea::placeholder{
+    color: #008000;
+}
+
+.add_form label, .edit_form label{
+    font-weight: 500;
+}
+
+@media (max-width:770px) {
+    .add_form, .edit_form{
+        padding: 20px 10% 25px 10%;
+        color: #315817;
+        justify-content: center;
+        flex-direction: column;
+        font-weight: 900;
+    }
+}
+
+@media (max-width:400px) {
+    .add_form, .edit_form{
+        padding: 20px 3% 25px 3%;
+        margin: 0 8%;
+        border-radius: 10px;
+        color: #315817;
+        justify-content: center;
+        flex-direction: column;
+        font-weight: 900;
+        font-size: 14px;
+    }
+    .add_form input, .edit_form input{
+        font-size: 14px;
+    }
+    h3{
+        font-size: 10px;
+    }
+    .add_form .btn, .edit_form .btn{
+        font-size: 14px;
+        letter-spacing: 1px;
+        padding: 3px 4px;
+        background-color: #008000;
+        text-decoration: none;
+    }
+}
+

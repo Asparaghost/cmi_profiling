@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+    <title>WESMAARRDEC</title>
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%;
+        overflow: auto; 
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+      }
+      
+      .modal-content {
+        color: #008000;
+        background: white;
+        margin: auto;
+        padding: 30px;
+        width: 40%;
+      }
+      
+      .close {
+        color: #008000;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      @media (max-width: 500px) {
+      .modal-content {
+        color: #008000;
+        background: white;
+        margin: auto;
+        padding: 30px;
+        width: 80%;
+      }
+    }
+      </style>
+  </head>
+
+  <body>
+    <section class="home-section">    
+        <div class="header">
+            <div class="logo">
+              <img src="{% static 'images/wesmaarrdecfull.png' %}" alt="wesmaarrdec" style="width:100%; height:auto; max-width:70%;"/>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+      <div class="wrapper">
+        <div class="title"><span>Log In</span></div>
+
+        <span class="mb-0 text-muted" style="font-weight: 600;">
+          {% if msg %}
+              {{ msg | safe }}
+          {% else %}
+               
+          {% endif %}
+        </span>
+
+          <form method="post">
+            {% csrf_token %}
+            
+            <div class="row">
+              <i class=" bx bx-user"></i>
+              {{ form.username }}
+              <label for="username"></label> 
+            </div>
+
+            <div class="row">
+              <i class=" bx bx-lock-alt"></i>
+              {{ form.password }}
+              <label for="password1"></label>
+            </div>
+
+            <div class="frgt_pass">
+              <a href="{% url 'reset_password' %}">Forgot Password?</a>
+            </div>
+
+            <div class="row button">
+              <input type="submit" value="Log In" class="btn">
+            </div>
+            <h4><a href="{% url 'sub:home' %}">Guest</a></h4>
+            <div class="signup">New to this site?<a href="#" id="myBtn"> Reach out to Us </a></div>
+          </form>
+      </div>
+
+    </div>
+    
+    <div id="myModal" class="modal">
+
+      
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h5>Email: sample@gmail.com</h5>
+        <h5>Contact Number: 0909090932</h5>
+        <h5>Address: Normal Road</h5>
+      </div>
+    
+    </div>
+    
+    <script>
+    
+    var modal = document.getElementById("myModal");
+    
+    
+    var btn = document.getElementById("myBtn");
+    
+   
+    var span = document.getElementsByClassName("close")[0];
+    
+    
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/teams.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+    <title>WESMAARRDEC</title>
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+   
+    <table id="head">
+      <tr>
+        <th class="title">TEAMS</th>
+        {% if user.is_superuser or user.secretariat %}
+        <th class="add"><a href="{% url 'team:add' %}">Add Member</a>&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'team:pdf' %}">PDF</a></th>
+        {% endif %}
+      </tr>
+    </table>
+
+    <form method="get">
+      <div class="filter">
+        <div class="row">
+          <div class="form-group col-sm-4 col-md-3">
+            {{ team_filter.form.cmi.label_tag }}
+            {% render_field team_filter.form.cmi class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ team_filter.form.fname.label_tag }}
+            {% render_field team_filter.form.fname class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ team_filter.form.lname.label_tag }}
+            {% render_field team_filter.form.lname class="form-control" %}
+          </div>
+        </div>
+        <br>
+        <button type="submit" id="btn">Search</button>
+      </div>
+    </form>
+
+
+    <div class="wrapper">
+        <div class="container">
+          
+          {% for team in team_filter.qs %}
+          <div class="box">
+            {% if team.photo %}
+            <img class="img_team" src="{{ team.photo.url }}" alt="profile">
+            {% endif %}
+            <h2>{{team.fname}} {{team.lname}}</h2>
+            <h3>Position: {{team.position}}</h3>
+            <h3>CMI: {{team.cmi}}</h3>
+            <h3>Email: {{team.email_add}}</h3>
+            <a href="{% url 'team:details' team.member_id %}" class="btn">VIEW</a>
+          </div>
+          {% endfor %}
+  
+        </div>
+      </div>
+  
+      
+
+
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+        });
+    </script>
+
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            text-align: left;
+            margin: 2rem;
+          }
+
+        h2{
+            text-align: center;
+            font-size: 200%;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>PROJECTS</h2>
+
+    
+        <pdf:nextpage> -->
+
+        <br>
+
+            <label></label><br>
+            {{project.title}}<br>
+
+            <label>Type:</label>
+            {{project.proj_type}}<br>
+
+            <label>Status:</label>
+            {{project.status}}<br><br>
+
+            <label>Description:</label><br>
+            {{project.proj_description}}<br><br>
+
+            <label>Program:</label>
+            {{project.prog_id}}<br>
+
+            <label>CMI:</label>
+            {{project.consortium}}<br>
+
+            {% if project.commodity.all %}
+            <label>Commodity(s):</label><br>
+            {{project.commodity.all|join:", "}}<br><br>
+            {%else%}
+            <label>Commodity(s):</label> None<br><br>
+            {% endif %}
+
+            <label>Project Leader:</label>
+            {{project.proj_leader}}<br>
+
+            {% if project.proj_team.all %}
+            <label>Project Team:</label><br>
+            {{project.proj_team.all|join:", "}}<br><br>
+            {%else%}
+            <label>Project Team:</label><br>None<br><br>
+            {% endif %}
+
+            <label>Priority Area:</label>
+            {{project.priority}}<br>
+
+            <label>SDG:</label>
+            {{project.sdg_no}}<br>
+
+            {% if project.proj_stakeholder.all %}
+            <label>Stakeholders:</label><br>
+            {{project.proj_stakeholder.all|join:", "}}<br><br>
+            {%else%}
+            <label>Stakeholders:</label><br>None<br><br>
+            {% endif %}
+
+            <label>Implementing Agency:</label>
+            {{project.impl_agency}}<br>
+            
+            {% if project.co_impl_agency.all %}
+            <label>Co-Implementing Agency(s):</label><br>
+            {{project.co_impl_agency.all|join:", "}}<br>
+            {%else%}
+            <label>Co-Implementing Agency(s):</label><br>None<br><br>
+            {% endif %}
+
+            {% if project.coop_agency.all %}
+            <label>Cooperating Agency(s):</label><br>
+            {{project.coop_agency.all|join:", "}}<br>
+            {%else%}
+            <label>Cooperating Agency(s):</label><br>None<br>
+            {% endif %}
+
+            <label>Funding Agency:</label>
+            {{project.fund_agency}}<br><br>
+
+            <label>Start Date:</label>
+            {{project.start_date}}<br>
+
+            <label>End Date:</label>
+            {{project.end_date}}<br>
+
+            <label>Final Implementation Date:</label>
+            {{project.final_impl_date}}<br>
+
+            <label>Duration:</label>
+            {{project.duration}} month(s)<br>
+
+            {% if project.approved_budget %}
+            <label>Approved Budget:</label>
+            P{{project.approved_budget}}<br>
+            {%else%}
+                         
+            {% endif %}
+
+            {% if project.approved_date %}
+            <label>Approved Date:</label>
+            {{project.approved_date}}<br>
+            {%else%}
+                         
+            {% endif %}
+
+            {% if project.daterequestedext %}
+            <label>Date Requested Extension:</label>
+            {{project.daterequestedext}}<br>
+            {%else%}
+                         
+            {% endif %}
+
+            <label>Requested By:</label>
+            {{project.requested_by}}<br>
+
+            {% if project.ext_duration %}
+            <label>Extension Duration:</label>
+            {{project.ext_duration}} month(s)<br><br>
+            {%else%}
+                         
+            {% endif %}
+
+            <label>Date Uploaded:</label>
+            {{project.date_uploaded}}
+
+
+            <pdf:nextpage><br>
+            {{project.title}}<br>
+    
+            <table width="100%">
+              <tr>
+                <td>Project Output<br></td>
+              </tr>
+              {% for proj in proj_output %}
+              <tr>
+                <td>Output Type: {{proj.proj_output_type}}<br>
+                  Description:<br>{{proj.proj_output_desc}}<br><br>
+                  IEC Material: {{proj.iec_id}}<br>
+                </td>
+              </tr>
+              {% endfor %}
+            </table><br>
+    
+            <table width="100%">
+              <tr>
+                <td>Project Implementation Site<br></td>
+              </tr>
+              {% for proj in proj_imp %}
+              <tr>
+                <td>Barangay: {{proj.barangay}}<br>
+                    City: {{proj.city}}<br>
+                    Province: {{proj.province}}<br>
+                    Zipcode: {{proj.zipcode}}<br>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+        </pdf:nextpage>
+
+        
+
+         
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/program.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+    <title>WESMAARRDEC</title>
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <table id="head">
+        <tr>
+          <th class="title">PROGRAMS</th>
+          {% if user.is_superuser or user.secretariat or user.researcher %}
+          <th class="add"><a href="{% url 'program:add' %}">Add Program</a>&nbsp;&nbsp;&nbsp;
+                          <a href="{% url 'program:pdf' %}">PDF</a></th>
+          {% endif %}
+        </tr>
+    </table> 
+
+    <form method="get">
+      <div class="filter">
+        <div class="row">
+          <div class="form-group col-sm-4 col-md-3">
+            {{ program_filter.form.status.label_tag }}
+            {% render_field program_filter.form.status class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ program_filter.form.title.label_tag }}
+            {% render_field program_filter.form.title class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ program_filter.form.impl_agency.label_tag }}
+            {% render_field program_filter.form.impl_agency class="form-control" %}
+          </div>
+        </div>
+        <br>
+        <button type="submit" id="btn">Search</button>
+      </div>
+    </form>
+
+
+    <div class="wrapper">
+        <div class="container">
+          
+          {% for program in program_filter.qs %}
+          <div class="box">
+            <h2>{{program.title}}</h2>
+            <h3>{{program.status}}</h3>
+            <h4>{{program.snippet}}</h4>
+            <a href="{% url 'program:details' program.title %}" class="btn">MORE</a>
+          </div>
+          {% endfor %}
+  
+        </div>
+      </div>
+  
+
+
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+        });
+    </script>
+
+  </body>
+</html>
+
+
+
+
+

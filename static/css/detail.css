@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* background-image: url("https://transparenttextures.com/patterns/hoffman.png"); */
+}
+
+.cont{
+    justify-content: space-between;
+    background: #f1f1f1;
+    width: 70%;
+    padding: 0px;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid #083d08;
+    box-shadow: 0 10px 15px rgba(36, 71, 33, 0.3);
+}
+
+.wrapper{
+    width: 100%;
+}
+
+.text-box{
+    padding: 20px 20px 5px 20px;
+    color: #008000;
+    font-family: Arial, Helvetica, sans-serif;
+    /* letter-spacing: 1px; */
+}
+
+.img_logo {
+    max-width: 13%;
+    height: auto;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0, 0, 0, 0.203));
+}
+
+.img_com {
+    max-width: 40%;
+    height: auto;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0, 0, 0, 0.203));
+}
+
+.img_team {
+    max-width: 20%;
+    height: auto;
+    display:block;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0, 0, 0, 0.137));
+}
+
+h2{
+    text-align: center;
+    font-size: 20px;
+    width: 60%;
+    padding-top: 23px;
+    margin: auto;
+}
+
+.btn{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.btn_del{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.name {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.fullname {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2.5vw;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.content{
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #083d08;
+}
+
+.content a{
+    text-decoration: none;
+    color: #083d08;
+}
+
+.content h4 a{
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    color: #083d08;
+}
+
+.content h4 a:hover{
+    text-decoration: underline;
+    color: #339933;
+}
+
+.text-box .btn{
+    background-color: #008000;
+    color: rgb(255, 255, 255);
+}
+
+.text-box .btn_del{
+    margin-left: 5px;
+    position: absolute;
+    text-decoration: none;
+    background-color: #c72121;
+    padding: 6.5px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.text-box .btn:hover{
+    background-color: #339933;
+    border: 1px solid #008000;
+    color: rgb(255, 255, 255);
+}
+
+.text-box .btn_del:hover{
+    background-color: #d73030;
+    color: rgb(255, 255, 255);
+}
+
+#table_cmi{
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #083d08;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.row {
+    display: flex;
+
+}
+  
+.column {
+    flex: 30%;
+    padding: 5px;
+}
+
+@media (max-width:600px) {
+    #nav-placeholder{  
+        position: relative;
+        z-index: 70;
+    }
+}
+
+@media (max-width:400px) {
+    .img_logo {
+        max-width: 23%;
+    }
+    .text-box{
+        padding: 1px 20px 5px 20px;
+        color: #008000;
+        font-family: Arial, Helvetica, sans-serif;
+        /* letter-spacing: 1px; */
+    }
+    .name {
+        font-family: Poppins;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+    }
+    .content{
+        padding-top: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        color: #083d08;
+        font-size: 12px;
+    }
+    .cont{
+        width: 85%;
+    }
+    #table_cmi{
+        margin-top: 10px;
+        font-size: 10px;
+    }
+}
+

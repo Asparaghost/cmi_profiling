@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            text-align: left;
+            margin-left: 2rem;
+            margin-right: 2rem;
+          }
+
+      
+    </style>
+</head>
+<body>
+        <img height="90px" width="90px" src="{{ cmi.logo.path }}" alt="img_cmi"><br><br>
+
+        <label>CMI:</label>
+        {{cmi.name}} ({{cmi.agency_code}})<br><br>
+        <label>Address:</label>
+        {{cmi.address}}<br><br>
+
+        {% if cmi.detail %}
+        <label>Detail:<br></label>
+        {{cmi.detail}}
+        {%else%}
+        <label>Detail: None<br></label>
+        {% endif %}<br><br>
+      
+        <label>URL:</label><br>
+        {{cmi.url}}<br><br>
+        
+        <label>Contact Number:</label>
+        {{cmi.contact_no}}<br>
+        <label>Telephone Number:</label>
+        {{cmi.telno}}<br>
+        <label>Email:</label>
+        {{cmi.email}}<br>
+
+      <pdf:nextpage>
+        <br>
+        {{cmi.name}} ({{cmi.agency_code}})<br><br>
+        <table width="100%">
+          <tr>
+            <td>Commodities:</td>
+          </tr>
+          {% for commodity in commodities %}
+          <tr>
+            <td>{{commodity.name}}</td>
+          </tr>
+          {% endfor %}
+        </table><br><br>
+
+        <table width="100%">
+          <tr>
+            <td>Programs:</td>
+          </tr>
+          {% for program in programs %}
+          <tr>
+            <td>{{program.title}}</td>
+          </tr>
+          {% endfor %}
+        </table><br><br>
+
+        <table width="100%" >
+          <tr>
+            <td>Projects:</td>
+          </tr>
+          {% for project in projects %}
+          <tr>
+            <td>{{project.title}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </pdf:nextpage>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+		{% load static %}
+		{% load crispy_forms_tags %}
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="{% static 'css/projimp.css' %}">
+		<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+		<title>WESMAARRDEC</title>
+	</head>
+
+
+    <body>
+		
+		<div id="nav-placeholder"></div>
+		
+		<table id="head">
+			<tr>
+			  <th class="title">PROJECT IMPLEMENTATION SITES</th>
+			  {% if user.is_authenticated %}
+			  <th class="add"><a href="{% url 'sub:add_projimp' %}" id="myBtn">Add Site</a>&nbsp;&nbsp;&nbsp;
+							  
+			  
+			  {% endif %}
+			</tr>
+		  </table> 
+		  <br>
+
+		  <table id="tbl" class="table table-hover">
+			<thead>
+			  <tr>
+				<th scope="col">PROJECT</th>
+				<th scope="col">BARANGAY</th>
+				<th scope="col">CITY</th>
+				<th scope="col">PROVINCE</th>
+				<th scope="col">ZIPCODE</th>
+				<th scope="col">ACTION</th>
+				
+			  </tr>
+			</thead>
+			{% for projimp in projectimpsites %}
+			<tbody>
+			  <tr>
+				<th scope="row">{{projimp.proj_id}}</th>
+				<td>{{projimp.barangay}}</td>
+				<td>{{projimp.city}}</td>
+				<td>{{projimp.province}}</td>
+				<td>{{projimp.zipcode}}</td>
+
+				<td style="font-size: 14px;">
+					<a href="{% url 'sub:detail_projimp' projimp.projimp %}"><i class="bx bx-food-menu" title="View"></i>
+					<a href="{% url 'sub:edit_projimp' projimp.projimp %}"><i class="bx bx-edit-alt" title="Edit"></i>
+					<a href="{% url 'sub:delete_projimp' projimp.projimp %}"><i class="bx bx-trash" title="Delete"></i>
+				</td>
+
+			  </tr>
+			</tbody>
+			{% endfor %}
+		  </table>
+
+
+		<script>
+			$(function(){
+			  $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+			});
+		</script>
+		
+
+
+    </body>
+</html>     

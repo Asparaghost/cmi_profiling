@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+        <title>WESMAARRDEC</title>
+    </head>
+
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <br><br><br>
+            
+        <div class="cont">
+            <div class="wrapper">
+                <div class="text-box">
+                    <p>
+                        <div class="name">{{program.title}}</div>
+                        <div class="content">Description:<br> {{program.prog_description}}</div>
+                        <div class="content">Program Leader: {{program.program_leader}}</div>
+                        <div class="content">Status: {{program.status}}</div>
+                        <div class="content">Consortium: {{program.consortium}}</div>
+
+                        {% if program.commodity.all %}
+                        <div class="content">Commodity(s):<br> {{program.commodity.all|join:", "}}</div>
+                        {%else%}
+                        <div class="content">Commodity(s):<br>None</div>
+                        {% endif %}
+
+                        <div class="content">Implementing Agency:<br> {{program.impl_agency}}</div>
+                        <div class="content">Funding Agency:<br> {{program.funding_agency}}</div>
+                        <div class="content">Start Date:<br> {{program.start_date}}</div>
+
+                        {% if program.duration %}
+                        <div class="content">Duration:<br>{{program.duration}} month(s)</div>
+                        {%else%}
+                        <div class="content">Duration:<br>None</div>
+                        {% endif %}
+
+                        <div class="content">Final Implementation Date:<br> {{program.final_impl_date}}</div>
+                        
+                        {% if program.co_impl_agency.all %}
+                        <div class="content">Co-Implementating Agency(s):<br> {{program.co_impl_agency.all|join:", "}}</div>
+                        {%else%}
+                        <div class="content">Co-Implementating Agency(s):<br> None</div>
+                        {% endif %}
+
+                        {% if program.total_budget %}
+                        <div class="content">Total Budget:<br>P {{program.total_budget}}</div>
+                        {%else%}
+                         
+                        {% endif %}
+
+                        {% if program.daterequestedext %}
+                        <div class="content">Date Requested Extension:<br> {{program.daterequestedext}}</div>
+                        {%else%}
+                         
+                        {% endif %}
+                        
+                        <div class="content">Requested By:<br> {{program.requested_by}}</div>
+
+                        {% if program.ext_duration %}
+                        <div class="content">Extension Duration:<br> {{program.ext_duration}} month(s)</div>
+                        {%else%}
+                         
+                        {% endif %}
+                        <div class="content">Date Uploaded: {{program.date_uploaded}}</div><br>
+
+                        {% if user.is_authenticated %}
+                        {% if program.prog_file %}
+                        <div class="content">Program File:
+                        <h4><a href="{{ program.prog_file.url }} " target="_blank">Download File<i class="bx bxs-caret-down-circle"></i></a></h4>
+                        </div>
+                        {% endif %}
+
+                        {% if user.is_superuser %}
+                        <div class="content">Created by: {{program.created_by}}
+                        <div class="content">Modified by: {{program.modified_by}}</div><br><br>
+                        {% endif %}
+                        {% endif %}
+                        
+                        <a href="{% url 'program:program' %}" class="btn" style="font-weight: 600;">Back</a>
+                        {% if user.is_superuser or user.secretariat or user.researcher %}
+                        <a href="{% url 'program:edit' program.title %}" class="btn" style="font-weight: 600;">Edit</a>
+                        <a href="{% url 'program:delete' program.title %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
+                        {% endif %}
+                    </p>
+
+                    <div class="row">
+                        <div class="column">
+                          <table id="table_cmi" class="table table-sm">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Projects:</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  {% for project in projects %}
+                                <tr>
+                                  <th>{{project.title}}</th>
+                                </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table><br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="#">
+            </div>
+
+        </div>
+
+        <script>
+            $(function(){
+              $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+            });
+        </script>
+
+    </body>
+
+</html>

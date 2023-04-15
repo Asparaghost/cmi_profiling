@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            text-align: left;
+            margin: 2rem;
+          }
+
+        h2{
+            text-align: center;
+            font-size: 200%;
+        }
+
+    </style>
+</head>
+<body>
+        {% if secretariat.photo %}
+        <br>
+        <img src="{{ secretariat.photo.path }}" alt="img_commodity" style="width: 100px; height: 100px;"><br><br>
+        {%else%}
+        <br>
+        <p>No Photo</p>
+        {% endif %}
+
+        <label>Fullname:</label>
+        {{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname}}<br><br>
+        <label>Position:</label>
+        {{secretariat.position}}<br>
+        <label>Consortium:</label>
+        {{secretariat.consortium_id}}<br>
+        <label>Email Address:</label>
+        {{secretariat.email_add}}<br>
+        <label>Contact Number:</label>
+        {{secretariat.contact_no}}<br>
+        <label>Date of Birth:</label>
+        {{secretariat.dob}}<br>
+        <label>Sex:</label>
+        {{secretariat.sex}}<br><br><br>
+        <label>Bachelor's Degree:</label><br>
+        {{secretariat.bach_deg}}<br>
+        <label>Bachelor's Degree Year Completed:</label>
+        {{secretariat.bdyearcompleted}}<br><br>
+        <label>Master's Degree:</label><br>
+        {{secretariat.mas_deg}}<br>
+        <label>Master's Degree Year Completed:</label>
+        {{secretariat.mdyearcompleted}}<br><br>
+        <label>Doctorate Degree:</label><br>
+        {{secretariat.doc_deg}}<br>
+        <label>Doctorate Degree Year Completed:</label>
+        {{secretariat.ddyearcompleted}}<br><br>
+        <label>Specialization:</label>
+        {{secretariat.specialization}}<br><br>
+        <label>Date Appointed:</label>
+        {{secretariat.date_appointed}}<br>
+          
+         
+
+</body>
+</html>

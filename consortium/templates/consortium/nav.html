@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+    <title>CMI Profiling</title>
+  </head>
+
+  <body>
+    <section class="home-section" >    
+        <div class="header">
+          <i class='bx bx-menu'></i>
+            <div class="logo">
+              <a href="{% url 'sub:home' %}" style="position: relative;">
+              <img class="wesmaarrdeclogo" src="{% static 'images/wesmaarrdecfull.png' %}" alt="wesmaarrdec" style="width:100%; height:auto; max-width:72%;"/>
+              </a>
+            </div>
+
+            {% if user.is_authenticated %}
+            <h4>{% if user.stakeholder %}Stakeholder, {% endif %}
+                {% if user.researcher %}Researcher, {% endif %}
+                {% if user.secretariat %}Secretariat, {% endif %}
+                {% if user.is_superuser %}Admin, {% endif %}
+              {{ user.username }}</h4><i class="bx bx-user" id="icon"></i>
+            <form method="post" action="{% url 'auth_user:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+            </form>
+            {%else%}
+            <form method="post" action="{% url 'auth_user:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log In</button>
+            {% endif %}
+
+        </div>
+    </section>   
+
+    <div class="sidebar close">
+      <ul class="nav-links">
+
+        {% if user.is_superuser %}
+          <li>
+            <a href="{% url 'sub:dashboard' %}">
+              <i class='bx bx-sidebar' ></i>
+              <span class="link_name">Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'auth_user:signup' %}">
+              <i class='bx bx-user-plus' ></i>
+              <span class="link_name">Create Account</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <li>
+            <a href="{% url 'secretariat:secretariat' %}">
+              <i class='bx bxs-user' ></i>
+              <span class="link_name">Secretariat</span>
+            </a>
+          </li>
+
+          <li>
+            <div class="iocn-link">
+              <a href="{% url 'consortium:cmi' %}">
+                <i class='bx bxs-spreadsheet'></i>
+                <span class="link_name">CMI</span></a>
+              </a>
+              <!-- <i class='bx bxs-chevron-down arrow'></i> -->
+            </div>
+            <!-- {% for consortium in consortiums %}
+            <ul class="sub-menu">
+              <li><a class="link_name">CMI</a></li>
+              <li><a class="navbuttons" href="{% url 'consortium:details' consortium.consortium_name %}">{{consortium.consortium_acronym}}</a></li>
+            </ul>
+            {% endfor %} -->
+          </li>
+
+          <li>
+            <a href="{% url 'team:team' %}">
+              <i class='bx bx-chalkboard' ></i>
+              <span class="link_name">Teams</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'program:program' %}">
+              <i class='bx bxs-network-chart' ></i>
+              <span class="link_name">Program</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'project:project' %}">
+              <i class='bx bx-book-open' ></i>
+              <span class="link_name">Research Project</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'commodity:commodity' %}">
+              <i class='bx bxs-tree-alt' ></i>
+              <span class="link_name">Commodities</span>
+            </a>
+          </li>
+          
+          {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">more...</span></a>
+              </a>
+              <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+          {% endif %}
+            <ul class="sub-menu">
+              {% if user.is_superuser or user.secretariat or user.researcher %}
+              <li><a class="navbuttons" href="{% url 'sub:sdg' %}">SDG</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher %}
+              <li><a class="navbuttons" href="{% url 'sub:researcher' %}">Researchers</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
+              <li><a class="navbuttons" href="{% url 'sub:stakeholder' %}">Stakeholders</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
+              <li><a class="navbuttons" href="{% url 'sub:iec_material' %}">IEC Materials</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher %}
+              <li><a class="navbuttons" href="{% url 'sub:prioarea' %}">Priority Areas</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher %}
+              <li><a class="navbuttons" href="{% url 'sub:progbudg' %}">Program Budgets</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher %}
+              <li><a class="navbuttons" href="{% url 'sub:projout' %}">Project Outputs</a></li>
+              {% endif %}
+              {% if user.is_superuser or user.secretariat or user.researcher %}
+              <li><a class="navbuttons" href="{% url 'sub:projimp' %}">Project Implementation Sites</a></li>
+              {% endif %}
+            </ul>
+            
+          </li>
+          
+          
+
+        </ul>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+
+
+    <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+    let arrowParent = e.target.parentElement.parentElement;
+    arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("close");
+    });
+    </script>
+
+  </body>
+</html>
+
+
+
+
+

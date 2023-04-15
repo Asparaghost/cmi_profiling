@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+        <title>WESMAARRDEC</title>
+    </head>
+
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <table id="head">
+            <tr>
+              <th class="title">DASHBOARD</th>
+              {% if user.is_authenticated %}
+              <th class="add"><a href="{% url 'sub:home' %}">HOME</a>
+              {% endif %}
+            </tr>
+        </table> 
+
+        <div class="wrapper">
+            <div class="container">
+              
+            <div class="box">
+                <h2><a href="{% url 'consortium:cmi' %}">CMI</a></h2>
+                <h3>{{no_cmi}}</h3>
+            </div>
+             
+            <div class="box">
+                <h2><a href="{% url 'program:program' %}">PROGRAMS</a></h2>
+                <h3>{{no_prog}}</h3>
+            </div>
+
+            <div class="box">
+                <h2><a href="{% url 'project:project' %}">PROJECTS</a></h2>
+                <h3>{{no_proj}}</h3>
+            </div>
+
+            <div class="box">
+                <h2><a href="{% url 'commodity:commodity' %}">COMMODITIES</a></h2>
+                <h3>{{no_com}}</h3>
+            </div>
+            
+            <div class="box">
+              <h4><a href="{% url 'sub:summary' %}">CMI Summary</a></h4>
+              <h4><a href="{% url 'sub:audit_trail' %}">Audit Trail</a></h4>
+            </div>
+
+            </div>
+          </div>
+    
+        <div id="tables">
+          <div class="row">
+            <div class="column">
+              <table id="table_dashboard" class="table table-bordered">
+                  <thead style="color: white; background-color: #008000;">
+                    <tr>
+                      <th scope="col" style="text-align: center;">CMI</th>
+                      <th scope="col" style="text-align: center;">Projects</th>
+                      <th scope="col" style="text-align: center;">Programs</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for cmi in cmis %}
+                    <tr>
+                      <th>{{cmi.agency_code}}</th>
+                      <th style="text-align: center;">{{cmi.number_of_projects}}</th>
+                      <th style="text-align: center;">{{cmi.number_of_programs}}</th>
+                    </tr>
+                      {% endfor %}
+                  </tbody>
+              </table><br>
+ 
+            </div>
+            <div class="column">
+
+              <table id="table_dashboard" class="table table-bordered">
+                  <thead style="color: white; background-color: #008000;">
+                    <tr>
+                      <th scope="col" style="text-align: center;">Projects</th>
+                      <th scope="col">Leader</th>
+                      <th scope="col">Team</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for proj in projects %}
+                    <tr>
+                      <th>{{proj.title}}</th>
+                      <th>{{proj.proj_leader}}</th>
+                      <th>{{proj.proj_team.all|join:"<br>"}}</th>
+                    </tr>
+                      {% endfor %}
+                  </tbody>
+              </table><br>
+            </div>
+
+            <div class="column">
+
+              <table id="table_dashboard" class="table table-bordered">
+                  <thead style="color: white; background-color: #008000;">
+                    <tr>
+                      <th scope="col" style="text-align: center;">Programs</th>
+                      <th scope="col">Leader</th>
+                      <th scope="col">Commodities</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for prog in programs %}
+                    <tr>
+                      <th>{{prog.title}}</th>
+                      <th>{{prog.program_leader}}</th>
+                      <th>{{prog.commodity.all|join:"<br>"}}</th>
+                    </tr>
+                      {% endfor %}
+                  </tbody>
+              </table><br>
+            </div>
+          </div>
+        </div>
+
+        <script>
+            $(function(){
+              $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+            });
+        </script>
+
+    </body>
+
+</html>

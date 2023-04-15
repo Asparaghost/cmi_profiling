@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    {% load widget_tweaks %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/pdf_page.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+    <title>WESMAARRDEC</title>
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <table id="head">
+        <tr>
+          <th class="title">CONSORTIUM MEMBER INSTITUTIONS</th>
+          {% if user.is_authenticated %}
+          <th class="main"><a href="{% url 'consortium:cmi' %}">Main Page</a>
+          {% endif %}
+        </tr>
+    </table> 
+
+    <form method="get">
+      <div class="filter">
+        <div class="row">
+          <div class="form-group col-sm-4 col-md-3">
+            {{ cmi_filter.form.consortium_id.label_tag }}
+            {% render_field cmi_filter.form.consortium_id class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ cmi_filter.form.name.label_tag }}
+            {% render_field cmi_filter.form.name class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ cmi_filter.form.agency_code.label_tag }}
+            {% render_field cmi_filter.form.agency_code class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ cmi_filter.form.address.label_tag }}
+            {% render_field cmi_filter.form.address class="form-control" %}
+          </div>
+        </div>
+        <br>
+        <button type="submit" id="btn">Search</button>
+      </div>
+    </form>
+
+    <br>
+    <table id="tbl" class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">CODE</th>
+            <th scope="col">PDF</th>
+            
+          </tr>
+        </thead>
+        {% for cmi in cmi_filter.qs %}
+        <tbody>
+          <tr>
+            <th scope="row" style="text-align: left;">{{cmi.name}}</th>
+            <th>{{cmi.agency_code}}</th>
+
+            <td>
+                <a href="{% url 'consortium:create-pdf' cmi.name %}" target="_blank">VIEW</a>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+  
+
+
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+        });
+    </script>
+
+  </body>
+</html>
+
+
+
+
+

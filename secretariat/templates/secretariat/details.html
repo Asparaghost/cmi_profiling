@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+        <title>WESMAARRDEC</title>
+    </head>
+
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <br>
+            
+        <div class="cont">
+            <div class="wrapper">
+                {% if secretariat.photo %}
+                <img class="img_team" src="{{ secretariat.photo.url }}" alt="img_ferson">
+                {% endif %}
+                <div class="text-box">
+                    <p>
+                        <div class="fullname">{{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname}}</div>
+                        <div class="content">Position: {{secretariat.position}}</div>
+                        <div class="content">Consortium: {{secretariat.consortium_id}}</div>
+                        <div class="content">Email Address: {{secretariat.email_add}}</div>
+                        <div class="content">Contact Number: {{secretariat.contact_no}}</div>
+                        <div class="content">Date Appointed: {{secretariat.date_appointed}}</div>
+                        <div class="content">Date of Birth: {{secretariat.dob}}</div>
+                        <div class="content">Sex: {{secretariat.sex}}</div><br>
+                        <div class="content">Bachelor's Degree: <br>{{secretariat.bach_deg}}</div>
+                        <div class="content">Bachelor's Degree Year Completed:{{secretariat.bdyearcompleted}}</div>
+                        <div class="content">Master's Degree:<br> {{secretariat.mas_deg}}</div>
+                        <div class="content">Master's Degree Year Completed: {{secretariat.mdyearcompleted}}</div>
+                        <div class="content">Doctorate Degree:<br> {{secretariat.doc_deg}}</div>
+                        <div class="content">Doctorate Degree Year Completed: {{secretariat.ddyearcompleted}}</div>
+                        <div class="content">Specialization: {{secretariat.specialization}}</div>
+                        <br>
+
+                        {% if user.is_authenticated %}
+                        {% if secretariat.pds_file %}
+                        <div class="content">Pds File:
+                        <h4><a href="{{ secretariat.pds_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a></h4>
+                        </div>
+                        {% endif %}
+
+                        {% if user.is_superuser %}
+                        <div class="content">Created By: {{secretariat.created_by}}
+                        <div class="content">Modified By: {{secretariat.modified_by}}</div><br><br>
+                        {% endif %}
+                        {% endif %}
+
+                        <a href="{% url 'secretariat:secretariat' %}" class="btn" style="font-weight: 600;">Back</a>
+                        {% if user.is_superuser or user.secretariat %}
+                        <a href="{% url 'secretariat:edit' secretariat.secretariat_id %}" class="btn" style="font-weight: 600;">Edit</a>
+                        <a href="{% url 'secretariat:delete' secretariat.secretariat_id %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="#">
+            </div>
+
+        </div>
+
+        <script>
+            $(function(){
+              $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+            });
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* background-image: url("https://www.transparenttextures.com/patterns/climpek.png");  */
+}
+
+.header{
+    background: #66b366;
+    font-family: Poppins;
+    letter-spacing: 2px;
+}
+    
+.logo {
+    position: absolute;
+    cursor: pointer;
+    left: 40px;
+}
+  
+.home-section .header{
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.container{
+    font-family: Poppins;
+    margin-top: 55px;
+    width: 50%;
+}
+
+.container .wrapper{
+    padding: 10px;
+    margin: auto;
+    width: 60%;
+    background-color: #66b366;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(36, 71, 33, 0.3);
+}
+
+.container .wrapper .content{
+    margin: auto;
+    padding: 10px;
+    background-color: #ffffff;
+    margin-left: -9px;
+    margin-right: -9px;
+    border-radius: 10px;
+}
+
+.container .wrapper h1{
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px ;
+    font-weight: 700;
+}
+
+.container .wrapper p{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 17px ;
+}
+
+.container .wrapper .content a{
+    text-decoration: none;
+}
+
+#left{
+    width: 24%;
+    position: absolute;
+    bottom: 0;
+}
+
+#right{
+    width: 35%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+form{
+    margin: auto;
+    width: 97%;
+}
+
+#btn{
+    color: white;
+    background-color: #66b366;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+#btn:hover{
+    background-color: #339933;
+}
+
+.form-text{
+    display: none;
+}
+
+#error_1_id_new_password2{
+    padding: 2px;
+    font-size: 15px;
+}
+    
+  .wrapper .alert strong{
+    padding-left: 3px;
+}
+  
+@media (max-width: 500px) {
+    .container{
+        font-family: Poppins;
+        margin-top: 55px;
+        width: 50%;
+    }
+    
+    .container .wrapper{
+        padding: 10px;
+        margin: auto;
+        width: 70%;
+        background-color: #66b366;
+        border-radius: 10px;
+        box-shadow: 0 10px 15px rgba(36, 71, 33, 0.3);
+    }
+
+    
+    .container .wrapper h1{
+        font-size: 20px ;
+        font-weight: 700;
+    }
+    
+    .container .wrapper p{
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15px ;
+    }
+    
+    .container .wrapper .content a{
+        text-decoration: none;
+    }
+}

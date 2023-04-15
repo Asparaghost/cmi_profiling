@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            text-align: left;
+            margin: 2rem;
+          }
+
+        h2{
+            text-align: center;
+            font-size: 200%;
+        }
+
+    </style>
+</head>
+<body>
+
+        <br>
+
+        <label>Title:</label>
+        {{program.title}}<br>
+
+        <label>Program Leader:</label>
+        {{program.program_leader}}<br>
+
+        <label>Status:</label>
+        {{program.status}}<br><br>
+
+        <label>Description:</label><br>
+        {{program.prog_description}}<br><br>
+
+        <label>CMI:</label><br>
+        {{program.consortium}}<br><br>
+
+        <label>Implementing Agency:</label><br>
+        {{program.impl_agency}}<br><br>
+
+        {% if program.co_impl_agency.all %}
+        <label>Co-Implementing Agency(s):</label><br>
+        {{program.co_impl_agency.all|join:", "}}<br><br>
+        {%else%}
+        <label>Co-Implementing Agency(s): </label><br>None<br><br>
+        {% endif %}
+
+        <label>Funding Agency:</label><br>
+        {{program.funding_agency}}<br><br>
+
+        <label>Start Date:</label>
+        {{program.start_date}}<br><br>
+
+        {% if program.duration %}
+        <label>Duration:</label>
+        {{program.duration}} month/s<br><br>
+        {%else%}
+        <label>Duration:<br></label>None<br><br>
+        {% endif %}
+
+        {% if program.daterequestedext %}
+        <label>Date Requested Extension:</label>
+        {{program.daterequestedext}}<br><br>
+        {%else%}
+                         
+        {% endif %}
+
+        <label>Requested by:</label>
+        {{program.requested_by}}<br><br>
+
+        {% if program.ext_duration %}
+        <label>Extension Duration:</label>
+        {{program.ext_duration}} month(s)<br><br>
+        {%else%}
+                         
+        {% endif %}
+                        
+        <label>Final Implemetation Date:</label>
+        {{program.final_impl_date}}<br><br>
+
+        {% if program.total_budget %}
+        <label>Total Budget:</label>
+        P{{program.total_budget}}<br><br>
+        {%else%}
+                         
+        {% endif %}
+
+        {% if program.commodity.all %}
+        <label>Commodity(s):<br></label>
+        {{program.commodity.all|join:", "}}<br><br>
+        {%else%}
+        <label>Commodity(s):<br></label>None<br><br>
+        {% endif %}
+
+        <label>Date Uploaded:</label>
+        {{program.date_uploaded}}<br><br>
+
+    <pdf:nextpage><br>
+        {{program.title}}<br>
+
+        <table width="100%">
+          <tr>
+            <td>Program Budget</td>
+          </tr>
+          {% for budget in budget %}
+          <tr>
+            <td>Year: {{budget.yr}}<br>
+              Fund Source: {{budget.fund_source}}<br>
+              PS: {{budget.ps}}<br>
+              MOOE: {{budget.mooe}}<br>
+              EO: {{budget.eo}}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+
+        <table width="100%">
+          <tr>
+            <td>Projects:</td>
+          </tr>
+          {% for project in projects %}
+          <tr>
+            <td>{{project.title}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+    </pdf:nextpage>
+         
+
+</body>
+</html>

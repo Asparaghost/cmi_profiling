@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+        <title>WESMAARRDEC</title>
+    </head>
+
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <br>
+            
+        <div class="cont">
+            <div class="wrapper">
+                <div class="text-box">
+                    {% if commodity.img %}
+                    <img class="img_com" src="{{ commodity.img.url }}" alt="img_commodity">
+                    {% endif %}
+                    <p>
+                        <div class="name">{{commodity.name}}</div>
+                        <div class="content">Detail:<br> {{commodity.detail}}</div>
+                        
+                        {% if commodity.produced_by %}
+                        <div class="content">Produced By:<br> {{commodity.produced_by}}</div>
+                        {%else%}
+                        {% endif %}
+
+                        <div class="content">CMI: {{commodity.cmi_name}}</div>
+                        {% if user.is_authenticated %}
+                        
+                        
+                       
+                        {% for iecmaterial in iecmaterials %}
+                        <div class="content">IEC Material:<br>
+                            {{iecmaterial.title}}<br>
+                            {% if iecmaterial.iec_file %}
+				            <h4><a href="{{ iecmaterial.iec_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a></h4>
+                            {%else%}
+                        {% endif %}</div>
+                        {% endfor %}
+
+                            <br><br>
+                        {% if user.is_superuser %}
+                        <div class="content">Created by: {{commodity.created_by}}
+                        <div class="content">Modified by: {{commodity.modified_by}}</div>
+                        {% endif %}
+                        {% endif %}<br><br>
+
+                        <a href="{% url 'commodity:commodity' %}" class="btn" style="font-weight: 600;">Back</a>
+                        {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
+                        <a href="{% url 'commodity:edit' commodity.name %}" class="btn" style="font-weight: 600;">Edit</a>
+                        <a href="{% url 'commodity:delete' commodity.name %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
+                        {% endif %}
+                    </p>
+
+                    <div class="row">
+                        <div class="column">
+                          <table id="table_cmi" class="table table-sm">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Programs:</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  {% for prog in programs %}
+                                <tr>
+                                  <th>{{prog.title}}</th>
+                                </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table><br>
+                        </div>
+                    
+                        <div class="column">
+
+                            <table id="table_cmi" class="table table-sm">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Projects:</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {% for proj in projects %}
+                                  <tr>
+                                    <th>{{proj.title}}</th>
+                                  </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table><br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="#">
+            </div>
+            {% for h in object%}
+   {{ h.id }}
+   {{ h.carrier }}
+{% endfor %}
+        </div>
+
+        <script>
+            $(function(){
+              $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+            });
+        </script>
+
+    </body>
+
+</html>
