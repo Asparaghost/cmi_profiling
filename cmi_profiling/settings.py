@@ -98,7 +98,15 @@ DATABASES = {
 #        'PASSWORD': 'DB_password',
       'OPTIONS': {
         "init_command": "SET foreign_key_checks = 0;",
-     }
+     
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'postgres',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    #     'USER': 'postgres',
+    #    'PASSWORD': 'postgresuser',
+
+    }
     }
 }
 

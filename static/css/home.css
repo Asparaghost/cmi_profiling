@@ -8,9 +8,10 @@
 
 body {
     background-repeat: no-repeat;
-    background-size: 1400px 680px;
     background-color: #ffffff;
     background-image: url("https://live.staticflickr.com/65535/49783813212_6b141639ab_b.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container {
