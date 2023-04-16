@@ -45,9 +45,6 @@
             <label>Program:</label>
             {{project.prog_id}}<br>
 
-            <label>CMI:</label>
-            {{project.consortium}}<br>
-
             {% if project.commodity.all %}
             <label>Commodity(s):</label><br>
             {{project.commodity.all|join:", "}}<br><br>

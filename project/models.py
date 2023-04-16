@@ -67,7 +67,7 @@ class Project(models.Model):
         (NON_R_AND_D, 'Non-R&D'),
     )
     proj_id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=250)
     prog_id= models.ForeignKey(Program, null=True, blank=True, related_name='proj_prog', on_delete=models.CASCADE)
     proj_description = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=100, choices=CHOICE_STATUS, default=ONGOING)

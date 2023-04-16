@@ -152,7 +152,6 @@ h2{
     margin-right: auto;
     margin-top: 20px;
     text-align: center;
-    border-radius: 10px;
     background-color: #ffffff;
     color: #083d08;
     width: 100%;
@@ -160,9 +159,17 @@ h2{
     border-spacing: 0;
 }
 
+#table_cmi thead tr th{
+    background-color: #339933;
+    color: white;
+}
+
+#table_cmi tbody tr th{
+    font-size: 14px;
+}
+
 .row {
     display: flex;
-
 }
   
 .column {

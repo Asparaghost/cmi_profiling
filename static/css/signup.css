@@ -18,6 +18,11 @@ body {
   margin: 20px auto;
 }
 
+#nav-placeholder{
+  position: relative;
+  z-index: 1;
+}
+
 .wrapper{
   position: relative;
   /* z-index: -1; */
