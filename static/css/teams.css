@@ -190,7 +190,6 @@ body {
         height: auto;
         padding: 8px;
         text-align: center;
-        background: #a0c08c;
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.059);
     }
     .box:hover{
@@ -244,22 +243,80 @@ body {
     }
 }
 
-@media (max-width:400px) {
+@media (max-width: 500px) {
+    #head tr .title{
+        padding-left: 10px;
+        width: 53%;
+        font-weight: 600;
+        color: white;
+        font-size: 22px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #head tr .add{
+        text-align: center;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    .container{
+        margin-top: 20px;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    #btn{
+        margin-top: 2rem;
+        font-size: 10px;
+    }
+    #btn i{
+        font-size: 20px;
+    }
+    .wrapper h2{
+        margin-top: -1rem;
+        font-size: 19px;
+    }
+    .box .btn{
+        border: 1px;
+        outline: none;
+        font-family: Poppins;
+        font-size: 13px;
+        margin-top: auto;
+        margin-right: 23px;
+        margin-left: 23px;
+        padding: 8px 15px;
+        color: #ffffff;
+        background: #008000;
+        border-radius: 5px;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 600;
+    }
     .box h2{
-        color: rgb(10, 60, 10);
-        padding: 5px 0;
-        font-size: 4.5vw;
-        font-weight: 900;
+        padding: 30px 0 2px 0;
+        font-size: 14px;
+        font-weight: 600;
     }
-    img{
-        width:100%; 
-        height:auto; 
-        max-width:80%;
+    h3{
+        display: none;
     }
-    .box h3{
-        color: rgb(11, 117, 11);
-        font-size: 8px;
-        line-height: 0.3;
+    .img_team{
+        width:120px; 
+        height:110px; 
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
     }
+    .form-group{
+        font-size: 14px;
+        height: -12rem;
+    }
+    form #btn{
+        color: white;
+        background-color: #008000ad;
+        padding: 7px;
+        border: none;
+        margin-top: -39rem;
+        border-radius: 5px;
+        font-size: 13px;
+    } 
 }
-

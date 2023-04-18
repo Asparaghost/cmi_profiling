@@ -121,3 +121,40 @@ body {
     
 }
 
+@media (max-width: 500px) {
+    #head tr .title{
+        padding-left: 10px;
+        width: 73%;
+        font-weight: 600;
+        color: white;
+        font-size: 22px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #head tr .add{
+        text-align: center;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    #tbl thead tr th{
+        font-size: 14px;
+    }
+    #tbl tbody tr td{
+        font-size: 13px;
+    }
+    #tbl tbody tr td a i{
+        font-size: 13px;
+    }
+    #tbl thead tr th:nth-child(3){
+        display: none;
+    }
+    #tbl thead tr th:nth-child(4){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(3){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(4){
+        display: none;
+    }
+}

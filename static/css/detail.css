@@ -207,12 +207,21 @@ h2{
         color: #083d08;
         font-size: 12px;
     }
+    .content h4 a{
+        font-weight: 700;
+        font-size: 11px;
+        text-decoration: none;
+        color: #083d08;
+    }
     .cont{
         width: 85%;
     }
     #table_cmi{
         margin-top: 10px;
-        font-size: 10px;
+        font-size: 12px;
+    }
+    #table_cmi tbody tr th{
+        font-size: 12px;
     }
 }
 

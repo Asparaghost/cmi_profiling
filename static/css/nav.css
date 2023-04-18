@@ -279,7 +279,7 @@ a .logo{
     transition: all 0.4s ease;
   }
   .sidebar .nav-links li .sub-menu a{
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
   .header form button {
     position: absolute;

@@ -162,103 +162,133 @@ body {
 }
 
 @media (max-width:770px) {
-    .wrapper{
-        padding: 0 4%;
+    #head tr .title{
+        padding-left: 20px;
+        width: 79%;
+        font-weight: 600;
+        color: white;
+        font-size: 21px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #head tr .add{
+        text-align: center;
+        font-size: 10px;
+        cursor: pointer;
     }
     .container{
+        margin-top: 20px;
         display: grid;
-        gap: 12px;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
-    .box{
-        height: auto;
-        padding: 8px;
-        text-align: center;
-        background: #f0f4ee;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.059);
+    #btn{
+        margin-top: 2rem;
+        font-size: 10px;
     }
-    .box:hover{
-        transform: scale(1);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.135);
+    #btn i{
+        font-size: 20px;
     }
-    .box p{
-      display: none;
-    }
-    .wrapper h1{
-        text-align: center;
-        text-decoration: none;
-        text-align: center;
-    }
-    .wrapper h1 a{
-        color: #0c390a;
-        font-size: 30px;
-        text-align: center;
-        padding-bottom: 15px;
-        font-weight: 600;
-        text-decoration: none;
-        font-size:6vw
+    .wrapper h2{
+        margin-top: -1rem;
+        font-size: 19px;
     }
     .box .btn{
         border: 1px;
         outline: none;
-        font-size: 9px;
-        margin-top: 2px;
-        padding: 2px 15px;
-        background: #c5e0b4;
+        font-family: Poppins;
+        font-size: 13px;
+        margin-top: auto;
+        margin-right: 23px;
+        margin-left: 23px;
+        padding: 8px 15px;
+        color: #ffffff;
+        background: #008000;
         border-radius: 5px;
         display: inline-block;
         text-decoration: none;
-    }
-    .box h2{
-        color: rgb(10, 60, 10);
-        padding: 5px 0;
-        font-size: 3vw;
         font-weight: 600;
     }
+    .box h2{
+        padding: 30px 0 2px 0;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    h3{
+        display: none;
+    }
     .img_logo{
-        width:95px; 
-        height:95px; 
+        width:130px; 
+        height:130px; 
         display:block;
         margin-left: auto;
         margin-right: auto;
     }
+}
 
-    .dropdown{
+@media (max-width: 500px) {
+    #head tr .title{
+        padding-left: 20px;
+        width: 57%;
+        font-weight: 600;
+        color: white;
+        font-size: 14px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #head tr .add{
+        text-align: center;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    .container{
+        margin-top: 20px;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    #btn{
+        margin-top: 2rem;
+        font-size: 10px;
+    }
+    #btn i{
+        font-size: 20px;
+    }
+    .wrapper h2{
+        margin-top: -1rem;
+        font-size: 19px;
+    }
+    .box .btn{
+        border: 1px;
+        outline: none;
+        font-family: Poppins;
+        font-size: 13px;
+        margin-top: auto;
+        margin-right: 23px;
+        margin-left: 23px;
+        padding: 8px 15px;
+        color: #ffffff;
+        background: #008000;
+        border-radius: 5px;
         display: inline-block;
-        max-width:85%;
-    }
-       
-    .dropdown-content{
-        background-color: #f1f1f1;
-        z-index: 1;
-        border-radius: 4px;
-    }
-    .dropdown-content a{
-        color: rgb(18, 63, 23);
-        padding: 2px 7px;
         text-decoration: none;
-        display: block;
-        font-size: 6px;
-        font-family: Poppins
-    }
-}
-
-@media (max-width:400px) {
-    .box h2{
-        color: rgb(10, 60, 10);
-        padding: 5px 0;
-        font-size: 4.5vw;
         font-weight: 600;
     }
+    .box h2{
+        padding: 30px 0 2px 0;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    h3{
+        display: none;
+    }
     .img_logo{
-        width:60px; 
-        height:60px; 
+        width:100px; 
+        height:100px; 
         display:block;
         margin-left: auto;
         margin-right: auto;
     }
 }
-
-
   
   
