@@ -61,7 +61,6 @@
             <h2>{{team.fname}} {{team.lname}}</h2>
             <h3>Position: {{team.position}}</h3>
             <h3>CMI: {{team.cmi}}</h3>
-            <h3>Email: {{team.email_add}}</h3>
             <a href="{% url 'team:details' team.member_id %}" class="btn">VIEW</a>
           </div>
           {% endfor %}

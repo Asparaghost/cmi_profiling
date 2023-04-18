@@ -95,7 +95,13 @@ body {
     text-decoration: none;
     color: #0d560d;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
+}
+
+#tbl tbody tr td a:hover{
+    text-decoration: none;
+    color: #42ad5f;
+    font-size: 16px;
 }
 
 #tbl tbody tr td .img_logo {

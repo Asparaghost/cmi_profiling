@@ -67,7 +67,7 @@ class ResearcherForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ResearcherForm, self).__init__(*args, **kwargs)
-        self.fields['cmi'].empty_label = "Select CMI"
+        self.fields['cmi'].empty_label = "None"
 
     class Meta:  
         model = Researcher  
