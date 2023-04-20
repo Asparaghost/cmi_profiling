@@ -52,7 +52,13 @@
                     {{cmi.name}}
                     {% endif %}
                     <br>
-                    {{cmi.status}}
+
+					{% if cmi.status == "Active" %}
+                    <p class="status" style="background-color: #42ad5f;">{{cmi.status}}</p>
+					{% else %}
+					<p class="status" style="background-color: #b63838;">{{cmi.status}}</p>
+					{% endif %}
+
                     {% if cmi.remarks %}<br>
                     Remarks: {{cmi.remarks}}
                     {% else %}

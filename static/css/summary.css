@@ -98,6 +98,12 @@ body {
     font-weight: 500;
 }
 
+#tbl tbody tr td .status{
+    width: fit-content;
+    padding: 1px 6px;
+    color: #ffffff;
+}
+
 #tbl tbody tr td a:hover{
     text-decoration: none;
     color: #42ad5f;
