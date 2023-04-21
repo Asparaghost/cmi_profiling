@@ -53,13 +53,12 @@
     </form>
 
     <br>
-    <table id="tbl" class="table table-hover">
+    <table id="tbl" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">NAME</th>
             <th scope="col">POSITION</th>
             <th scope="col">SPECIALIZATION</th>
-            <th scope="col">EMAIL ADDRESS</th>
             <th scope="col">PDF</th>
           
           </tr>
@@ -70,10 +69,9 @@
             <th scope="row">{{secretariat.lname}}, {{secretariat.fname}}</th>
             <th>{{secretariat.position}}</th>
             <th>{{secretariat.specialization}}</th>
-            <th>{{secretariat.email_add}}</th>
 
             <td>
-                <a href="{% url 'secretariat:create-pdf' secretariat.secretariat_id %}" target="_blank">VIEW</a>
+                <a href="{% url 'secretariat:create-pdf' secretariat.secretariat_id %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
           </tr>
         </tbody>

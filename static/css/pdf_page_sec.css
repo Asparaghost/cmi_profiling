@@ -70,7 +70,6 @@ body {
     max-width: 95%;
     text-align: center;
     color: #1b641b;
-    background-color: #7bcf7b;
     border: 2px solid #008000;
 }
 
@@ -81,15 +80,9 @@ body {
 
 #tbl tbody tr td a{
     text-decoration: none;
-    color: #0d560d;
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 14px;
     font-weight: 700;
-}
-
-#tbl tbody tr td a:hover{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    text-decoration: underline;
 }
 
 #tbl thead tr th{
@@ -115,7 +108,7 @@ body {
     background-color: #008000ad;
     padding: 7px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 #btn:hover{
