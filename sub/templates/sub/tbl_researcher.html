@@ -32,7 +32,7 @@
 		  </table> 
 		  <br>
 
-		  <table id="tbl" class="table  table-hover">
+		  <table id="tbl" class="table table-bordered">
 			<thead>
 			  <tr>
 				<th scope="col">PHOTO</th>
@@ -50,14 +50,14 @@
 				{% if researcher.photo %}
             	<img class="img_logo" src="{{ researcher.photo.url }}" alt="img_photo" style="width:60px; height:60px; display:block; margin-left: auto; margin-right: auto;">
             	{% endif %}</td>
-				<td>{{researcher.fname}} {{researcher.lname}}</td>
+				<td >{{researcher.fname}} {{researcher.lname}}</td>
 				<td>{{researcher.cmi}}</td>
 				<td>{{researcher.email}}</td>
 
-				<td style="font-size: 14px;">
-					<a href="{% url 'sub:detail_researcher' researcher.researcher_id %}"><i class="bx bx-food-menu" title="View"></i>
-					<a href="{% url 'sub:edit_researcher' researcher.researcher_id %}"><i class="bx bx-edit-alt" title="Edit"></i>
-					<a href="{% url 'sub:delete_researcher' researcher.researcher_id %}"><i class="bx bx-trash" title="Delete"></i></a>
+				<td>
+					<a href="{% url 'sub:detail_researcher' researcher.researcher_id %}" class="btn btn-primary">View</a>&nbsp;
+					<a href="{% url 'sub:edit_researcher' researcher.researcher_id %}" class="btn btn-success">Edit</a>&nbsp;
+					<a href="{% url 'sub:delete_researcher' researcher.researcher_id %}" class="btn btn-danger">Delete</a>
 				</td>
 
 			  </tr>
