@@ -44,9 +44,6 @@
 				{% endif %}
 				<h2>{{secretariat.fname}} {{secretariat.mname}} {{secretariat.lname}}</h2>
 				<h3>Position: {{secretariat.position}}</h3>
-				<h3>Contact #: {{secretariat.contact_no}}</h3>
-				<h3>Email: {{secretariat.email_add}}</h3>
-				<h3>Date of Birth: {{secretariat.dob}}</h3>
 				<a href="{% url 'secretariat:details' secretariat.secretariat_id %}" class="btn">VIEW</a>
 			  </div>
 			  {% endfor %}
