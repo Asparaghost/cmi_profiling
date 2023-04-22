@@ -47,6 +47,7 @@ h3{
     padding: 8px 15px;
     background-color: #008000;
     text-decoration: none;
+    border-radius: 0px;
 }
 
 .add_form .skip{
