@@ -78,7 +78,7 @@ body {
     color: #1b641b;
     border: 2px solid #008000;
     table-layout:fixed;
-    word-break:break-all;
+    word-break:keep-all;
 }
 
 #tbl thead tr th{

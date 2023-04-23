@@ -31,11 +31,11 @@
 		  </table> 
 		  <br>
 
-		  <table id="tbl" class="table table-hover">
+		  <table id="tbl" class="table table-bordered">
 			<thead>
 			  <tr>
-				<th scope="col">TITLE</th>
-				<th scope="col">DESCRIPTION</th>
+				<th scope="col">PROJECT</th>
+				<th scope="col">TYPE</th>
 				
 				<th scope="col">ACTION</th>
 				
@@ -48,10 +48,10 @@
 				<td>{{projectoutput.proj_output_type}}</td>
 
 
-				<td style="font-size: 14px;">
-					<a href="{% url 'sub:detail_projout' projectoutput.projout_id %}"><i class="bx bx-food-menu" title="View"></i>
-					<a href="{% url 'sub:edit_projout' projectoutput.projout_id %}"><i class="bx bx-edit-alt" title="Edit"></i>
-					<a href="{% url 'sub:delete_projout' projectoutput.projout_id %}"><i class="bx bx-trash" title="Delete"></i>
+				<td>
+					<a href="{% url 'sub:detail_projout' projectoutput.projout_id %}" class="btn btn-primary">View</a>&nbsp;
+					<a href="{% url 'sub:edit_projout' projectoutput.projout_id %}" class="btn btn-success">Edit</a>&nbsp;
+					<a href="{% url 'sub:delete_projout' projectoutput.projout_id %}" class="btn btn-danger">Delete</a>
 				</td>
 
 			  </tr>

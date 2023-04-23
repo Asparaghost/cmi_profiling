@@ -32,14 +32,13 @@
 		  </table> 
 		  <br>
 
-		  <table id="tbl" class="table table-hover">
+		  <table id="tbl" class="table table-bordered">
 			<thead>
 			  <tr>
 				<th scope="col">TITLE</th>
 				<th scope="col">TYPE</th>
 				<th scope="col">DESIGNED BY</th>
 				<th scope="col">CONTENT BY</th>
-				<th scope="col">IEC FILE</th>
 
 				<th scope="col">ACTION</th>
 				
@@ -52,15 +51,11 @@
 				<td>{{iecmaterial.iec_type}}</td>
 				<td>{{iecmaterial.designed_by}}</td>
 				<td>{{iecmaterial.content_by}}</td>
+
 				<td>
-				{% if iecmaterial.iec_file %}
-				<a href="{{ iecmaterial.iec_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a>
-				{% endif %}
-				</td>
-				<td style="font-size: 14px;">
-					<a href="{% url 'sub:detail_iecmaterial' iecmaterial.title %}"><i class="bx bx-food-menu" title="View"></i>
-					<a href="{% url 'sub:edit_iecmaterial' iecmaterial.title %}"><i class="bx bx-edit-alt" title="Edit"></i>
-					<a href="{% url 'sub:delete_iecmaterial' iecmaterial.title %}"><i class="bx bx-trash" title="Delete"></i>
+					<a href="{% url 'sub:detail_iecmaterial' iecmaterial.title %}" class="btn btn-primary">View</a>&nbsp;
+					<a href="{% url 'sub:edit_iecmaterial' iecmaterial.title %}" class="btn btn-success">Edit</a>&nbsp;
+					<a href="{% url 'sub:delete_iecmaterial' iecmaterial.title %}" class="btn btn-danger">Delete</a>
 				</td>
 			  
 			  </tr>

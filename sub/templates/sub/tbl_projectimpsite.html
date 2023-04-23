@@ -32,14 +32,12 @@
 		  </table> 
 		  <br>
 
-		  <table id="tbl" class="table table-hover">
+		  <table id="tbl" class="table table-bordered">
 			<thead>
 			  <tr>
 				<th scope="col">PROJECT</th>
 				<th scope="col">BARANGAY</th>
 				<th scope="col">CITY</th>
-				<th scope="col">PROVINCE</th>
-				<th scope="col">ZIPCODE</th>
 				<th scope="col">ACTION</th>
 				
 			  </tr>
@@ -50,13 +48,11 @@
 				<td>{{projimp.proj_id}}</th>
 				<td>{{projimp.barangay}}</td>
 				<td>{{projimp.city}}</td>
-				<td>{{projimp.province}}</td>
-				<td>{{projimp.zipcode}}</td>
 
-				<td style="font-size: 14px;">
-					<a href="{% url 'sub:detail_projimp' projimp.projimp %}"><i class="bx bx-food-menu" title="View"></i>
-					<a href="{% url 'sub:edit_projimp' projimp.projimp %}"><i class="bx bx-edit-alt" title="Edit"></i>
-					<a href="{% url 'sub:delete_projimp' projimp.projimp %}"><i class="bx bx-trash" title="Delete"></i>
+				<td>
+					<a href="{% url 'sub:detail_projimp' projimp.projimp %}" class="btn btn-primary">View</a>&nbsp;
+					<a href="{% url 'sub:edit_projimp' projimp.projimp %}" class="btn btn-success">Edit</a>&nbsp;
+					<a href="{% url 'sub:delete_projimp' projimp.projimp %}" class="btn btn-danger">Delete</a>
 				</td>
 
 			  </tr>
