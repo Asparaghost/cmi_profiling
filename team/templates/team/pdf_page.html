@@ -61,7 +61,7 @@
     </form>
 
     <br>
-    <table id="tbl" class="table table-hover">
+    <table id="tbl" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">NAME</th>
@@ -74,12 +74,12 @@
         {% for team in team_filter.qs %}
         <tbody>
           <tr>
-            <th scope="row">{{team.lname}}, {{team.fname}}</th>
-            <th>{{team.position}}</th>
-            <th>{{team.teams}}</th>
+            <td>{{team.lname}}, {{team.fname}}</th>
+            <td>{{team.position}}</th>
+            <td>{{team.teams}}</th>
 
             <td>
-                <a href="{% url 'team:create-pdf' team.member_id %}" target="_blank">VIEW</a>
+                <a href="{% url 'team:create-pdf' team.member_id %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
           </tr>
         </tbody>

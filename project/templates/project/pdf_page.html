@@ -57,7 +57,7 @@
     </form>
 
     <br>
-    <table id="tbl" class="table table-hover">
+    <table id="tbl" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">TITLE</th>
@@ -70,12 +70,12 @@
         {% for project in project_filter.qs %}
         <tbody>
           <tr>
-            <th scope="row">{{project.title}}</th>
-            <th>{{project.proj_type}}</th>
-            <th>{{project.status}}</th>
+            <td>{{project.title}}</th>
+            <td>{{project.proj_type}}</th>
+            <td>{{project.status}}</th>
 
             <td>
-                <a href="{% url 'project:create-pdf' project.title %}" target="_blank">VIEW</a>
+                <a href="{% url 'project:create-pdf' project.title %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
           </tr>
         </tbody>

@@ -95,7 +95,7 @@ class StakeholderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(StakeholderForm, self).__init__(*args, **kwargs)
-        self.fields['consortium_id'].empty_label = "None" 
+        self.fields['cmi'].empty_label = "None" 
 
     class Meta:  
           model = Stakeholder  
@@ -107,7 +107,7 @@ class StakeholderForm(forms.ModelForm):
               'mname': 'Middle Name',
               'sex': 'Sex',
               'dob': 'Date of Birth',
-              'consortium_id': 'CMI',
+              'cmi': 'CMI',
               'barangay': 'Barangay',
               'city': 'City',
               'province': 'Province',

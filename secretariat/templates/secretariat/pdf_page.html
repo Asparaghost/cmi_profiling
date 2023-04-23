@@ -66,9 +66,9 @@
         {% for secretariat in secretariat_filter.qs %}
         <tbody>
           <tr>
-            <th scope="row">{{secretariat.lname}}, {{secretariat.fname}}</th>
-            <th>{{secretariat.position}}</th>
-            <th>{{secretariat.specialization}}</th>
+            <td>{{secretariat.lname}}, {{secretariat.fname}}</th>
+            <td>{{secretariat.position}}</th>
+            <td>{{secretariat.specialization}}</th>
 
             <td>
                 <a href="{% url 'secretariat:create-pdf' secretariat.secretariat_id %}" target="_blank" class="btn btn-primary">VIEW</a>

@@ -53,11 +53,10 @@
     </form>
 
     <br>
-    <table id="tbl" class="table table-hover">
+    <table id="tbl" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">NAME</th>
-            <th scope="col">CODE</th>
             <th scope="col">PDF</th>
             
           </tr>
@@ -65,11 +64,9 @@
         {% for cmi in cmi_filter.qs %}
         <tbody>
           <tr>
-            <th scope="row" style="text-align: left;">{{cmi.name}}</th>
-            <th>{{cmi.agency_code}}</th>
-
+            <td scope="row" style="text-align: left;">{{cmi.name}} ({{cmi.agency_code}})</th>
             <td>
-                <a href="{% url 'consortium:create-pdf' cmi.name %}" target="_blank">VIEW</a>
+                <a href="{% url 'consortium:create-pdf' cmi.name %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
           </tr>
         </tbody>

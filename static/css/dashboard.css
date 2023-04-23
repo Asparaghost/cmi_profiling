@@ -116,10 +116,10 @@ body {
     font-weight: 700;
 }
 
-.box h2 a:hover{
+/* .box h2 a:hover{
     font-family: Poppins;
     color: #008000;
-}
+} */
 
 .box h3{
     color: #ffffff;
@@ -163,7 +163,7 @@ body {
     background-color: #ffffff;
     color: #008000;
     /* width: 85%; */
-    border: 2px solid #008000;
+    border: 2px solid #66b366;
     border-collapse: collapse;
     border-spacing: 0;
     box-shadow: 0 0 10px 5px rgba(36, 71, 33, 0.155);
@@ -172,6 +172,49 @@ body {
 #tables #table_dashboard tbody tr th{
     font-size: 14px;
 }
+
+/*Card Colors*/
+
+#card1{
+    background-color: #b5eecd;    
+}
+
+#card1 h2 a:hover{
+    color: #5fc387;    
+}
+
+#card2{
+    background-color: #678ea9;    
+}
+
+#card2 h2 a:hover{
+    color: #2a5676;    
+}
+
+#card3{
+    background-color: #f8c1bc;    
+}
+
+#card3 h2 a:hover{
+    color: #d58179;    
+}
+
+#card4{
+    background-color: #faeba6;    
+}
+
+#card4 h2 a:hover{
+    color: #d4bf60;    
+}
+
+#card5{
+    background-color: #fd9994;     
+}
+
+#card5 h4 a:hover{
+    color: #de5e57;     
+}
+
 
 @media (max-width: 500px) {
     #head tr .title{

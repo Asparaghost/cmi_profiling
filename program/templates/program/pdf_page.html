@@ -57,7 +57,7 @@
     </form>
 
     <br>
-    <table id="tbl" class="table table-hover">
+    <table id="tbl" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">TITLE</th>
@@ -70,12 +70,12 @@
         {% for program in program_filter.qs %}
         <tbody>
           <tr>
-            <th scope="row">{{program.title}}</th>
-            <th>{{program.status}}</th>
-            <th>{{program.impl_agency}}</th>
+            <td>{{program.title}}</th>
+            <td>{{program.status}}</th>
+            <td>{{program.impl_agency}}</th>
 
             <td>
-                <a href="{% url 'program:create-pdf' program.title %}" target="_blank">VIEW</a>
+                <a href="{% url 'program:create-pdf' program.title %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
           </tr>
         </tbody>

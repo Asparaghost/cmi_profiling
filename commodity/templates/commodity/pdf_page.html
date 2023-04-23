@@ -45,10 +45,10 @@
     </form>
 
     <br>
-    <table id="tbl" class="table table-hover">
+    <table id="tbl" class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">TITLE</th>
+            <th scope="col">NAME</th>
             <th scope="col">CMI</th>
             <th scope="col">PRODUCED BY</th>
             <th scope="col">PDF</th>
@@ -58,12 +58,12 @@
         {% for commodity in commodity_filter.qs %}
         <tbody>
           <tr>
-            <th scope="row">{{commodity.name}}</th>
-            <th>{{commodity.cmi_name}}</th>
-            <th>{{commodity.produced_by}}</th>
+            <td>{{commodity.name}}</th>
+            <td>{{commodity.cmi_name}}</th>
+            <td>{{commodity.produced_by}}</th>
 
             <td>
-                <a href="{% url 'commodity:create-pdf' commodity.name %}" target="_blank">VIEW</a>
+                <a href="{% url 'commodity:create-pdf' commodity.name %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
           </tr>
         </tbody>

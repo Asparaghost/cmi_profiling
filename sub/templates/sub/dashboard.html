@@ -27,41 +27,41 @@
         </table> 
 
         <div class="wrapper">
-            <div class="container">
-              
-            <div class="box">
-                <h2><a href="{% url 'consortium:cmi' %}">CMI</a></h2>
-                <h3>{{no_cmi}}</h3>
-            </div>
-             
-            <div class="box">
-                <h2><a href="{% url 'program:program' %}">PROGRAMS</a></h2>
-                <h3>{{no_prog}}</h3>
-            </div>
-
-            <div class="box">
-                <h2><a href="{% url 'project:project' %}">PROJECTS</a></h2>
-                <h3>{{no_proj}}</h3>
-            </div>
-
-            <div class="box">
-                <h2><a href="{% url 'commodity:commodity' %}">COMMODITIES</a></h2>
-                <h3>{{no_com}}</h3>
-            </div>
-            
-            <div class="box">
-              <h4><a href="{% url 'sub:summary' %}">CMI Summary</a></h4>
-              <h4><a href="{% url 'sub:audit_trail' %}">Audit Trail</a></h4>
-            </div>
-
-            </div>
+          <div class="container">
+                  
+          <div class="box" id="card1">
+              <h2><a href="{% url 'consortium:cmi' %}">CMI</a></h2>
+              <h3>{{no_cmi}}</h3>
           </div>
+           
+          <div class="box" id="card2">
+              <h2><a href="{% url 'program:program' %}">PROGRAMS</a></h2>
+              <h3>{{no_prog}}</h3>
+          </div>
+
+          <div class="box" id="card3">
+              <h2><a href="{% url 'project:project' %}">PROJECTS</a></h2>
+              <h3>{{no_proj}}</h3>
+          </div>
+
+          <div class="box" id="card4">
+              <h2><a href="{% url 'commodity:commodity' %}">COMMODITIES</a></h2>
+              <h3>{{no_com}}</h3>
+          </div>
+          
+          <div class="box" id="card5">
+            <h4><a href="{% url 'sub:summary' %}">CMI Summary</a></h4>
+            <h4><a href="{% url 'sub:audit_trail' %}">Audit Trail</a></h4>
+          </div>
+
+          </div>
+        </div>
     
         <div id="tables">
           <div class="row">
             <div class="column">
               <table id="table_dashboard" class="table table-bordered">
-                  <thead style="color: white; background-color: #008000;">
+                  <thead style="color: white; background-color: #66b366;">
                     <tr>
                       <th scope="col" style="text-align: center;">CMI</th>
                       <th scope="col" style="text-align: center;">Projects</th>
@@ -83,7 +83,7 @@
             <div class="column">
 
               <table id="table_dashboard" class="table table-bordered">
-                  <thead style="color: white; background-color: #008000;">
+                  <thead style="color: white; background-color: #66b366;">
                     <tr>
                       <th scope="col" style="text-align: center;">Projects</th>
                       <th scope="col">Leader</th>
@@ -105,7 +105,7 @@
             <div class="column">
 
               <table id="table_dashboard" class="table table-bordered">
-                  <thead style="color: white; background-color: #008000;">
+                  <thead style="color: white; background-color: #66b366;">
                     <tr>
                       <th scope="col" style="text-align: center;">Programs</th>
                       <th scope="col">Leader</th>
