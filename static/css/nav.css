@@ -53,6 +53,11 @@
   border: 0px;
   padding: 8px;
   border-radius: 1px;
+  font-weight: 500;
+}
+
+.header form button:hover {
+  background-color: #258a25;
 }
 
 a .logo{
