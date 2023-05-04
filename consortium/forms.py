@@ -4,6 +4,10 @@ from consortium.models import CMI, Consortium
 
 class CMIForm(forms.ModelForm):  
 
+    def __init__(self, *args, **kwargs):
+        super(CMIForm, self).__init__(*args, **kwargs)
+        self.fields['consortium_id'].empty_label = "Select Consortium"
+
     class Meta:  
         model = CMI  
         exclude = ('created_by', 'modified_by')
@@ -12,6 +16,7 @@ class CMIForm(forms.ModelForm):
             'agency_code': 'CMI Code',
             'name': 'Name',
             'is_cmi' : 'Is CMI',
+            'consortium_id' : 'Consortium',
             'address': 'Address',
             'geolat': 'Latitude',
             'geolong': 'Longitude',
@@ -21,6 +26,7 @@ class CMIForm(forms.ModelForm):
             'telno': 'Telephone Number',
             'email': 'Email',
             'url': 'URL',
+            'status': 'Status',
             'remarks': 'Remarks (Inactive)'
         }
 
