@@ -17,55 +17,89 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br>
-            {% if cmi.logo %}
-            <img class="img_logo" src="{{ cmi.logo.url }}" alt="img_commodity">
-            {% endif %}
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
-                        <div class="name">{{cmi.name}} ({{cmi.agency_code}})</div>
-                        <div class="content">Address: {{cmi.address}}</div>
-                        <div class="content">Is CMI: {{cmi.is_cmi}}</div>
-                        <div class="content">Consortium: {{cmi.consortium_id}}</div>
-                        {% if cmi.detail %}
-                        <div class="content">Detail:<br> {{cmi.detail}}</div>
-                        {%else%}{% endif %}
-                        <!-- {% if consortium.consortium_objectives %}
-                        <div class="content">Objectives:<br> {{consortium.consortium_objectives|linebreaks}}</div>
-                        {%else%}{% endif %}
-                        {% if consortium.mission %}
-                        <div class="content">Mission:<br> {{consortium.mission|linebreaks}}</div>
-                        {%else%}{% endif %}
-                        {% if consortium.vision %}
-                        <div class="content">Vision:<br> {{consortium.vision|linebreaks}}</div>
-                        {%else%}{% endif %} -->
-                        {% if cmi.url %}
-                        <div class="content">URL:<br><a href="{{cmi.url}}" target=”_blank”> {{cmi.url}}</a></div>
-                        {%else%}{% endif %}
-                        <div class="content">Telephone Number:<br> {{cmi.telno}}</div>
-                        <div class="content">Contact Number:<br> {{cmi.contact_no}}</div>
-                        <div class="content">Email:<br> {{cmi.email}}</div><br>
+        <div class="container">
+          <section class="about">
+              <div class="about-image">
+                  {% if cmi.logo %}
+                  <img id="img_cmi" src="{{ cmi.logo.url }}" alt="img_cmi">
+                  {% endif %}
+              </div>
+                  <div class="about-content">
+                  <h1>{{cmi.name}} ({{cmi.agency_code}})</h1>
+                  <p>{{cmi.detail}}</p>
+                  <table>
+                      <tr>
+                          <th></th>
+                          <td></td>
+                      </tr>
 
-                        {% if user.is_superuser %}
-                        <div class="content">Created by: {{cmi.created_by}}</div>
-                        <div class="content">Modified by: {{cmi.modified_by}}</div><br>
-                        {% endif %}
-                        
-                        <a href="{% url 'consortium:cmi' %}" class="btn" style="font-weight: 600;">Back</a>
-                        {% if user.is_superuser or user.secretariat%}
-                        <a href="{% url 'consortium:edit' cmi.name %}" class="btn" style="font-weight: 600;">Edit</a>
-                        <a href="{% url 'consortium:delete' cmi.name %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
-                        {% endif %}
-                    </p>
+                      <tr>
+                        <th>Address:</th>
+                        <td>{{cmi.address}}</td>
+                    </tr>
 
+                      <tr>
+                          <th>Is CMI:</th>
+                          <td>{{cmi.is_cmi}}</td>
+                      </tr>
+
+                      <tr>
+                          <th>Consortium:</th>
+                          <td>{{cmi.consortium_id}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <th>URL:</th>{% if cmi.url %}
+                          <td><a href="{{cmi.url}}" target=”_blank”> {{cmi.url}}</a></td>
+                          {%else%}<td>None</td>{% endif %}
+                      </tr>
+              
+                      <tr>
+                          <th>Telephone Number: </th>
+                          <td>{{cmi.telno}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <th>Contact Number: </th>
+                          <td>{{cmi.contact_no}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <th>Email: </th>
+                          <td>{{cmi.email}}</td>
+                      </tr>
+
+                      {% if user.is_authenticated %}
+
+                      {% if user.is_superuser %}
+                      <tr>
+                          <th>Created By: </th>
+                          <td>{{cmi.created_by}}</td>
+                      </tr>
+
+                      <tr>
+                          <th>Modified By: </th>
+                          <td>{{cmi.modified_by}}</td>
+                      </tr>
+                      {% endif %}
+                      {% endif %}
+                  </table>
+                  
+                  {% if user.is_superuser or user.secretariat %}
+                      <a href="{% url 'consortium:edit' cmi.name %}" class="btn btn-success">Edit</a>
+                      <a href="{% url 'consortium:delete' cmi.name %}" class="btn btn-danger">Delete</a>
+                  {% endif %}
+                  <a href="{% url 'consortium:cmi' %}" class="btn btn-secondary">Back</a>
+              </div>
+          </section>
+      
+        
                 <div class="row">
                   <div class="column">
                     <table id="table_cmi" class="table table-sm">
                         <thead>
                           <tr>
-                            <th scope="col">Commodities</th>
+                            <th scope="col" style="background-color:#77c296;">Commodities</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -83,7 +117,7 @@
                     <table id="table_cmi" class="table table-sm">
                         <thead>
                           <tr>
-                            <th scope="col">Programs</th>
+                            <th scope="col" style="background-color:#6c98b5;">Programs</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -101,7 +135,7 @@
                     <table id="table_cmi" class="table table-sm">
                         <thead>
                           <tr>
-                            <th scope="col">Projects</th>
+                            <th scope="col" style="background-color:#cb7169;">Projects</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -114,14 +148,9 @@
                     </table><br>
                   </div>
                 </div>
+              </div>
 
-                </div>
-            </div>
 
-            <div class="#">
-            </div>
-
-        </div>
 
         
 

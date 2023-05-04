@@ -17,57 +17,100 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                {% if secretariat.photo %}
-                <img class="img_team" src="{{ secretariat.photo.url }}" alt="img_ferson">
-                {% endif %}
-                <div class="text-box">
-                    <p>
-                        <div class="fullname">{{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname}}</div>
-                        <div class="content">Position: {{secretariat.position}}</div>
-                        <div class="content">Consortium: {{secretariat.consortium_id}}</div>
-                        <div class="content">Email Address: {{secretariat.email_add}}</div>
-                        <div class="content">Contact Number: {{secretariat.contact_no}}</div>
-                        <div class="content">Date Appointed: {{secretariat.date_appointed}}</div>
-                        <div class="content">Date of Birth: {{secretariat.dob}}</div>
-                        <div class="content">Sex: {{secretariat.sex}}</div><br>
-                        <div class="content">Bachelor's Degree: <br>{{secretariat.bach_deg}}</div>
-                        <div class="content">Bachelor's Degree Year Completed:{{secretariat.bdyearcompleted}}</div>
-                        <div class="content">Master's Degree:<br> {{secretariat.mas_deg}}</div>
-                        <div class="content">Master's Degree Year Completed: {{secretariat.mdyearcompleted}}</div>
-                        <div class="content">Doctorate Degree:<br> {{secretariat.doc_deg}}</div>
-                        <div class="content">Doctorate Degree Year Completed: {{secretariat.ddyearcompleted}}</div>
-                        <div class="content">Specialization: {{secretariat.specialization}}</div>
-                        <br>
+        <div class="container">
+            <section class="about">
+                <div class="about-image">
+                    {% if secretariat.photo %}
+                    <img class="img_team" src="{{ secretariat.photo.url }}" alt="img_ferson">
+                    {% endif %}
+                </div>
+                    <div class="about-content">
+                    <h1>{{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname}}</h1>
+                    <h5>{{secretariat.position}}</h5>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Consortium:</th>
+                            <td>{{secretariat.consortium_id}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Email Address:</th>
+                            <td>{{secretariat.email_add}}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact Number: </th>
+                            <td>{{secretariat.contact_no}}</td>
+                        </tr>
+                
+                        <tr>
+                            <th>Date Appointed:</th>
+                            <td>{{secretariat.date_appointed}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Date of Birth:</th>
+                            <td>{{secretariat.dob}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Sex:</th>
+                            <td>{{secretariat.sex}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Bachelor's Degree: </th>
+                            <td>{{secretariat.bach_deg}}, {{secretariat.bdyearcompleted}}</td>
+                        </tr>
+                
+                        <tr>
+                            <th>Master's Degree: </th>
+                            <td>{{secretariat.mas_deg}}, {{secretariat.mdyearcompleted}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Doctorate Degree: </th>
+                            <td>{{secretariat.doc_deg}}, {{secretariat.ddyearcompleted}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Specialization: </th>
+                            <td>{{secretariat.specialization}}</td>
+                        </tr>
 
                         {% if user.is_authenticated %}
-                        {% if secretariat.pds_file %}
-                        <div class="content">Pds File:
-                        <h4><a href="{{ secretariat.pds_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a></h4>
-                        </div>
-                        {% endif %}
+                        <tr>
+                            {% if secretariat.pds_file %}
+                            <th>Pds File: </th>
+                            <td><a href="{{ secretariat.pds_file.url }} " target="_blank">Download File</a></td>
+                            {% endif %}
+                        </tr>
 
                         {% if user.is_superuser %}
-                        <div class="content">Created By: {{secretariat.created_by}}
-                        <div class="content">Modified By: {{secretariat.modified_by}}</div><br><br>
-                        {% endif %}
-                        {% endif %}
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{secretariat.created_by}}</td>
+                        </tr>
 
-                        <a href="{% url 'secretariat:secretariat' %}" class="btn" style="font-weight: 600;">Back</a>
-                        {% if user.is_superuser or user.secretariat %}
-                        <a href="{% url 'secretariat:edit' secretariat.secretariat_id %}" class="btn" style="font-weight: 600;">Edit</a>
-                        <a href="{% url 'secretariat:delete' secretariat.secretariat_id %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{secretariat.modified_by}}</td>
+                        </tr>
                         {% endif %}
-                    </p>
+                        {% endif %}
+                    </table>
+                    
+                    {% if user.is_superuser or user.secretariat %}
+                        <a href="{% url 'secretariat:edit' secretariat.secretariat_id %}" class="btn btn-success">Edit</a>
+                        <a href="{% url 'secretariat:delete' secretariat.secretariat_id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                    <a href="{% url 'secretariat:secretariat' %}" class="btn btn-secondary">Back</a>
                 </div>
-            </div>
-
-            <div class="#">
-            </div>
-
+            </section>
         </div>
 
         <script>
@@ -77,5 +120,4 @@
         </script>
 
     </body>
-
 </html>
