@@ -17,12 +17,9 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
+        
+
+        
                         <div class="name">{{stakeholder.lname}}, {{stakeholder.fname}} {{stakeholder.mname}}</div>
                         <div class="content">CMI: {{stakeholder.consortium_id}}</div>
                         <div class="content">Sex: {{stakeholder.sex}}</div>
@@ -39,14 +36,7 @@
                         <div class="content">Modified By: {{researcher.modified_by}}</div>
                         {% endif %}<br>
                         <a href="{% url 'sub:stakeholder' %}" class="btn" style="font-weight: 600;">Back</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="#">
-            </div>
-
-        </div>
+                   
 
         <script>
             $(function(){
