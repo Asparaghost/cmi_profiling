@@ -17,115 +17,186 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br><br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
-                        <div class="name">{{project.title}}</div>
-                        <div class="content">Type: {{project.proj_type}}</div>
-                        <div class="content">Status: {{project.status}}</div>
-                        <div class="content">Description:<br> {{project.proj_description}}</div>
-                        <div class="content">Program:<br> {{project.prog_id}}</div>
-                        <div class="content">Consortium:<br> {{project.consortium}}</div>
+        <div class="container">
+            <section class="about">
+                    <div class="about-content">
+                    <h1>{{project.title}}</h1>
+                    <p>{{project.proj_description}}</p>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
                         
-                        {% if project.commodity.all %}
-                        <div class="content">Commodity(s):<br> {{project.commodity.all|join:", "}}</div>
-                        {%else%}
-                        <div class="content">Commodity(s):<br> None</div>
-                        {% endif %}
+                        <tr>
+                            <th>Project Type:</th>
+                            <td>{{project.proj_type}}</td>
+                        </tr>
 
-                        <div class="content">Project Leader:<br> {{project.proj_leader}}</div>
-                        <div class="content">Priority Area:<br> {{project.priority}}</div>
-                        <div class="content">SDG:<br> {{project.sdg_no}}</div>
+                        <tr>
+                            <th>Status:</th>
+                            <td>{{project.status}}</td>
+                        </tr>
+                        <tr>
+                            <th>Program: </th>
+                            <td>{{project.prog_id}}</td>
+                        </tr>
+                
+                        <tr>{% if project.commodity.all %}
+                            <th>Commodity(s):</th>
+                            <td>{{project.commodity.all|join:", "}}</td>
+                            {%else%}
+                            <th>Commodity(s):</th>
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
 
-                        {% if project.proj_team.all %}
-                        <div class="content">Project Team:<br> {{project.proj_team.all|join:", "}}</div>
-                        {%else%}
-                        <div class="content">Project Team:<br> None</div>
-                        {% endif %}
-
-                        {% if project.proj_stakeholder.all %}
-                        <div class="content">Stakeholder:<br> {{project.proj_stakeholder.all|join:", "}}</div>
-                        {%else%}
-                        <div class="content">Stakeholder:<br> None</div>
-                        {% endif %}
-
-                        <div class="content">Implementing Agency: {{project.impl_agency}}</div>
-
-                        {% if project.co_impl_agency.all %}
-                        <div class="content">Co-Implementing Agency(s):<br> {{project.co_impl_agency.all|join:", "}}</div>
-                        {%else%}
-                        <div class="content">Co-Implementing Agency(s):<br> None</div>
-                        {% endif %}
+                        <tr>
+                            <th>Project Leader:</th>
+                            <td>{{project.proj_leader}}</td>
+                        </tr>
                         
-                        {% if project.coop_agency.all %}
-                        <div class="content">Cooperating Agency(s):<br> {{project.coop_agency.all|join:", "}}</div>
-                        {%else%}
-                        <div class="content">Cooperating Agency(s):<br> None</div>
-                        {% endif %}
+                        <tr>{% if project.proj_team.all %}
+                            <th>Project Team:</th>
+                            <td>{{project.proj_team.all|join:", "}}</td>
+                            {%else%}
+                            <th>Project Team:</th>
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
+
+                        <tr>
+                            <th>Priority Area:</th>
+                            <td>{{project.priority}}</td>
+                        </tr>
                         
-                        <div class="content">Funding Agency: {{project.fund_agency}}</div>
-                        <div class="content">Start Date: {{project.start_date}}</div>
-                        <div class="content">End Date: {{project.end_date}}</div>
-                        <div class="content">Final Implementation Date: {{project.final_impl_date}}</div>
-                        <div class="content">Duration: {{project.duration}} month(s)</div>
+                        <tr>
+                            <th>SDG: </th>
+                            <td>{{project.sdg_no}}</td>
+                        </tr>
+
+                        <tr>{% if project.proj_stakeholder.all %}
+                            <th>Stakeholder(s): </th>
+                            <td>{{project.proj_stakeholder.all|join:", "}}</td>
+                            {%else%}
+                            <th>Stakeholder(s): </th>
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
+
+                        <tr>
+                            <th>Implementing Agency: </th>
+                            <td>{{project.impl_agency}}</td>
+                        </tr>
                         
-                        {% if project.approved_budget %}
-                        <div class="content">Approved Budget: P{{project.approved_budget}}</div>
-                        {%else%}
-                         
-                        {% endif %}
-
-                        {% if project.approved_date %}
-                        <div class="content">Approved Date: {{project.approved_date}}</div>
-                        {%else%}
-                         
-                        {% endif %}
-
-                        {% if project.daterequestedext %}
-                        <div class="content">Date Requested Extension: {{project.daterequestedext}}</div>
-                        {%else%}
-                         
-                        {% endif %}
+                        <tr>{% if project.co_impl_agency.all %}
+                            <th>Co-Implementing Agency(s): </th>
+                            <td>{{project.co_impl_agency.all|join:", "}}</td>
+                            {%else%}
+                            <th>Co-Implementing Agency(s): </th>
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
+                    
+                        <tr>{% if project.coop_agency.all %}
+                            <th>Cooperating Agency(s): </th>
+                            <td>{{project.coop_agency.all|join:", "}}</td>
+                            {%else%}
+                            <th>Cooperating Agency(s): </th>
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
                         
-                        <div class="content">Requested By: {{project.requested_by}}</div>
+                        <tr>
+                            <th>Funding Agency: </th>
+                            <td>{{project.fund_agency}}</td>
+                        </tr>
 
-                        {% if project.ext_duration %}
-                        <div class="content">Extension Duration: {{project.ext_duration}} month(s)</div>
-                        {%else%}
-                         
-                        {% endif %}
+                        <tr>
+                            <th>Start Date: </th>
+                            <td>{{project.start_date}}</td>
+                        </tr>
 
-                        <div class="content">Date Uploaded: {{project.date_uploaded}}</div><br>
+                        <tr>
+                            <th>End Date: </th>
+                            <td>{{project.end_date}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Final Implementation Date: </th>
+                            <td>{{project.final_impl_date}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Duration: </th>
+                            <td>{{project.duration}} month(s)</td>
+                        </tr>
+
+                        <tr>{% if project.approved_budget %}
+                            <th>Approved Budget: </th>
+                            <td>P{{project.approved_budget}}</td>
+                            {%else%}{% endif %}
+                        </tr>
+
+                        <tr>{% if project.approved_date %}
+                            <th>Approved Date: </th>
+                            <td>{{project.approved_date}}</td>
+                            {%else%}{% endif %}
+                        </tr>
+
+                        <tr>{% if project.daterequestedext %}
+                            <th>Date Requested Extension: </th>
+                            <td>{{project.daterequestedext}}</td>
+                            {%else%}{% endif %}
+                        </tr>
+
+                        <tr>
+                            <th>Requested By: </th>
+                            <td>{{project.requested_by}}</td>
+                        </tr>
+
+                        <tr>{% if project.ext_duration %}
+                            <th>Extension Duration: </th>
+                            <td>{{project.ext_duration}} month(s)</td>
+                            {%else%}{% endif %}
+                        </tr>
+
+                        <tr>
+                            <th>Date Uploaded: </th>
+                            <td>{{project.date_uploaded}}</td>
+                        </tr>
 
                         {% if user.is_authenticated %}
-                        {% if project.proj_file %}
-                        <div class="content">Project File:
-                        <h4><a href="{{ project.proj_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a></h4>
-                        </div>
-                        {% endif %}
+                        <tr>
+                            {% if project.proj_file %}
+                            <th>Project File: </th>
+                            <td><a href="{{ project.proj_file.url }}" target="_blank">Download File</a></td>
+                            {% endif %}
+                        </tr>
 
                         {% if user.is_superuser %}
-                        <div class="content">Created by: {{project.created_by}}
-                        <div class="content">Modified by: {{project.modified_by}}</div><br><br>
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{project.created_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{project.modified_by}}</td>
+                        </tr>
                         {% endif %}
                         {% endif %}
-                        
-                        <a href="{% url 'project:project' %}" class="btn" style="font-weight: 600;">Back</a>
-                        {% if user.is_superuser or user.secretariat or user.researcher %}
-                        <a href="{% url 'project:edit' project.title %}" class="btn" style="font-weight: 600;">Edit</a>
-                        <a href="{% url 'project:delete' project.title %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
-                        {% endif %}
-                    </p>
+                    </table>
+                    
+                    {% if user.is_superuser or user.secretariat or user.researcher %}
+                        <a href="{% url 'project:edit' project.proj_id %}" class="btn btn-success">Edit</a>
+                        <a href="{% url 'project:delete' project.proj_id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                    <a href="{% url 'project:project' %}" class="btn btn-secondary">Back</a>
                 </div>
-            </div>
-
-            <div class="#">
-            </div>
-
+            </section>
         </div>
+                    
 
         <script>
             $(function(){

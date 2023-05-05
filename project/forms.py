@@ -18,10 +18,10 @@ class SdgForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):  
-    start_date = forms.DateField(label='Start Date', widget=forms.TextInput(     
+    start_date = forms.DateField(label='Start Date', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
-    end_date = forms.DateField(label='End Date', widget=forms.TextInput(     
+    end_date = forms.DateField(label='End Date', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
     approved_date = forms.DateField(label='Approved Date', required=False, widget=forms.TextInput(     
@@ -30,10 +30,10 @@ class ProjectForm(forms.ModelForm):
     daterequestedext = forms.DateField(label='Date Requested Extension', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
-    date_uploaded = forms.DateField(label='Date Uploaded', widget=forms.TextInput(     
+    date_uploaded = forms.DateField(label='Date Uploaded', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
-    final_impl_date = forms.DateField(label='Final Implementation Date', widget=forms.TextInput(     
+    final_impl_date = forms.DateField(label='Final Implementation Date', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
     # commodity = forms.ModelMultipleChoiceField(label='Commodity(s)', required=False,
@@ -89,8 +89,8 @@ class ProjectForm(forms.ModelForm):
             'proj_team': 'Project Team',
             'proj_stakeholder': 'Stakeholder(s)',
             'impl_agency': 'Implementing Agency',
-            'co_impl_agency': 'Co-Implementing Agency',
-            'coop_agency': 'Cooperating Agency',
+            'co_impl_agency': 'Co-Implementing Agency(s)',
+            'coop_agency': 'Cooperating Agency(s)',
             'fund_agency': 'Funding Agency',
             'start_date': 'Start Date',
             'end_date': 'End Date',

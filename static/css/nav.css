@@ -294,7 +294,7 @@ a .logo{
     background-color: #2b6521;
     border: 0px;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 1px;
     font-size: 12px;
   }
 }
@@ -314,7 +314,7 @@ a .logo{
     background-color: #2b6521;
     border: 0px;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 1px;
   }
   
 }

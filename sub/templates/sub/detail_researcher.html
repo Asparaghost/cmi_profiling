@@ -17,41 +17,86 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br>
-        <div class="cont">
-            <div class="wrapper">
-                {% if researcher.photo %}
-                <img class="img_team" src="{{ researcher.photo.url }}" alt="img_ferson">
-                {% endif %}
-                <div class="text-box">
-                    <p>
-                        <div class="fullname">{{researcher.fname}} {{researcher.mname}} {{researcher.lname}}</div>
-                        <div class="content">Agency: {{researcher.cmi}}</div>
-                        <div class="content">Address: {{researcher.address}}</div>
-                        <div class="content">Email Address: {{researcher.email}}</div>
-                        <div class="content">Contact Number:<br> {{researcher.contact_no}}</div>
-                        <div class="content">Date of Birth:<br> {{researcher.dob}}</div>
-                        <div class="content">Sex:<br> {{researcher.sex}}</div>
-                        <div class="content">Specialization:<br> {{researcher.specialization}}</div>
-                        {% if researcher.pds_file %}
-                        <div class="content">Pds File:
-                        <h4><a href="{{ researcher.pds_file.url }} " target="_blank">Download File<i class="bx bxs-caret-down-circle"></i></a></h4>
-                        </div>
-                        {% endif %}
+        <div class="container">
+            <section class="about">
+                <div class="about-image">
+                    {% if researcher.photo %}
+                    <img class="img_team" src="{{ researcher.photo.url }}" alt="img_ferson">
+                    {% else %}
+                    <img class="img_team" src="{% static 'images/default.jpg' %}" alt="profile">
+                    {% endif %}
+                </div>
+                    <div class="about-content">
+                        <h1>{{researcher.fname}} {{researcher.mname|default_if_none:""}} {{researcher.lname}}</h1>
+                        <h5>{{team.position}}</h5>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Agency:</th>
+                                <td>{{researcher.cmi}}</td>
+                            </tr>
+    
+                            <tr>
+                                <th>Address:</th>
+                                <td>{{researcher.address}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email Address: </th>
+                                <td>{{researcher.email}}</td>
+                            </tr>
+                    
+                            <tr>
+                                <th>Contact Number:</th>
+                                <td>{{researcher.contact_no}}</td>
+                            </tr>
+    
+                            <tr>
+                                <th>Date of Birth:</th>
+                                <td>{{researcher.dob}}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Sex:</th>
+                                <td>{{researcher.sex}}</td>
+                            </tr>
+                    
+                            <tr>
+                                <th>Specialization: </th>
+                                <td>{{researcher.specialization}}</td>
+                            </tr>
+
+                            {% if user.is_authenticated %}
+                        <tr>
+                            {% if researcher.pds_file %}
+                            <th>Pds File: </th>
+                            <td><a href="{{ researcher.pds_file.url }}" target="_blank">Download File</a></td>
+                            {% endif %}
+                        </tr>
 
                         {% if user.is_superuser %}
-                        <div class="content">Created By: {{researcher.created_by}}
-                        <div class="content">Modified By: {{researcher.modified_by}}</div>
-                        {% endif %}<br><br>
-                        <a href="{% url 'sub:researcher' %}" class="btn" style="font-weight: 600;">Back</a>
-                    </p>
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{researcher.created_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{researcher.modified_by}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endif %}
+                    </table>
+                    
+                    
+                    <a href="{% url 'sub:researcher' %}" class="btn btn-secondary">Back</a>
                 </div>
-            </div>
-
-            <div class="#">
-            </div>
-
+            </section>
         </div>
+
 
         <script>
             $(function(){

@@ -31,8 +31,8 @@ def pdf(request):
     return render(request,"program/pdf_page.html", context)  
 
 @login_required
-def report(request, member_id):  
-    program = Program.objects.get(member_id=member_id)
+def report(request, prog_id):  
+    program = Program.objects.get(prog_id=prog_id)
     budget = program.prog_budg.all()
     projects = program.proj_prog.all()
     context = {
@@ -40,8 +40,8 @@ def report(request, member_id):
     }
     return render(request, 'program/report.html',context)
 
-def details(request, title):
-    program = Program.objects.get(title=title)
+def details(request, prog_id):
+    program = Program.objects.get(prog_id=prog_id)
     projects = program.proj_prog.all()
     context = {
         'program' : program, 'projects' : projects,
@@ -66,8 +66,8 @@ def add(request):
     return render(request,'program/add.html',{'form':form})  
 
 @login_required
-def edit(request, title):
-    program = Program.objects.get(title=title)
+def edit(request, prog_id):
+    program = Program.objects.get(prog_id=prog_id)
     form = ProgramForm(instance = program)  
     if request.method == 'POST':
         form = ProgramForm(request.POST, request.FILES, instance = program)
@@ -83,8 +83,8 @@ def edit(request, title):
     return render(request, 'program/edit.html', {'form':form})
 
 @login_required
-def delete(request, title):  
-    program = Program.objects.get(title=title)  
+def delete(request, prog_id):  
+    program = Program.objects.get(prog_id=prog_id)  
     context = {
             'program' : program,
     }
@@ -94,8 +94,8 @@ def delete(request, title):
     return render(request, 'program/delete.html', context)
 
 @login_required
-def pdf_report_create(request, title):
-    program = Program.objects.get(title=title)
+def pdf_report_create(request, prog_id):
+    program = Program.objects.get(prog_id=prog_id)
     budget = program.prog_budg.all()
     projects = program.proj_prog.all()
     template_path = 'program/report.html'

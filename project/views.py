@@ -30,8 +30,8 @@ def pdf(request):
     return render(request,"project/pdf_page.html", context)
 
 @login_required
-def report(request, title):  
-    project = Project.objects.get(title=title)
+def report(request, proj_id):  
+    project = Project.objects.get(proj_id=proj_id)
     proj_imp = project.proj_imp.all()
     proj_output = project.proj_output.all()
     context = {
@@ -41,8 +41,8 @@ def report(request, title):
     }
     return render(request, 'project/report.html', context)
 
-def details(request, title):
-    project = Project.objects.get(title=title)
+def details(request, proj_id):
+    project = Project.objects.get(proj_id=proj_id)
     context = {
         'project' : project,
     }
@@ -66,8 +66,8 @@ def add(request):
     return render(request,'project/add.html',{'form':form})  
 
 @login_required
-def edit(request, title):
-    project = Project.objects.get(title=title)
+def edit(request, proj_id):
+    project = Project.objects.get(proj_id=proj_id)
     form = ProjectForm(instance = project)  
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance = project)
@@ -83,8 +83,8 @@ def edit(request, title):
     return render(request, 'project/edit.html', {'form':form})
 
 @login_required
-def delete(request, title):  
-    project = Project.objects.get(title=title)  
+def delete(request, proj_id):  
+    project = Project.objects.get(proj_id=proj_id)  
     context = {
             'project' : project,
     }
@@ -94,8 +94,8 @@ def delete(request, title):
     return render(request, 'project/delete.html', context)
 
 @login_required
-def pdf_report_create(request, title):
-    project = Project.objects.get(title=title)
+def pdf_report_create(request, proj_id):
+    project = Project.objects.get(proj_id=proj_id)
     proj_imp = project.proj_imp.all()
     proj_output = project.proj_output.all()
     template_path = 'project/report.html'

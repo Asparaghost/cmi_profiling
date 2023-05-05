@@ -89,8 +89,8 @@
                         
                         <a href="{% url 'program:program' %}" class="btn" style="font-weight: 600;">Back</a>
                         {% if user.is_superuser or user.secretariat or user.researcher %}
-                        <a href="{% url 'program:edit' program.title %}" class="btn" style="font-weight: 600;">Edit</a>
-                        <a href="{% url 'program:delete' program.title %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
+                        <a href="{% url 'program:edit' program.prog_id %}" class="btn" style="font-weight: 600;">Edit</a>
+                        <a href="{% url 'program:delete' program.prog_id %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
                         {% endif %}
                     </p>
 

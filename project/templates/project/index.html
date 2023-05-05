@@ -54,7 +54,7 @@
             <h2>{{project.title}}</h2>
             <h3>{{project.proj_type}}</h3>
             <h4>{{project.snippet}}</h4>
-            <a href="{% url 'project:details' project.title %}" class="btn">MORE</a>
+            <a href="{% url 'project:details' project.proj_id %}" class="btn">MORE</a>
           </div>
           {% endfor %}
   

@@ -17,98 +17,105 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br>
+        <div class="container" style="margin-top: 60px;">
+          <section class="about">
+              <div class="about-image">
+                  {% if commodity.img %}
+                  <img class="img_team" src="{{ commodity.img.url }}" alt="commodity">
+                  {% endif %}
+                  
+              </div>
+                  <div class="about-content">
+                      <h1>{{commodity.name}}</h1>
+                      <p>{{commodity.detail}}</p>
+                      <table>
+                          <tr>
+                              <th></th>
+                              <td></td>
+                          </tr>
+                          
+                          <tr>{% if commodity.produced_by %}
+                              <th>Produced By:</th>
+                              <td>{{commodity.produced_by}}</td>
+                              {%else%}
+                              {% endif %}
+                          </tr>
+  
+                          <tr>
+                              <th>CMI:</th>
+                              <td>{{commodity.cmi_name}}</td>
+                          </tr>
+
+                          {% if user.is_authenticated %}
+
+                          <tr>{% for iecmaterial in iecmaterials %}
+                              {% if iecmaterial.iec_file %}
+                              <th>IEC Material: </th>
+                              <td><a href="{{ iecmaterial.iec_file.url }} " target="_blank">{{iecmaterial.title}}</a></td>
+                              {%else%}
+                              {% endif %}
+                              {% endfor %}
+                          </tr>
+                  
+                        
+                      {% if user.is_superuser %}
+                      <tr>
+                          <th>Created By: </th>
+                          <td>{{commodity.created_by}}</td>
+                      </tr>
+
+                      <tr>
+                          <th>Modified By: </th>
+                          <td>{{commodity.modified_by}}</td>
+                      </tr>
+                      {% endif %}
+                      {% endif %}
+                  </table>
+                  
+                  {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
+                      <a href="{% url 'commodity:edit' commodity.name %}" class="btn btn-success">Edit</a>
+                      <a href="{% url 'commodity:delete' commodity.name %}" class="btn btn-danger">Delete</a>
+                  {% endif %}
+                  <a href="{% url 'commodity:commodity' %}" class="btn btn-secondary">Back</a>
+              </div>
+          </section><br/>
+
+          <div class="row">
+            <div class="column">
+              <table id="table_cmi" class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="background-color:#77c296;">Programs:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for prog in programs %}
+                    <tr>
+                      <th>{{prog.title}}</th>
+                    </tr>
+                      {% endfor %}
+                  </tbody>
+              </table><br>
+            </div>
+
+            <div class="column">
+              <table id="table_cmi" class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="background-color:#6c98b5;">Projects:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for proj in projects %}
+                    <tr>
+                      <th>{{proj.title}}</th>
+                    </tr>
+                      {% endfor %}
+                  </tbody>
+              </table><br>
+            </div>
             
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    {% if commodity.img %}
-                    <img class="img_com" src="{{ commodity.img.url }}" alt="img_commodity">
-                    {% endif %}
-                    <p>
-                        <div class="name">{{commodity.name}}</div>
-                        <div class="content">Detail:<br> {{commodity.detail}}</div>
-                        
-                        {% if commodity.produced_by %}
-                        <div class="content">Produced By:<br> {{commodity.produced_by}}</div>
-                        {%else%}
-                        {% endif %}
-
-                        <div class="content">CMI: {{commodity.cmi_name}}</div>
-                        {% if user.is_authenticated %}
-                        
-                        
-                       
-                        {% for iecmaterial in iecmaterials %}
-                        <div class="content">IEC Material:<br>
-                            {{iecmaterial.title}}<br>
-                            {% if iecmaterial.iec_file %}
-				            <h4><a href="{{ iecmaterial.iec_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a></h4>
-                            {%else%}
-                        {% endif %}</div>
-                        {% endfor %}
-
-                            <br><br>
-                        {% if user.is_superuser %}
-                        <div class="content">Created by: {{commodity.created_by}}
-                        <div class="content">Modified by: {{commodity.modified_by}}</div>
-                        {% endif %}
-                        {% endif %}<br><br>
-
-                        <a href="{% url 'commodity:commodity' %}" class="btn" style="font-weight: 600;">Back</a>
-                        {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
-                        <a href="{% url 'commodity:edit' commodity.name %}" class="btn" style="font-weight: 600;">Edit</a>
-                        <a href="{% url 'commodity:delete' commodity.name %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
-                        {% endif %}
-                    </p>
-
-                    <div class="row">
-                        <div class="column">
-                          <table id="table_cmi" class="table table-sm">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Programs:</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                  {% for prog in programs %}
-                                <tr>
-                                  <th>{{prog.title}}</th>
-                                </tr>
-                                  {% endfor %}
-                              </tbody>
-                          </table><br>
-                        </div>
-                    
-                        <div class="column">
-
-                            <table id="table_cmi" class="table table-sm">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Projects:</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                    {% for proj in projects %}
-                                  <tr>
-                                    <th>{{proj.title}}</th>
-                                  </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table><br>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="#">
-            </div>
-            {% for h in object%}
-   {{ h.id }}
-   {{ h.carrier }}
-{% endfor %}
-        </div>
+      </div>
 
         <script>
             $(function(){

@@ -58,7 +58,7 @@
             <h2>{{program.title}}</h2>
             <h3>{{program.status}}</h3>
             <h4>{{program.snippet}}</h4>
-            <a href="{% url 'program:details' program.title %}" class="btn">MORE</a>
+            <a href="{% url 'program:details' program.prog_id %}" class="btn">MORE</a>
           </div>
           {% endfor %}
   

@@ -48,8 +48,10 @@
 			<tbody>
 			  <tr><td>
 				{% if researcher.photo %}
-            	<img class="img_logo" src="{{ researcher.photo.url }}" alt="img_photo" style="width:60px; height:60px; display:block; margin-left: auto; margin-right: auto;">
-            	{% endif %}</td>
+            	<img class="img_logo" src="{{ researcher.photo.url }}" alt="img_photo" style="width:50px; height:50px; display:block; margin-left: auto; margin-right: auto;">
+            	{% else %}
+                <img class="img_logo" src="{% static 'images/default.jpg' %}" alt="profile" style="width:50px; height:50px; display:block; margin-left: auto; margin-right: auto;">
+				{% endif %}</td>
 				<td >{{researcher.fname}} {{researcher.lname}}</td>
 				<td>{{researcher.cmi}}</td>
 				<td>{{researcher.email}}</td>

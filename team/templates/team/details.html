@@ -22,10 +22,12 @@
                 <div class="about-image">
                     {% if team.photo %}
                     <img class="img_team" src="{{ team.photo.url }}" alt="img_ferson">
+                    {% else %}
+                    <img class="img_team" src="{% static 'images/default.jpg' %}" alt="profile">
                     {% endif %}
                 </div>
                     <div class="about-content">
-                        <h1>{{team.lname}}, {{team.fname}} {{team.mname}}</h1>
+                        <h1>{{team.lname}}, {{team.fname}} {{team.mname|default_if_none:""}}</h1>
                         <h5>{{team.position}}</h5>
                         <table>
                             <tr>
