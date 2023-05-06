@@ -30,16 +30,16 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None and user.researcher:
                 login(request, user)
-                return redirect('/home')
+                return redirect('/')
             elif user is not None and user.secretariat:
                 login(request, user)
-                return redirect('/home')
+                return redirect('/')
             elif user is not None and user.stakeholder:
                 login(request, user)
-                return redirect('/home')
+                return redirect('/')
             elif user is not None and user.is_superuser:
                 login(request, user)
-                return redirect('/home')
+                return redirect('/')
             else:
                 msg = 'Wrong username or password'
         else:

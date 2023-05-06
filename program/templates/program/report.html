@@ -107,9 +107,9 @@
           <tr>
             <td>Year: {{budget.yr}}<br>
               Fund Source: {{budget.fund_source}}<br>
-              PS: {{budget.ps}}<br>
-              MOOE: {{budget.mooe}}<br>
-              EO: {{budget.eo}}
+              Personal Services: P{{budget.ps|floatformat:2}}<br>
+              Maintenance and Other Operating Expenses: P{{budget.mooe|floatformat:2}}<br>
+              Executive Order: {{budget.eo|floatformat:0}}
             </td>
           </tr>
           {% endfor %}

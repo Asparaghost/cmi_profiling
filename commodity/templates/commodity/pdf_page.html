@@ -60,7 +60,11 @@
           <tr>
             <td>{{commodity.name}}</th>
             <td>{{commodity.cmi_name}}</th>
+            {% if commodity.produced_by %}
             <td>{{commodity.produced_by}}</th>
+            {% else %}
+            <td>None</th>
+            {% endif %}
 
             <td>
                 <a href="{% url 'commodity:create-pdf' commodity.name %}" target="_blank" class="btn btn-primary">VIEW</a>

@@ -6,7 +6,7 @@ app_name = 'sub'
 
 urlpatterns = [
 
-    path('home/',views.home,name='home'),
+    path('',views.home,name='home'),
     path('dashboard/',views.dashboard,name='dashboard'),
     path('CMI_summary/',views.summary,name='summary'),
     path('audit_trail/',views.audit_trail,name='audit_trail'),
