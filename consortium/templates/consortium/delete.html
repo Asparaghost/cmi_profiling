@@ -17,25 +17,85 @@
     <body>
         <div id="nav-placeholder"></div>
         
-                <h2 style="color: rgb(184, 32, 32); font-weight: 700;">Are you sure you want to delete {{consortium.agency_code}}?</h2>
-                
-                <div class="cont">
-                    <div class="wrapper">
-                        <div class="text-box">
-                            <form method="POST">
-                                {% csrf_token %}
-                                {% if cmi.logo %}
-                                <img class="img_logo" src="{{ cmi.logo.url }}" alt="img_commodity">
-                                {% endif %}
-                                <div class="name">{{cmi.name}}</div>
-                                <div class="content">{{cmi.detail}}</div><br>
-                                <div class="content">{{cmi.url}}</div><br><br>
-                                <a href="{% url 'consortium:cmi' %}" class="btn" style="font-weight: 900;">Back</a>
-                                <input type="submit" name="Confirm" class="btn" value="Confirm" style="font-weight: 900; color: rgb(255, 255, 255);">
-                            </form>
-                        </div>
-                    </div>
+        <div class="container">
+            <h2 class="display-10" style="color: rgb(184, 32, 32); font-weight: 700; text-align: center; ">Are you sure you want to delete this CMI?</h2>
+            <section class="about">
+                <div class="about-image">
+                    {% if cmi.logo %}
+                    <img id="img_cmi" src="{{ cmi.logo.url }}" alt="img_cmi">
+                    {% endif %}
                 </div>
+                    <div class="about-content">
+                    <h1>{{cmi.name}} ({{cmi.agency_code}})</h1>
+                    <p>{{cmi.detail}}</p>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+  
+                        <tr>
+                          <th>Address:</th>
+                          <td>{{cmi.address}}</td>
+                      </tr>
+  
+                        <tr>
+                            <th>Is CMI:</th>
+                            <td>{{cmi.is_cmi}}</td>
+                        </tr>
+  
+                        <tr>
+                            <th>Consortium:</th>
+                            <td>{{cmi.consortium_id}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>URL:</th>{% if cmi.url %}
+                            <td><a href="{{cmi.url}}" target=”_blank”> {{cmi.url}}</a></td>
+                            {%else%}<td>None</td>{% endif %}
+                        </tr>
+                
+                        <tr>
+                            <th>Telephone Number: </th>
+                            <td>{{cmi.telno}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Contact Number: </th>
+                            <td>{{cmi.contact_no}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Email: </th>
+                            <td>{{cmi.email}}</td>
+                        </tr>
+  
+                        {% if user.is_authenticated %}
+  
+                        {% if user.is_superuser %}
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{cmi.created_by}}</td>
+                        </tr>
+  
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{cmi.modified_by}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endif %}
+                    </table>
+                    
+                    {% if user.is_superuser or user.secretariat %}
+                    <form method="POST">
+                    {% csrf_token %}
+                    <input type="submit" name="Confirm" class="btn btn-danger" value="Confirm">
+                    {% endif %}
+                    <a href="{% url 'consortium:cmi' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </section>
+        </div>
        
 
         <script>

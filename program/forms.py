@@ -6,16 +6,16 @@ from django.forms.widgets import Widget, CheckboxInput
 
 
 class ProgramForm(forms.ModelForm):  
-    start_date = forms.DateField(label='Start Date', widget=forms.TextInput(     
+    start_date = forms.DateField(label='Start Date', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
-    final_impl_date = forms.DateField(label='Final Implementation Date', widget=forms.TextInput(     
+    final_impl_date = forms.DateField(label='Final Implementation Date', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
     daterequestedext = forms.DateField(label='Date Requested Extension', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
-    date_uploaded = forms.DateField(label='Date Uploaded', widget=forms.TextInput(     
+    date_uploaded = forms.DateField(label='Date Uploaded', required=False, widget=forms.TextInput(     
         attrs={'type': 'date'}))
     
     # co_impl_agency = forms.ModelMultipleChoiceField(label='Co-Implementing Agency(s)', required=False,

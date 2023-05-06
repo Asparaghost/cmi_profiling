@@ -17,26 +17,82 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        
+        <div class="container">
+            <section class="about">
+                    <div class="about-content">
+                    <h1>{{stakeholder.lname}}, {{stakeholder.fname}} {{stakeholder.mname|default_if_none:""}}</h1>
+                    <!-- <p>{{project.proj_description}}</p> -->
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        
+                        <tr>{% if stakeholder.cmi %}
+                            <th>CMI:</th>
+                            <td>{{stakeholder.cmi}}</td>
+                            {%else%}{% endif %}
+                        </tr>
 
-        
-                        <div class="name">{{stakeholder.lname}}, {{stakeholder.fname}} {{stakeholder.mname}}</div>
-                        <div class="content">CMI: {{stakeholder.consortium_id}}</div>
-                        <div class="content">Sex: {{stakeholder.sex}}</div>
-                        <div class="content">Barangay: {{stakeholder.barangay}}</div>
-                        <div class="content">City: {{stakeholder.city}}</div>
-                        <div class="content">Province: {{stakeholder.province}}</div>
-                        <div class="content">Zipcode: {{stakeholder.zipcode}}</div>
-                        <div class="content">Email Address: {{stakeholder.email_add}}</div>
-                        <div class="content">Contact Number: {{stakeholder.contact_no}}</div>
-                        <div class="content">Date of Birth: {{stakeholder.dob}}</div><br>
+                        <tr>
+                            <th>Sex:</th>
+                            <td>{{stakeholder.sex}}</td>
+                        </tr>
 
+                        <tr>
+                            <th>Barangay:</th>
+                            <td>{{stakeholder.barangay}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>City:</th>
+                            <td>{{stakeholder.city}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Province:</th>
+                            <td>{{stakeholder.province}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Zipcode:</th>
+                            <td>{{stakeholder.zipcode}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Email Address:</th>
+                            <td>{{stakeholder.email_add}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Contact Number:</th>
+                            <td>{{stakeholder.contact_no}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Date of Birth:</th>
+                            <td>{{stakeholder.dob}}</td>
+                        </tr>
+                        
                         {% if user.is_superuser %}
-                        <div class="content">Created By: {{researcher.created_by}}
-                        <div class="content">Modified By: {{researcher.modified_by}}</div>
-                        {% endif %}<br>
-                        <a href="{% url 'sub:stakeholder' %}" class="btn" style="font-weight: 600;">Back</a>
-                   
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{stakeholder.created_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{stakeholder.modified_by}}</td>
+                        </tr>
+                        {% endif %}
+
+                    </table>
+                    
+                    <a href="{% url 'sub:stakeholder' %}" class="btn btn-secondary">Back</a>
+                </div>
+            </section>
+        </div>
+
 
         <script>
             $(function(){

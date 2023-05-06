@@ -22,6 +22,8 @@
                 <div class="about-image">
                     {% if secretariat.photo %}
                     <img class="img_team" src="{{ secretariat.photo.url }}" alt="img_ferson">
+                    {% else %}
+                    <img class="img_team" src="{% static 'images/default.jpg' %}" alt="profile">
                     {% endif %}
                 </div>
                     <div class="about-content">

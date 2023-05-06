@@ -36,7 +36,7 @@ class Researcher(models.Model):
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.lname) +", "+ (self.fname)
+        return str(self.fname) +" "+ (self.lname)
         
     class Meta:
         db_table = "researcher"

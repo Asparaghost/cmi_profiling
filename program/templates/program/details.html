@@ -17,109 +17,153 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br><br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
-                        <div class="name">{{program.title}}</div>
-                        <div class="content">Description:<br> {{program.prog_description}}</div>
-                        <div class="content">Program Leader: {{program.program_leader}}</div>
-                        <div class="content">Status: {{program.status}}</div>
-                        <div class="content">Consortium: {{program.consortium}}</div>
+        <div class="container">
+          <section class="about">
+                  <div class="about-content">
+                  <h1>{{program.title}}</h1>
+                  <p>{{program.prog_description}}</p>
+                  <table>
+                      <tr>
+                          <th></th>
+                          <td></td>
+                      </tr>
+                      
+                      <tr>
+                          <th>Status:</th>
+                          <td>{{program.status}}</td>
+                      </tr>
 
-                        {% if program.commodity.all %}
-                        <div class="content">Commodity(s):<br> {{program.commodity.all|join:", "}}</div>
+                      <tr>
+                          <th>Program Leader:</th>
+                          <td>{{program.program_leader}}</td>
+                      </tr>
+              
+                      <tr>{% if program.commodity.all %}
+                          <th>Commodity(s):</th>
+                          <td>{{program.commodity.all|join:", "}}</td>
+                          {%else%}
+                          <th>Commodity(s):</th>
+                          <td>None</td>
+                          {% endif %}
+                      </tr>
+
+                      <tr>
+                          <th>Implementing Agency:</th>
+                          <td>{{program.impl_agency}}</td>
+                      </tr>
+
+                      <tr>{% if program.co_impl_agency.all %}
+                        <th>Co-Implementating Agency(s):</th>
+                        <td>{{program.co_impl_agency.all|join:", "}}</td>
                         {%else%}
-                        <div class="content">Commodity(s):<br>None</div>
+                        <th>Co-Implementating Agency(s):</th>
+                        <td>None</td>
                         {% endif %}
+                      </tr>
 
-                        <div class="content">Implementing Agency:<br> {{program.impl_agency}}</div>
-                        <div class="content">Funding Agency:<br> {{program.funding_agency}}</div>
-                        <div class="content">Start Date:<br> {{program.start_date}}</div>
+                      <tr>
+                        <th>Funding Agency:</th>
+                        <td>{{program.funding_agency}}</td>
+                      </tr>
 
-                        {% if program.duration %}
-                        <div class="content">Duration:<br>{{program.duration}} month(s)</div>
+                      <tr>
+                        <th>Start Date:</th>
+                        <td>{{program.start_date}}</td>
+                      </tr>
+                      
+                      <tr>{% if program.duration %}
+                        <th>Duration:</th>
+                        <td>{{program.duration}} month(s)</td>
                         {%else%}
-                        <div class="content">Duration:<br>None</div>
+                        <th>Duration:</th>
+                        <td>None</td>
                         {% endif %}
+                    </tr>
 
-                        <div class="content">Final Implementation Date:<br> {{program.final_impl_date}}</div>
-                        
-                        {% if program.co_impl_agency.all %}
-                        <div class="content">Co-Implementating Agency(s):<br> {{program.co_impl_agency.all|join:", "}}</div>
-                        {%else%}
-                        <div class="content">Co-Implementating Agency(s):<br> None</div>
-                        {% endif %}
+                      <tr>
+                          <th>Final Implementation Date:</th>
+                          <td>{{program.final_impl_date}}</td>
+                      </tr>
+                      
+                      <tr>{% if program.total_budget %}
+                          <th>Total Budget: </th>
+                          <td>P{{program.total_budget}}</td>
+                          {%else%}{% endif %}
+                      </tr>
 
-                        {% if program.total_budget %}
-                        <div class="content">Total Budget:<br>P {{program.total_budget}}</div>
-                        {%else%}
-                         
-                        {% endif %}
+                      <tr>{% if program.daterequestedext %}
+                          <th>Date Requested Extension: </th>
+                          <td>{{program.daterequestedext}}</td>
+                          {%else%}{% endif %}
+                      </tr>
 
-                        {% if program.daterequestedext %}
-                        <div class="content">Date Requested Extension:<br> {{program.daterequestedext}}</div>
-                        {%else%}
-                         
-                        {% endif %}
-                        
-                        <div class="content">Requested By:<br> {{program.requested_by}}</div>
+                      <tr>
+                          <th>Requested By: </th>
+                          <td>{{program.requested_by}}</td>
+                      </tr>
+                      
+                      <tr>{% if program.ext_duration %}
+                          <th>Extension Duration: </th>
+                          <td>{{program.ext_duration}} month(s)</td>
+                          {%else%}{% endif %}
+                      </tr>
+                      
+                      <tr>
+                          <th>Date Uploaded: </th>
+                          <td>{{program.date_uploaded}}</td>
+                      </tr>
 
-                        {% if program.ext_duration %}
-                        <div class="content">Extension Duration:<br> {{program.ext_duration}} month(s)</div>
-                        {%else%}
-                         
-                        {% endif %}
-                        <div class="content">Date Uploaded: {{program.date_uploaded}}</div><br>
+                      {% if user.is_authenticated %}
+                      <tr>
+                          {% if program.prog_file %}
+                          <th>Program File: </th>
+                          <td><a href="{{ program.prog_file.url }}" target="_blank">Download File</a></td>
+                          {% endif %}
+                      </tr>
 
-                        {% if user.is_authenticated %}
-                        {% if program.prog_file %}
-                        <div class="content">Program File:
-                        <h4><a href="{{ program.prog_file.url }} " target="_blank">Download File<i class="bx bxs-caret-down-circle"></i></a></h4>
-                        </div>
-                        {% endif %}
+                      {% if user.is_superuser %}
+                      <tr>
+                          <th>Created By: </th>
+                          <td>{{program.created_by}}</td>
+                      </tr>
 
-                        {% if user.is_superuser %}
-                        <div class="content">Created by: {{program.created_by}}
-                        <div class="content">Modified by: {{program.modified_by}}</div><br><br>
-                        {% endif %}
-                        {% endif %}
-                        
-                        <a href="{% url 'program:program' %}" class="btn" style="font-weight: 600;">Back</a>
-                        {% if user.is_superuser or user.secretariat or user.researcher %}
-                        <a href="{% url 'program:edit' program.prog_id %}" class="btn" style="font-weight: 600;">Edit</a>
-                        <a href="{% url 'program:delete' program.prog_id %}" class="btn_del" style="font-weight: 600; color: rgb(255, 255, 255);">Delete</a>
-                        {% endif %}
-                    </p>
+                      <tr>
+                          <th>Modified By: </th>
+                          <td>{{program.modified_by}}</td>
+                      </tr>
+                      {% endif %}
+                      {% endif %}
+                  </table>
+                  
+                  {% if user.is_superuser or user.secretariat or user.researcher %}
+                      <a href="{% url 'program:edit' program.prog_id %}" class="btn btn-success">Edit</a>
+                      <a href="{% url 'program:delete' program.prog_id %}" class="btn btn-danger">Delete</a>
+                  {% endif %}
+                  <a href="{% url 'program:program' %}" class="btn btn-secondary">Back</a>
+              </div>
+          </section><br/>
 
-                    <div class="row">
-                        <div class="column">
-                          <table id="table_cmi" class="table table-sm">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Projects</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                  {% for project in projects %}
-                                <tr>
-                                  <th>{{project.title}}</th>
-                                </tr>
-                                  {% endfor %}
-                              </tbody>
-                          </table><br>
-                        </div>
-                    </div>
-
-                </div>
+          <div class="row">
+            <div class="column">
+              <table id="table_cmi" class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="background-color:#77c296;">Projects:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for project in projects %}
+                    <tr>
+                      <th>{{project.title}}</th>
+                    </tr>
+                      {% endfor %}
+                  </tbody>
+              </table><br>
             </div>
+          </div>
 
-            <div class="#">
-            </div>
-
-        </div>
+      </div>
+               
 
         <script>
             $(function(){

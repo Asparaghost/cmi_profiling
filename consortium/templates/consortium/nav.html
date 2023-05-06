@@ -45,7 +45,7 @@
     <div class="sidebar close">
       <ul class="nav-links">
 
-        {% if user.is_superuser or user.secretariat %}
+        {% if user.is_superuser %}
           <li>
             <a href="{% url 'sub:dashboard' %}">
               <i class='bx bx-sidebar' ></i>

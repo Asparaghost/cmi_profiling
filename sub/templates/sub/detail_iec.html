@@ -17,40 +17,67 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
-                        <div class="name">{{iecmaterial.title}}</div>
-                        <div class="content">Description: {{iecmaterial.iec_type}}</div>
-                        <div class="content">Program Leader: {{iecmaterial.target_audience}}</div>
-                        <div class="content">Implementing Agenvy:<br> {{iecmaterial.designed_by}}</div>
-                        <div class="content">Funding Agency:<br> {{iecmaterial.content_by}}</div>
-                        <div class="content">Start Date:<br> {{iecmaterial.date_published}}</div>
-                        <div class="content">Duration:<br> {{iecmaterial.ip}} month/s</div>
+        <div class="container">
+            <section class="about">
+                    <div class="about-content">
+                    <h1>{{iecmaterial.title}}</h1>
+                    <p>{{iecmaterial.iec_type}}</p>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
 
-                        {% if iecmaterial.iec_file %}
-                        <div class="content">IEC File:
-                        <h4><a href="{{ iecmaterial.iec_file.url }} " target="_blank">Download File<i class="bx bxs-download"></i></a></h4>
-                        </div>
-                        {% endif %}
+                        <tr>
+                            <th>Target Audience:</th>
+                            <td>{{iecmaterial.target_audience}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Designed By:</th>
+                            <td>{{iecmaterial.designed_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Content By:</th>
+                            <td>{{iecmaterial.content_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Data Published:</th>
+                            <td>{{iecmaterial.date_published}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>IP:</th>
+                            <td>{{iecmaterial.ip}}</td>
+                        </tr>
+                        
+                        {% if user.is_authenticated %}
+                        <tr>
+                            {% if iecmaterial.iec_file %}
+                            <th>IEC File: </th>
+                            <td><a href="{{ iecmaterial.iec_file.url }}" target="_blank">Download File</a></td>
+                            {% endif %}
+                        </tr>
 
                         {% if user.is_superuser %}
-                        <div class="content">Created by: {{iecmaterial.created_by}}</div>
-                        <div class="content">Modified by: {{iecmaterial.modified_by}}</div>
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{iecmaterial.created_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{iecmaterial.modified_by}}</td>
+                        </tr>
                         {% endif %}
-                        <br><br>
-                        
-                        <a href="{% url 'sub:iec_material' %}" class="btn" style="font-weight: 600;">Back</a>
-                    </p>
+                        {% endif %}
+                    </table>
+                    
+                    <a href="{% url 'sub:iec_material' %}" class="btn btn-secondary">Back</a>
                 </div>
-            </div>
-
-            <div class="#">
-            </div>
-
+            </section>
         </div>
 
         <script>

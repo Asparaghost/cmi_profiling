@@ -16,26 +16,106 @@
 
     <body>
         <div id="nav-placeholder"></div>
-        
-                <h2 style="color: rgb(184, 32, 32); font-weight: 700;">Are you sure you want to delete {{secretariat.lname}}?</h2>
                 
-                <div class="cont">
-                    <div class="wrapper">
-                        <div class="text-box">
-                            <form method="POST">
-                                {% csrf_token %}
-                                {% if secretariat.photo %}
-                                <img class="img_team" src="{{ secretariat.photo.url }}" alt="img_ferson">
+                <div class="container">
+                    <h2 class="display-10" style="color: rgb(184, 32, 32); font-weight: 700; text-align: center; ">Are you sure you want to delete this profile?</h2>
+                    <section class="about">
+                        <div class="about-image">
+                            {% if secretariat.photo %}
+                            <img class="img_team" src="{{ secretariat.photo.url }}" alt="img_ferson">
+                            {% else %}
+                            <img class="img_team" src="{% static 'images/default.jpg' %}" alt="profile">
+                            {% endif %}
+                        </div>
+                            <div class="about-content">
+                            <h1>{{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname|default_if_none:""}}</h1>
+                            <h5>{{secretariat.position}}</h5>
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Consortium:</th>
+                                    <td>{{secretariat.consortium_id}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <th>Email Address:</th>
+                                    <td>{{secretariat.email_add}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Contact Number: </th>
+                                    <td>{{secretariat.contact_no}}</td>
+                                </tr>
+                        
+                                <tr>
+                                    <th>Date Appointed:</th>
+                                    <td>{{secretariat.date_appointed}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <th>Date of Birth:</th>
+                                    <td>{{secretariat.dob}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Sex:</th>
+                                    <td>{{secretariat.sex}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Bachelor's Degree: </th>
+                                    <td>{{secretariat.bach_deg}}, {{secretariat.bdyearcompleted}}</td>
+                                </tr>
+                        
+                                <tr>
+                                    <th>Master's Degree: </th>
+                                    <td>{{secretariat.mas_deg}}, {{secretariat.mdyearcompleted}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Doctorate Degree: </th>
+                                    <td>{{secretariat.doc_deg}}, {{secretariat.ddyearcompleted}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Specialization: </th>
+                                    <td>{{secretariat.specialization}}</td>
+                                </tr>
+        
+                                {% if user.is_authenticated %}
+                                <tr>
+                                    {% if secretariat.pds_file %}
+                                    <th>Pds File: </th>
+                                    <td><a href="{{ secretariat.pds_file.url }} " target="_blank">Download File</a></td>
+                                    {% endif %}
+                                </tr>
+        
+                                {% if user.is_superuser %}
+                                <tr>
+                                    <th>Created By: </th>
+                                    <td>{{secretariat.created_by}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <th>Modified By: </th>
+                                    <td>{{secretariat.modified_by}}</td>
+                                </tr>
                                 {% endif %}
-                                <div class="fullname">{{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname}}</div>
-                                <div class="content">Position:{{secretariat.position}}</div>
-                                <div class="content">Email Address: {{secretariat.email_add}}</div>
-                                <div class="content">Contact Number: {{secretariat.contact_no}}</div><br><br>
-                                <a href="{% url 'secretariat:secretariat' %}" class="btn" style="font-weight: 600;">Back</a>
-                                <input type="submit" name="Confirm" class="btn" value="Confirm" style="font-weight: 600; color: rgb(255, 255, 255);">
+                                {% endif %}
+                            </table>
+
+                            {% if user.is_superuser or user.secretariat %}
+                            <form method="POST">
+                            {% csrf_token %}
+                            <input type="submit" name="Confirm" class="btn btn-danger" value="Confirm">
+                            {% endif %}
+                            <a href="{% url 'secretariat:secretariat' %}" class="btn btn-secondary">Cancel</a>
                             </form>
                         </div>
-                    </div>
+                    </section>
                 </div>
        
 
@@ -46,5 +126,4 @@
         </script>
 
     </body>
-    
 </html>

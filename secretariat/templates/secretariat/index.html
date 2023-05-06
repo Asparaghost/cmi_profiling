@@ -41,6 +41,8 @@
 			  <div class="box">
 				{% if secretariat.photo %}
 				<img class="img_team" src="{{ secretariat.photo.url }}" alt="profile">
+				{% else %}
+				<img class="img_team" src="{% static 'images/default.jpg' %}" alt="profile">
 				{% endif %}
 				<h2>{{secretariat.fname}} {{secretariat.mname}} {{secretariat.lname}}</h2>
 				<h3>Position: {{secretariat.position}}</h3>

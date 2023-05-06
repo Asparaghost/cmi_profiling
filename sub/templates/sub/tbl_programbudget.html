@@ -49,8 +49,12 @@
 			  <tr>
 				<th scope="row">{{progbudg.prog_id}}</th>
 				<td>{{progbudg.yr}}</td>
-				<td>{{progbudg.fund_source}}</td>
-				<td>{{progbudg.ps}}</td>
+				<td>{{progbudg.fund_source}}</td> 
+				{% if progbudg.ps %}
+				<td>P{{progbudg.ps|floatformat:2}}</td>
+				{% else %}
+				<td>None</td>
+				{% endif %}
 
 				<td>
 					<a href="{% url 'sub:detail_progbudg' progbudg.progbdg_id %}" class="btn btn-primary">View</a>&nbsp;

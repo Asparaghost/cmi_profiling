@@ -17,23 +17,135 @@
     <body>
         <div id="nav-placeholder"></div>
         
-                <h2 style="color: rgb(184, 32, 32); font-weight: 700;">Are you sure you want to delete {{program.title}}?</h2>
+        <div class="container">
+            <h2 class="display-10" style="color: rgb(184, 32, 32); font-weight: 700; text-align: center; ">Are you sure you want to delete this program?</h2>
+            <section class="about">
+                    <div class="about-content">
+                    <h1>{{program.title}}</h1>
+                    <p>{{program.prog_description}}</p>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Status:</th>
+                            <td>{{program.status}}</td>
+                        </tr>
+  
+                        <tr>
+                            <th>Program Leader:</th>
+                            <td>{{program.program_leader}}</td>
+                        </tr>
                 
-                <div class="cont">
-                    <div class="wrapper">
-                        <div class="text-box">
-                            <form method="POST">
-                                {% csrf_token %}
-                                
-                                <div class="name">{{program.title}}</div>
-                                <div class="content">{{program.status}}</div><br>
-                                <div class="content">{{program.telno}}</div><br><br>
-                                <a href="{% url 'program:program' %}" class="btn" style="font-weight: 900;">Back</a>
-                                <input type="submit" name="Confirm" class="btn" value="Confirm" style="font-weight: 900; color: rgb(255, 255, 255);">
-                            </form>
-                        </div>
-                    </div>
+                        <tr>{% if program.commodity.all %}
+                            <th>Commodity(s):</th>
+                            <td>{{program.commodity.all|join:", "}}</td>
+                            {%else%}
+                            <th>Commodity(s):</th>
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
+  
+                        <tr>
+                            <th>Implementing Agency:</th>
+                            <td>{{program.impl_agency}}</td>
+                        </tr>
+  
+                        <tr>{% if program.co_impl_agency.all %}
+                          <th>Co-Implementating Agency(s):</th>
+                          <td>{{program.co_impl_agency.all|join:", "}}</td>
+                          {%else%}
+                          <th>Co-Implementating Agency(s):</th>
+                          <td>None</td>
+                          {% endif %}
+                        </tr>
+  
+                        <tr>
+                          <th>Funding Agency:</th>
+                          <td>{{program.funding_agency}}</td>
+                        </tr>
+  
+                        <tr>
+                          <th>Start Date:</th>
+                          <td>{{program.start_date}}</td>
+                        </tr>
+                        
+                        <tr>{% if program.duration %}
+                          <th>Duration:</th>
+                          <td>{{program.duration}} month(s)</td>
+                          {%else%}
+                          <th>Duration:</th>
+                          <td>None</td>
+                          {% endif %}
+                      </tr>
+  
+                        <tr>
+                            <th>Final Implementation Date:</th>
+                            <td>{{program.final_impl_date}}</td>
+                        </tr>
+                        
+                        <tr>{% if program.total_budget %}
+                            <th>Total Budget: </th>
+                            <td>P{{program.total_budget}}</td>
+                            {%else%}{% endif %}
+                        </tr>
+  
+                        <tr>{% if program.daterequestedext %}
+                            <th>Date Requested Extension: </th>
+                            <td>{{program.daterequestedext}}</td>
+                            {%else%}{% endif %}
+                        </tr>
+  
+                        <tr>
+                            <th>Requested By: </th>
+                            <td>{{program.requested_by}}</td>
+                        </tr>
+                        
+                        <tr>{% if program.ext_duration %}
+                            <th>Extension Duration: </th>
+                            <td>{{program.ext_duration}} month(s)</td>
+                            {%else%}{% endif %}
+                        </tr>
+                        
+                        <tr>
+                            <th>Date Uploaded: </th>
+                            <td>{{program.date_uploaded}}</td>
+                        </tr>
+  
+                        {% if user.is_authenticated %}
+                        <tr>
+                            {% if program.prog_file %}
+                            <th>Program File: </th>
+                            <td><a href="{{ program.prog_file.url }}" target="_blank">Download File</a></td>
+                            {% endif %}
+                        </tr>
+  
+                        {% if user.is_superuser %}
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{program.created_by}}</td>
+                        </tr>
+  
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{program.modified_by}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endif %}
+                    </table>
+                    
+                    {% if user.is_superuser or user.secretariat or user.researcher %}
+                    <form method="POST">
+                    {% csrf_token %}
+                    <input type="submit" name="Confirm" class="btn btn-danger" value="Confirm">
+                    {% endif %}
+                    <a href="{% url 'program:program' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
                 </div>
+            </section>
+        </div>
        
 
         <script>

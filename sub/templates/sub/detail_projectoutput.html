@@ -17,30 +17,43 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
-                        <div class="name">{{projectoutput.proj_id}}</div>
-                        <div class="content">Project Output Type: {{projectoutput.proj_output_type}}</div>
-                        <div class="content">Description:<br> {{projectoutput.proj_output_desc}}</div>
-                        <div class="content">IEC Material:<br> {{projectoutput.iec_id}}</div>
+        <div class="container">
+            <section class="about">
+                    <div class="about-content">
+                    <h1>{{projectoutput.proj_id}}</h1>
+                    <p>{{projectoutput.proj_output_desc}}</p>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>Project Output Type:</th>
+                            <td>{{projectoutput.proj_output_type}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>IEC Material:</th>
+                            <td>{{projectoutput.iec_id}}</td>
+                        </tr>
+
                         {% if user.is_superuser %}
-                        <br>
-                        <div class="content">Created by: {{projectoutput.created_by}}</div>
-                        <div class="content">Modified by: {{projectoutput.modified_by}}</div>
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{projectoutput.created_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{projectoutput.modified_by}}</td>
+                        </tr>
                         {% endif %}
-                        <br><br>
-                        <a href="{% url 'sub:projout' %}" class="btn" style="font-weight: 600;">Back</a>
-                    </p>
+                    </table>
+                    
+                    <a href="{% url 'sub:projout' %}" class="btn btn-secondary">Back</a>
                 </div>
-            </div>
-
-            <div class="#">
-            </div>
-
+            </section>
         </div>
 
         <script>

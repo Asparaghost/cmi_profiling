@@ -17,31 +17,53 @@
     <body>
         <div id="nav-placeholder"></div>
 
-        <br><br>
-            
-        <div class="cont">
-            <div class="wrapper">
-                <div class="text-box">
-                    <p>
-                        <div class="name">{{projectimp.proj_id}}</div>
-                        <div class="content">Barangay: {{projectimp.barangay}}</div>
-                        <div class="content">City: {{projectimp.city}}</div>
-                        <div class="content">Province: {{projectimp.province}}</div>
-                        <div class="content">Zipcode: {{projectimp.zipcode}}</div>
+        <div class="container">
+            <section class="about">
+                    <div class="about-content">
+                    <h1>{{projectimp.proj_id}}</h1>
+                    <!-- <p>{{projectoutput.proj_output_desc}}</p> -->
+                    <table>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th>Barangay:</th>
+                            <td>{{projectimp.barangay}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>City:</th>
+                            <td>{{projectimp.city}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Province:</th>
+                            <td>{{projectimp.province}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Zipcode:</th>
+                            <td>{{projectimp.zipcode}}</td>
+                        </tr>
+
                         {% if user.is_superuser %}
-                        <br>
-                        <div class="content">Created by: {{projectimp.created_by}}</div>
-                        <div class="content">Modified by: {{projectimp.modified_by}}</div>
+                        <tr>
+                            <th>Created By: </th>
+                            <td>{{projectimp.created_by}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Modified By: </th>
+                            <td>{{projectimp.modified_by}}</td>
+                        </tr>
                         {% endif %}
-                        <br><br>
-                        <a href="{% url 'sub:projimp' %}" class="btn" style="font-weight: 600;">Back</a>
-                    </p>
+                    </table>
+                    
+                    <a href="{% url 'sub:projimp' %}" class="btn btn-secondary">Back</a>
                 </div>
-            </div>
-
-            <div class="#">
-            </div>
-
+            </section>
         </div>
 
         <script>
