@@ -38,21 +38,23 @@
           </div>
         </div>
 
+        <div class="float"><a href="{% url 'sub:about' %}">About Us</div>  
+
         <script>
             $(function(){
               $("#nav-placeholder").load("{% url 'consortium:nav' %}");
             });
         </script>
 
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-    });
-  </script>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+              slidesPerView: 1,
+              spaceBetween: 30,
+              loop: true,
+            });
+          </script>
         
     </body>
 </html>

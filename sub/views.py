@@ -15,6 +15,9 @@ from xhtml2pdf import pisa
 
 
 # Create your views here.
+def about(request):
+    return render(request, "sub/about.html")
+
 def home(request):
     commodities = Commodity.objects.all()
     return render(request, "sub/homepage.html", {'commodities':commodities})

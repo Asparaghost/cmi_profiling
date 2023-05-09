@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/about.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+        <title>WESMAARRDEC</title>
+    </head>
+
+    <body>
+        <div id="nav-placeholder"></div>
+
+        <div style="margin-top: 40px;">
+            <div class="section-title position-relative text-center mx-auto">
+                <div class="col-lg-3">
+                <div class="section-title position-relative">
+                    <h1 class="mb-1 text-red">About Us</h1>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-xxl py-5">
+            <div class="container px-lg-7">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-7">
+                        <div class="section-title position-relative mb-1 pb-3">
+                            <h1 class="mb-2">WESMAARRDEC</h1>
+                            <h6 class="mb-1">Western Mindanao Agriculture Aquatic and Natural Resources Research and Development Consortium</h1>
+                        </div>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo magna dolore erat amet</p>
+                    </div>
+                    <div class="col-lg-2 py-4">
+                        <img class="img-fluid" src="{% static 'images/wesmalogo.png' %}">
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="section-title position-relative mb-1 pb-1">
+                            <h1 class="mb-1" id="system">The System</h1>
+                        </div>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. 
+                            Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no 
+                            labore lorem sit clita duo justo magna dolore <a href="#">System Manual</a></p>
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div style="padding:40px 0; background-color: #800000">
+            <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow">
+                <div class="col-lg-5">
+                <div class="section-title position-relative mb-1 pb-1">
+                    <h1 class="mb-1 text-white">About the Developers</h1>
+                </div>
+                </div>
+                <h1 class="mb-3 text-white"><img class="img-fluid" src="{% static 'images/syncit.png' %}" id="syncit">SYNC IT</h1>
+                <p class="mb-1 text-white" id="desc">
+                    SYNC IT comprised of developers that build responsive web-based systems that contribute to
+                    the betterment of society. SYNC IT [s-i-n-g-k e-a-t] synchronizes each other's abilities to provide quality
+                    through synergy. We ought to share our similarities when we move in sync despite our differences. We
+                    intend to use the most of our capabilities at a pace that we will develop as a team.
+                </p>
+            </div>
+
+            <div class="container px-lg-6">
+            <div class="row g-4 justify-content-md-center">
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="{% static 'images/SI_sarael.png' %}" alt="">
+                            <h6 class="fw-bold mb-1">Ameeranur Sarael</h5>
+                            <small>QA Engineer</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="{% static 'images/SI_pabilona.jpg' %}" alt="">
+                            <h6 class="fw-bold mb-1">Lyza Lee Pabilona</h5>
+                            <small>Project Manager</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="profile.jpg" alt="">
+                            <h6 class="fw-bold mb-1">Christelle Lei Faburada</h5>
+                            <small>Lead Programmer</small>
+                        </div>
+                    </div>
+                </div><hr class="opacity-0">
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="{% static 'images/SI_ochea.jpg' %}" alt="">
+                            <h6 class="fw-bold mb-1">Julianne Ochea</h5>
+                            <small>Business Analyst</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="{% static 'images/SI_ting.jpg' %}" alt="">
+                            <h6 class="fw-bold mb-1">Matthew Ting</h5>
+                            <small>UX/UI Designer</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="{% static 'images/SI_tuttuh.jpg' %}" alt="">
+                            <h6 class="fw-bold mb-1">Ahmad Tuttuh</h5>
+                            <small>UX/UI Designer</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="team-item border-top border-5 border-danger shadow overflow-hidden" style="background-color: rgb(255, 255, 255);">
+                        <div class="text-center p-4">
+                            <img class="img-fluid rounded-circle mb-4" src="{% static 'images/SI_teo.jpg' %}" alt="">
+                            <h6 class="fw-bold mb-1">Jan Albert Teo</h5>
+                            <small>Business Analyst</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+        <div class="container-xxl py-5 justify-content-md-center" style="background-color: #800000" id="main_subject">
+            <div class="container px-lg-7">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-5">
+                        <div class="section-title position-relative mb-1 pb-3" style="text-align: center;">
+                            <h5 class="mb-2">Software Engineering Instructor</h5>
+                            <h6 class="mb-1">Catadman, Jason A.</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="section-title position-relative mb-1 pb-3" style="text-align: center;">
+                            <h5 class="mb-2">IT Elective 3 Instructor</h5>
+                            <h6 class="mb-1">Gregana, Pauleen</h6>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <script>
+            $(function(){
+              $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+            });
+        </script>
+
+        
+    </body>
+</html>
+
+
+
+
+

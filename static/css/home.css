@@ -52,6 +52,27 @@ body {
     color: #ffffff;
 }
 
+.float {
+    transition: all 0.1s ease-in-out;
+    font-size: 18px;
+    text-align: center;
+    line-height: 70px;
+    position: fixed;
+    right: 25px;
+    bottom: -15px;
+    font-weight: #008000;
+}
+
+.float a{
+    color: #008000;
+    font-weight: 600;
+}
+
+.float a:hover{
+    color: #053805;
+    font-weight: 600;
+}
+
 @media screen and (max-width: 870px) {
     .left{
         margin-top: 15%;

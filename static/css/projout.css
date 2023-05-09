@@ -155,10 +155,19 @@ body {
     #tbl tbody tr td a i{
         font-size: 13px;
     }
+    #tbl tbody tr td .btn{
+        text-decoration: none;
+        color: #ffffff;
+        word-spacing: 100px;
+        padding: 1px 3px;
+        font-size: 13px;
+    }
     #tbl thead tr th:nth-child(2){
         display: none;
     }
     #tbl tbody tr td:nth-child(2){
         display: none;
     }
+    #tbl th:nth-of-type(1) {width:50%;}
+    #tbl th:nth-of-type(3) {width:50%;}
 }
