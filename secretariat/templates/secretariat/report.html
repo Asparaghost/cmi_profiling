@@ -30,7 +30,7 @@
         {% endif %}
 
         <label>Fullname:</label>
-        {{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname}}<br><br>
+        {{secretariat.fname}} {{secretariat.mname|default_if_none:""}} {{secretariat.lname}}<br><br>
         <label>Position:</label>
         {{secretariat.position}}<br>
         <label>Consortium:</label>

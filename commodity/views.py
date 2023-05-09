@@ -58,6 +58,7 @@ def add_commodity(request):
                 instance = form.save(commit=False)  
                 instance.created_by = request.user
                 instance.save()
+                form.save_m2m()
                 return redirect('/commodities')  
             except:  
                 pass
@@ -77,6 +78,7 @@ def edit(request, name):
                 instance = form.save(commit=False)  
                 instance.modified_by = request.user
                 instance.save()
+                form.save_m2m()
                 return redirect('/commodities')  
             except:  
                 pass

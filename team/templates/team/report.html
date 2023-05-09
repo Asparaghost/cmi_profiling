@@ -31,7 +31,7 @@
         {% endif %}
 
         <label>Fullname:</label>
-        {{team.lname}}, {{team.fname}} {{team.mname}}<br><br>
+        {{team.fname}} {{team.mname|default_if_none:""}} {{team.lname}}<br><br>
         <label>Position:</label>
         {{team.position}}<br>
         <label>CMI:</label>

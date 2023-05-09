@@ -46,6 +46,13 @@
                               <td>{{commodity.cmi_name}}</td>
                           </tr>
 
+                          <tr>{% if commodity.stakeholder.all %}
+                              <th>Adoptors:</th>
+                              <td>{{commodity.stakeholder.all|join:", "}}</td>
+                              {%else%}
+                              {% endif %}
+                          </tr>
+
                           {% if user.is_authenticated %}
 
                           <tr>{% for iecmaterial in iecmaterials %}
@@ -85,7 +92,7 @@
               <table id="table_cmi" class="table table-sm">
                   <thead>
                     <tr>
-                      <th scope="col" style="background-color:#77c296;">Programs:</th>
+                      <th scope="col" style="background-color:#77c296;">Programs</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -102,7 +109,7 @@
               <table id="table_cmi" class="table table-sm">
                   <thead>
                     <tr>
-                      <th scope="col" style="background-color:#6c98b5;">Projects:</th>
+                      <th scope="col" style="background-color:#6c98b5;">Projects</th>
                     </tr>
                   </thead>
                   <tbody>

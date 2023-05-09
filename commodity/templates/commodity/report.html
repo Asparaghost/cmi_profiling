@@ -33,7 +33,7 @@
         {{commodity.name}}<br>
 
         <label>CMI:</label>
-        {{commodity.consortium_name}}<br><br>
+        {{commodity.cmi_name}}<br><br>
 
         <label>Details:</label><br>
         {{commodity.detail}}<br><br>
@@ -41,6 +41,12 @@
         {% if commodity.produced_by %}
         <label>Produced By:</label>
         {{commodity.produced_by}}<br><br>
+        {%else%}
+        {% endif %}
+
+        {% if commodity.stakeholder.all %}
+        <label>Adoptors:</label>
+        {{commodity.stakeholder.all|join:", "}}<br><br>
         {%else%}
         {% endif %}
 

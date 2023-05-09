@@ -4,7 +4,7 @@ from operator import mod
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from auth_user.models import User
-from consortium.models import CMI
+from consortium.models import CMI, Consortium
 from commodity.models import Commodity
 
 # Create your models here.
@@ -118,7 +118,7 @@ class Stakeholder(models.Model):
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
     mname = models.CharField(max_length=100, blank=True, null=True)
-    cmi = models.ForeignKey(CMI, null=True, blank=True, related_name='+', on_delete=models.CASCADE)
+    consortium_id = models.ForeignKey(Consortium, null=True, blank=True, related_name='+', on_delete=models.CASCADE)
     sex = models.CharField(max_length=10, choices=CHOICE_SEX, default=FEMALE)
     dob = models.DateField(blank=True, null=True)
     barangay = models.CharField(max_length=100, blank=True, null=True)
@@ -133,7 +133,7 @@ class Stakeholder(models.Model):
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return (self.lname) +", "+ (self.fname)
+        return (self.fname) +" "+ (self.lname)
         
     class Meta:
         db_table = "stakeholder"

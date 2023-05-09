@@ -19,7 +19,7 @@
 			
 		<table id="head">
 			<tr>
-			  <th class="title">SECRETARIATS</th>
+			  <th class="title">SECRETARIAT</th>
 			  {% if user.is_superuser or user.secretariat %}
 			  <th class="add"><a href="{% url 'secretariat:add' %}">Add Secretariat</a>&nbsp;&nbsp;&nbsp;
 							  <a href="{% url 'secretariat:pdf' %}">PDF</a></th>

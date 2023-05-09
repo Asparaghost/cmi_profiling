@@ -114,8 +114,8 @@ auditlog.register(Project, m2m_fields={"commodity", "proj_team", "proj_stakehold
 class ProjectImplementingSite(models.Model):
     projimp = models.AutoField(primary_key=True)
     proj_id = models.ForeignKey(Project, related_name='proj_imp', on_delete=models.CASCADE)
-    barangay = models.CharField(max_length=100, blank=True, null=True)
-    city = models.CharField(max_length=100, blank=True, null=True)
+    barangay = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
     province = models.CharField(max_length=100, blank=True, null=True)
     zipcode = models.CharField(max_length=5, blank=True, null=True)
     geolat = models.FloatField(blank=True, null=True)
@@ -125,8 +125,6 @@ class ProjectImplementingSite(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.barangay
     
     class Meta:
         db_table = "proj_imp_site"

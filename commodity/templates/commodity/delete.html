@@ -47,6 +47,13 @@
                                 <td>{{commodity.cmi_name}}</td>
                             </tr>
   
+                            <tr>{% if commodity.stakeholder.all %}
+                              <th>Adoptors:</th>
+                              <td>{{commodity.stakeholder.all|join:", "}}</td>
+                              {%else%}
+                              {% endif %}
+                            </tr>
+
                             {% if user.is_authenticated %}
   
                             <tr>{% for iecmaterial in iecmaterials %}

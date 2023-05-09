@@ -7,7 +7,8 @@ class CommodityForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CommodityForm, self).__init__(*args, **kwargs)
         self.fields['cmi_name'].empty_label = "Select CMI"
-
+        self.fields['stakeholder'].help_text = '<small style="color:green">Hold down “Control”, or “Command” on a Mac, to select more than one</small>'
+    
     class Meta:  
         model = Commodity  
         exclude = ('created_by', 'modified_by')
@@ -21,6 +22,7 @@ class CommodityForm(forms.ModelForm):
             'geolat': 'Latitude',
             'geolong': 'Longitude',
             'img': 'Image',
+            'stakeholder': 'Commodity Adoptors',
         }
         
 

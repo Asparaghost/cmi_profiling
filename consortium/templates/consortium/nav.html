@@ -45,14 +45,16 @@
     <div class="sidebar close">
       <ul class="nav-links">
 
-        {% if user.is_superuser %}
+        {% if user.is_superuser or user.secretariat %}
           <li>
             <a href="{% url 'sub:dashboard' %}">
               <i class='bx bx-sidebar' ></i>
               <span class="link_name">Dashboard</span>
             </a>
           </li>
+        {% endif %}
 
+        {% if user.is_superuser %}
           <li>
             <a href="{% url 'auth_user:signup' %}">
               <i class='bx bx-user-plus' ></i>

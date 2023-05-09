@@ -139,7 +139,8 @@ class ProjectOutputForm(forms.ModelForm):
         }
 
 
-class ProjectImplementingSiteForm(forms.ModelForm):  
+class ProjectImplementingSiteForm(forms.ModelForm): 
+     
     def __init__(self, *args, **kwargs):
             super(ProjectImplementingSiteForm, self).__init__(*args, **kwargs)
             self.fields['proj_id'].empty_label = "Select Project"
