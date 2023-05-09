@@ -179,7 +179,36 @@ body {
     box-shadow: 0 10px 15px rgba(15, 81, 9, 0.272);
 }
 
-
+@media (max-width: 800px) {
+    #head tr .title{
+        padding-left: 10px;
+        width: 76%;
+        font-weight: 600;
+        color: white;
+        font-size: 22px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    .container{
+        margin-top: 20px;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(153px, 1fr));
+    }
+    #btn{
+        font-size: 13px;
+    }
+    .box h2{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    h3{
+        display: none;
+    }
+    h4{
+        display: none;
+    }
+}
 
 @media (max-width: 500px) {
     #head tr .title{

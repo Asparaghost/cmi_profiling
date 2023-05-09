@@ -61,8 +61,8 @@
             <img class="img_team" src="{% static 'images/default.jpg' %}" alt="profile">
             {% endif %}
             <h2>{{team.fname}} {{team.lname}}</h2>
-            <h3>Position: {{team.position}}</h3>
-            <h3>CMI: {{team.cmi}}</h3>
+            <h3>{{team.position}}</h3>
+            <h3>{{team.cmi}}</h3>
             <a href="{% url 'team:details' team.member_id %}" class="btn">VIEW</a>
           </div>
           {% endfor %}
