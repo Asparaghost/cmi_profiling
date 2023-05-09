@@ -156,10 +156,23 @@ body {
     #tbl tbody tr td a i{
         font-size: 13px;
     }
+    #tbl tbody tr td .btn{
+        text-decoration: none;
+        color: #ffffff;
+        word-spacing: 100px;
+        padding: 1px 3px;
+        font-size: 13px;
+    }
+    #tbl thead tr th:nth-child(1){
+        display: none;
+    }
     #tbl thead tr th:nth-child(3){
         display: none;
     }
     #tbl thead tr th:nth-child(4){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(1){
         display: none;
     }
     #tbl tbody tr td:nth-child(3){
@@ -168,4 +181,8 @@ body {
     #tbl tbody tr td:nth-child(4){
         display: none;
     }
+    #tbl th:nth-of-type(2) {width:50%;}
+    #tbl th:nth-of-type(5) {width:50%;}
+    /* #tbl th:nth-of-type(4) {width:18%;}
+    #tbl th:nth-of-type(5) {width:20%;} */
 }

@@ -171,4 +171,13 @@ td a{
     #table_cmi tbody tr th{
         font-size: 12px;
     }
+    .about-content h1{
+        font-size: 19px;
+        color: #333;
+        font-weight: 700;
+    }
+    
+    .about-content p{
+        font-size: 14px;
+    }
 }
