@@ -14,16 +14,29 @@
             margin-right: 2rem;
           }
 
+          label{
+            font-weight: bold;
+          }
+          h3{
+            font-size: 19px;
+            padding: -24px 0;
+            font-weight: 500;
+        }
       
     </style>
 </head>
 <body>
         <img height="90px" width="90px" src="{{ cmi.logo.path }}" alt="img_cmi"><br><br>
 
-        <label>CMI:</label>
-        {{cmi.name}} ({{cmi.agency_code}})<br><br>
+        <!-- <label>CMI:</label> -->
+        <h3>{{cmi.name}} ({{cmi.agency_code}})</h3><br><br>
         <label>Address:</label>
         {{cmi.address}}<br><br>
+
+         {% if cmi.consortium_id %}
+        <label>Consortium:</label>
+        {{cmi.consortium_id}}<br><br>
+        {%else%}{% endif %}
 
         {% if cmi.detail %}
         <label>Detail:<br></label>

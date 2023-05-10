@@ -17,6 +17,15 @@
             text-align: center;
             font-size: 200%;
         }
+        h3{
+            font-size: 19px;
+            padding: -40px 0;
+            font-weight: 500;
+        }
+
+        label{
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -24,8 +33,8 @@
 
         <br>
 
-        <label>Title:</label>
-        {{program.title}}<br>
+        <!-- <label>Title:</label> -->
+        <h3>{{program.title}}</h3><br>
 
         <label>Program Leader:</label>
         {{program.program_leader}}<br>
@@ -97,11 +106,11 @@
         {{program.date_uploaded}}<br><br>
 
     <pdf:nextpage><br>
-        {{program.title}}<br>
+        <h3>{{program.title}}</h3><br>
 
         <table width="100%">
           <tr>
-            <td>Program Budget</td>
+            <td style="font-weight: 600;">Program Budget</td>
           </tr>
           {% for budget in budget %}
           <tr>
@@ -117,7 +126,7 @@
 
         <table width="100%">
           <tr>
-            <td>Projects:</td>
+            <td style="font-weight: 600;">Projects:</td>
           </tr>
           {% for project in projects %}
           <tr>

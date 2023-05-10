@@ -18,6 +18,16 @@
             font-size: 200%;
         }
 
+        h3{
+            font-size: 19px;
+            padding: -60px 0;
+            font-weight: 500;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
@@ -30,8 +40,8 @@
         <p>No Photo</p>
         {% endif %}
 
-        <label>Fullname:</label>
-        {{team.fname}} {{team.mname|default_if_none:""}} {{team.lname}}<br><br>
+        <!-- <label>Fullname:</label> -->
+        <h3>{{team.fname}} {{team.mname|default_if_none:""}} {{team.lname}}</h3><br><br>
         <label>Position:</label>
         {{team.position}}<br>
         <label>CMI:</label>
@@ -47,7 +57,7 @@
         <!-- <label>Date of Birth:</label>
         {{team.dob}}<br> -->
         <label>Sex:</label>
-        {{team.sex}}<br><br><br>
+        {{team.sex}}<br>
         <!-- <label>Bachelor's Degree:</label><br>
         {{team.bach_deg}}<br>
         <label>Bachelor's Degree Year Completed:</label>

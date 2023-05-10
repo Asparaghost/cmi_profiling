@@ -17,6 +17,15 @@
             text-align: center;
             font-size: 200%;
         }
+        h3{
+            font-size: 19px;
+            padding: -50px 0;
+            font-weight: 500;
+        }
+
+        label{
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -29,8 +38,8 @@
         <br>
         <img src="{{ commodity.img.path }}" alt="img_commodity" style="width: 240px; height: 240px;"><br><br>
 
-        <label>Name:</label>
-        {{commodity.name}}<br>
+        <!-- <label>Name:</label> -->
+        <h3>{{commodity.name}}</h3><br>
 
         <label>CMI:</label>
         {{commodity.cmi_name}}<br><br>
@@ -59,7 +68,7 @@
         <br>
         <table width="100%">
           <tr>
-            <td>Programs:</td>
+            <td style="font-weight: 600;">Programs:</td>
           </tr>
           {% for prog in programs %}
           <tr>
@@ -70,7 +79,7 @@
 
         <table width="100%">
           <tr>
-            <td>Projects:</td>
+            <td style="font-weight: 600;">Projects:</td>
           </tr>
           {% for proj in projects %}
           <tr>
