@@ -35,9 +35,6 @@
             <thead>
 			  <tr>
 				<th scope="col">Username</th>
-				<th scope="col">Command</th>
-                <th scope="col">Object</th>
-                <th scope="col">Date and Time</th>
 			  </tr>
 			</thead>
 			{% for log in log %}
@@ -45,15 +42,15 @@
 			  <tr>
 				<td>
                     {{log.actor.username}}
-                </td>
-				<td>{% if log.action == 1 %} Update{% endif %}
-                    {% if log.action == 2 %} Delete{% endif %}
-                    {% if log.action == 0 %} Create{% endif %}
-                </td>
-                <td>
-                    {{log.object_repr}}
-                </td>
-                <td>
+                
+					{% if log.action == 1 %} updated{% endif %}
+                    {% if log.action == 2 %} deleted{% endif %}
+                    {% if log.action == 0 %} created{% endif %}
+                
+                
+                    {{log.object_repr}} on
+                
+                
                     {{log.timestamp}}
                 </td>
 			  </tr>

@@ -154,7 +154,7 @@
                   <tbody>
                       {% for project in projects %}
                     <tr>
-                      <th>{{project.title}}</th>
+                      <th><a href="{% url 'project:details' project.proj_id %}" >{{project.title}}</a></th>
                     </tr>
                       {% endfor %}
                   </tbody>

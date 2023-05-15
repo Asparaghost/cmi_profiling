@@ -177,51 +177,51 @@ body {
 /*Card Colors*/
 
 #card1{
-    background-color: #b5eecd;    
+    background-color: #01b8aa;    
 }
 
 #card1 h2 a:hover{
-    color: #5fc387;    
+    color: #177169;    
 }
 
 #card2{
-    background-color: #678ea9;    
+    background-color: #405256;    
 }
 
 #card2 h2 a:hover{
-    color: #2a5676;    
+    color: #181b1c;    
 }
 
 #card3{
-    background-color: #f8c1bc;    
+    background-color: #fd625e;    
 }
 
 #card3 h2 a:hover{
-    color: #d58179;    
+    color: #b43c37;    
 }
 
 #card4{
-    background-color: #faeba6;    
+    background-color: #f2c80f;    
 }
 
 #card4 h2 a:hover{
-    color: #d4bf60;    
+    color: #b49406;    
 }
 
 #card5{
-    background-color: #fd9994;     
+    background-color: #5f6b6d;     
 }
 
 #card5 h4 a:hover{
-    color: #de5e57;     
+    color: #2f3638;     
 }
 
 #card6{
-    background-color: #dd82d2;  
+    background-color: #71b9d1;  
 }
 
 #card6 h4 a:hover{
-    color: #ab3f9e;     
+    color: #3f8096;     
 }
 
 @media (max-width: 990px) {

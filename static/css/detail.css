@@ -116,6 +116,11 @@ td a{
     font-size: 14px;
 }
 
+#table_cmi tbody tr th a{
+    color: #083d08;
+    text-decoration: none;
+}
+
 .row {
     display: flex;
 }

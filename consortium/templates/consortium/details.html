@@ -105,7 +105,7 @@
                         <tbody>
                             {% for commodity in commodities %}
                           <tr>
-                            <th>{{commodity.name}}</th>
+                            <th><a href="{% url 'commodity:details' commodity.name %}">{{commodity.name}}</a></th>
                           </tr>
                             {% endfor %}
                         </tbody>
@@ -123,7 +123,7 @@
                         <tbody>
                             {% for program in programs %}
                           <tr>
-                            <th>{{program.title}}</th>
+                            <th><a href="{% url 'program:details' program.prog_id %}">{{program.title}}</a></th>
                           </tr>
                             {% endfor %}
                         </tbody>
@@ -141,7 +141,7 @@
                         <tbody>
                             {% for project in projects %}
                           <tr>
-                            <th>{{project.title}}</th>
+                            <th><a href="{% url 'project:details' project.proj_id %}">{{project.title}}</th>
                           </tr>
                             {% endfor %}
                         </tbody>

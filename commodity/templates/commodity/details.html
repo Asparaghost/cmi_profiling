@@ -96,9 +96,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                      {% for prog in programs %}
+                      {% for program in programs %}
                     <tr>
-                      <th>{{prog.title}}</th>
+                      <th><a href="{% url 'program:details' program.prog_id %}">{{program.title}}</a></th>
                     </tr>
                       {% endfor %}
                   </tbody>
@@ -113,9 +113,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                      {% for proj in projects %}
+                      {% for project in projects %}
                     <tr>
-                      <th>{{proj.title}}</th>
+                      <th><a href="{% url 'project:details' project.proj_id %}">{{project.title}}</a></th>
                     </tr>
                       {% endfor %}
                   </tbody>
