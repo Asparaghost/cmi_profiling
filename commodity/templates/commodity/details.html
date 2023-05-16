@@ -48,7 +48,7 @@
 
                           <tr>{% if commodity.stakeholder.all %}
                               <th>Adoptors:</th>
-                              <td>{{commodity.stakeholder.all|join:", "}}</td>
+                              <td><a href="{% url 'sub:stakeholder' %}">{{commodity.stakeholder.all|join:", "}}</a></td>
                               {%else%}
                               {% endif %}
                           </tr>

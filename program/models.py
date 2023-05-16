@@ -100,7 +100,9 @@ class ProgramBudget(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
-    
+    def __str__(self):
+            return str(self.prog_id)
+
     class Meta:
         db_table = "program_budget"
 
