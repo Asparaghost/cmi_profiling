@@ -155,6 +155,8 @@
                       {% for project in projects %}
                     <tr>
                       <th><a href="{% url 'project:details' project.proj_id %}" >{{project.title}}</a></th>
+                      {% empty %}
+                      <th>None</th>
                     </tr>
                       {% endfor %}
                   </tbody>

@@ -34,21 +34,21 @@
 		  <table id="tbl" class="table table-bordered">
             <thead>
 			  <tr>
-				<th scope="col">Actions</th>
+				<th scope="col">Username</th>
 			  </tr>
 			</thead>
 			{% for log in log %}
 			<tbody>
 			  <tr>
 				<td>
-                    <div style="font-weight: 600;">{{log.actor.username}}</div>
+                    {{log.actor.username}}
                 
 					{% if log.action == 1 %} updated{% endif %}
                     {% if log.action == 2 %} deleted{% endif %}
                     {% if log.action == 0 %} created{% endif %}
                 
                 
-                    {{log.object_repr}} {% if log.action == 1 %}{{log.changes_str}}{% endif %} on
+                    {{log.object_repr}} on
                 
                 
                     {{log.timestamp}}

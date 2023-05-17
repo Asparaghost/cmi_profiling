@@ -34,6 +34,12 @@
                             {%else%}{% endif %}
                         </tr>
 
+                        <tr>{% if stakeholder.commodity %}
+                            <th>Adapted Commodity:</th>
+                            <td>{{stakeholder.commodity}}</td>
+                            {%else%}{% endif %}
+                        </tr>
+
                         <tr>
                             <th>Sex:</th>
                             <td>{{stakeholder.sex}}</td>

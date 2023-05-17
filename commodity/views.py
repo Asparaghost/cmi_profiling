@@ -39,6 +39,7 @@ def report(request):
 def details(request, name):
     commodity = Commodity.objects.get(name=name)
     iecmaterials = commodity.iecmaterials.all()
+    adaptors = commodity.adaptor.all()
     programs = commodity.prog_com.all()
     projects = commodity.proj_com.all()
     context = {
@@ -46,6 +47,7 @@ def details(request, name):
         'iecmaterials' : iecmaterials, 
         'programs' : programs,
         'projects' : projects,
+        'adaptors' : adaptors,
     }
     return render(request, 'commodity/details.html',context)
 
@@ -99,6 +101,7 @@ def delete(request, name):
 def pdf_report_create(request, name):
     commodity = Commodity.objects.get(name=name)
     iecmaterials = commodity.iecmaterials.all()
+    adaptors = commodity.adaptor.all()
     programs = commodity.prog_com.all()
     projects = commodity.proj_com.all()
     template_path = 'commodity/report.html'
@@ -107,6 +110,7 @@ def pdf_report_create(request, name):
         'iecmaterials': iecmaterials,
         'programs' : programs,
         'projects' : projects,
+        'adaptors' : adaptors,
     }
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="Commodity_report.pdf"'

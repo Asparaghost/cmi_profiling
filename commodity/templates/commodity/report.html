@@ -53,15 +53,20 @@
         {%else%}
         {% endif %}
 
-        {% if commodity.stakeholder.all %}
-        <label>Adoptors:</label>
-        {{commodity.stakeholder.all|join:", "}}<br><br>
-        {%else%}
-        {% endif %}
+        
+        <label>Adaptor(s):</label><br>
+        {% for a in adaptors %}
+        {{a.fullname|escape}}<br>
+        {% empty %}
+        None<br>
+        {% endfor %}<br>
+        
 
-
+        <label>IEC Material:</label>
         {% for iecmaterial in iecmaterials %}
-        <label>IEC Material: </label>{{iecmaterial.title}}<br>
+         {{iecmaterial.title|escape}}<br>
+        {% empty %}
+        None
         {% endfor %}</div>
          
 
@@ -72,7 +77,9 @@
           </tr>
           {% for prog in programs %}
           <tr>
-            <td>{{prog.title}}</td>
+            <td>- {{prog.title}}</td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table>
@@ -83,7 +90,9 @@
           </tr>
           {% for proj in projects %}
           <tr>
-            <td>{{proj.title}}</td>
+            <td>- {{proj.title}}</td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table>

@@ -125,8 +125,6 @@ class ProjectImplementingSite(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
-    def __str__(self):
-            return str(self.proj_id) +" "+ (self.barangay) +" "+ (self.city)
     
     class Meta:
         db_table = "proj_imp_site"
@@ -161,9 +159,6 @@ class ProjectOutput(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
     
-    def __str__(self):
-            return str(self.proj_id) +" "+ (self.proj_output_type)
-
     class Meta:
         db_table = "proj_output"
 

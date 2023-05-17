@@ -64,7 +64,9 @@
           </tr>
           {% for commodity in commodities %}
           <tr>
-            <td>{{commodity.name}}</td>
+            <td>- {{commodity.name}}</td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table><br><br>
@@ -75,7 +77,9 @@
           </tr>
           {% for program in programs %}
           <tr>
-            <td>{{program.title}}</td>
+            <td>- {{program.title}}</td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table><br><br>
@@ -86,7 +90,9 @@
           </tr>
           {% for project in projects %}
           <tr>
-            <td>{{project.title}}</td>
+            <td>- {{project.title}}</td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table>

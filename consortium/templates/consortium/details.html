@@ -106,6 +106,8 @@
                             {% for commodity in commodities %}
                           <tr>
                             <th><a href="{% url 'commodity:details' commodity.name %}">{{commodity.name}}</a></th>
+                            {% empty %}
+                            <th>None</th>
                           </tr>
                             {% endfor %}
                         </tbody>
@@ -124,6 +126,8 @@
                             {% for program in programs %}
                           <tr>
                             <th><a href="{% url 'program:details' program.prog_id %}">{{program.title}}</a></th>
+                            {% empty %}
+                            <th>None</th>
                           </tr>
                             {% endfor %}
                         </tbody>
@@ -142,6 +146,8 @@
                             {% for project in projects %}
                           <tr>
                             <th><a href="{% url 'project:details' project.proj_id %}">{{project.title}}</th>
+                            {% empty %}
+                            <th>None</th>
                           </tr>
                             {% endfor %}
                         </tbody>

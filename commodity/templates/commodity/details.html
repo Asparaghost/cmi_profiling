@@ -46,22 +46,28 @@
                               <td>{{commodity.cmi_name}}</td>
                           </tr>
 
-                          <tr>{% if commodity.stakeholder.all %}
-                              <th>Adoptors:</th>
-                              <td><a href="{% url 'sub:stakeholder' %}">{{commodity.stakeholder.all|join:", "}}</a></td>
-                              {%else%}
-                              {% endif %}
-                          </tr>
+                          <tr>
+                            
+                            
+                            <th>Adaptor(s): </th>
+                            <td>{% for a in adaptors %}
+                                <a href="{% url 'sub:detail_stakeholder' a.stakeholder_id %}">{{a.fullname|escape}}<br></a>
+                                {% empty %}
+                                  None
+                                {% endfor %}
+                            </td>
+                        </tr>
 
                           {% if user.is_authenticated %}
 
-                          <tr>{% for iecmaterial in iecmaterials %}
-                              {% if iecmaterial.iec_file %}
-                              <th>IEC Material: </th>
-                              <td><a href="{{ iecmaterial.iec_file.url }} " target="_blank">{{iecmaterial.title}}</a></td>
-                              {%else%}
-                              {% endif %}
+                          <tr>
+                            <th>IEC Material: </th>
+                            <td>{% for iecmaterial in iecmaterials %}
+                              <a href="{{ iecmaterial.iec_file.url }} " target="_blank">{{iecmaterial.title|escape}}<br></a>
+                                {% empty %}
+                                None
                               {% endfor %}
+                            </td>
                           </tr>
                   
                         
@@ -99,6 +105,8 @@
                       {% for program in programs %}
                     <tr>
                       <th><a href="{% url 'program:details' program.prog_id %}">{{program.title}}</a></th>
+                      {% empty %}
+                      <th>None</th>
                     </tr>
                       {% endfor %}
                   </tbody>
@@ -116,6 +124,8 @@
                       {% for project in projects %}
                     <tr>
                       <th><a href="{% url 'project:details' project.proj_id %}">{{project.title}}</a></th>
+                       {% empty %}
+                      <th>None</th>
                     </tr>
                       {% endfor %}
                   </tbody>

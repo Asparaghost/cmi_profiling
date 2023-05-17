@@ -120,6 +120,8 @@
               Maintenance and Other Operating Expenses: P{{budget.mooe|floatformat:2}}<br>
               Executive Order: {{budget.eo|floatformat:0}}
             </td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table>
@@ -130,7 +132,9 @@
           </tr>
           {% for project in projects %}
           <tr>
-            <td>{{project.title}}</td>
+            <td>- {{project.title}}</td>
+            {% empty %}
+            <td>None</td>
           </tr>
           {% endfor %}
         </table>

@@ -100,9 +100,7 @@ class ProgramBudget(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
-    def __str__(self):
-            return str(self.prog_id)
-
+    
     class Meta:
         db_table = "program_budget"
 
@@ -121,6 +119,7 @@ class Stakeholder(models.Model):
     lname = models.CharField(max_length=100)
     mname = models.CharField(max_length=100, blank=True, null=True)
     consortium_id = models.ForeignKey(Consortium, null=True, blank=True, related_name='+', on_delete=models.CASCADE)
+    commodity = models.ForeignKey(Commodity, null=True, blank=True, related_name='adaptor', on_delete=models.CASCADE)
     sex = models.CharField(max_length=10, choices=CHOICE_SEX, default=FEMALE)
     dob = models.DateField(blank=True, null=True)
     barangay = models.CharField(max_length=100, blank=True, null=True)
@@ -137,6 +136,9 @@ class Stakeholder(models.Model):
     def __str__(self):
         return (self.fname) +" "+ (self.lname)
         
+    def fullname(self):
+        return (self.fname) +" "+ (self.lname)
+    
     class Meta:
         db_table = "stakeholder"
 

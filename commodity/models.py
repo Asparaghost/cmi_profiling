@@ -16,7 +16,7 @@ class Commodity(models.Model):
     detail = models.TextField(null=True, blank=True,)
     img = models.ImageField(upload_to='com_img/')
     produced_by = models.TextField(null=True, blank=True,)
-    stakeholder = models.ManyToManyField(to='program.Stakeholder', blank=True)
+    
     geolat = models.FloatField(null=True, blank=True,)
     geolong = models.FloatField(null=True, blank=True,)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -34,7 +34,7 @@ class Commodity(models.Model):
     class Meta:
         db_table = "commodity"
 
-auditlog.register(Commodity, m2m_fields={"stakeholder"})
+auditlog.register(Commodity)
 
 class IecMaterial(models.Model):
     iec_id = models.AutoField(primary_key=True)
