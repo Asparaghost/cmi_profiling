@@ -70,7 +70,7 @@
         {% for project in project_filter.qs %}
         <tbody>
           <tr>
-            <td>{{project.title}}</th>
+            <td><a href="{% url 'project:details' project.proj_id %}" class="link">{{project.title}}</a></th>
             <td>{{project.proj_type}}</th>
             <td>{{project.status}}</th>
 

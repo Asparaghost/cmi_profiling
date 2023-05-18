@@ -80,6 +80,13 @@ body {
     background-color: #008000;
 }
 
+#tbl tbody tr td .link{
+    text-decoration: none;
+    color: #1b641b;
+    font-size: 15px;
+    font-weight: 500;
+}
+
 #tbl tbody tr td a{
     text-decoration: none;
     color: #ffffff;
@@ -241,6 +248,9 @@ body {
         font-size: 13px;
     }
     #tbl tbody tr td a{
+        font-size: 13px;
+    }
+    #tbl tbody tr td .link{
         font-size: 13px;
     }
     #tbl tbody tr td{

@@ -58,7 +58,7 @@
         {% for commodity in commodity_filter.qs %}
         <tbody>
           <tr>
-            <td>{{commodity.name}}</th>
+            <td><a href="{% url 'commodity:details' commodity.name %}" class="link">{{commodity.name}}</a></th>
             <td>{{commodity.cmi_name}}</th>
             {% if commodity.produced_by %}
             <td>{{commodity.produced_by}}</th>

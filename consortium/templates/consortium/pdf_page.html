@@ -64,7 +64,7 @@
         {% for cmi in cmi_filter.qs %}
         <tbody>
           <tr>
-            <td scope="row" style="text-align: left;">{{cmi.name}} ({{cmi.agency_code}})</th>
+            <td scope="row" style="text-align: left;"><a href="{% url 'consortium:details' cmi.name %}" class="link">{{cmi.name}} ({{cmi.agency_code}})</a></th>
             <td>
                 <a href="{% url 'consortium:create-pdf' cmi.name %}" target="_blank" class="btn btn-primary">VIEW</a>
             </td>
