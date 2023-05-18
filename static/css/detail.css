@@ -130,6 +130,12 @@ td a{
     padding: 5px;
 }
 
+.record{
+    background-color: #619565;
+    
+    padding: 0 100px;
+}
+
 
 @media screen and (max-width: 768px){
     .heading{
@@ -184,5 +190,10 @@ td a{
     
     .about-content p{
         font-size: 14px;
+    }
+
+    .record{
+        background-color: #619565;
+        padding: 0 10px;
     }
 }

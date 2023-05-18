@@ -143,28 +143,77 @@
               </div>
           </section><br/>
 
-          <div class="row">
-            <div class="column">
-              <table id="table_cmi" class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th scope="col" style="background-color:#77c296;">Projects</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      {% for project in projects %}
-                    <tr>
-                      <th><a href="{% url 'project:details' project.proj_id %}" >{{project.title}}</a></th>
-                      {% empty %}
-                      <th>None</th>
-                    </tr>
-                      {% endfor %}
-                  </tbody>
-              </table><br>
+            <div class="row">
+              <div class="column">
+                <table id="table_cmi" class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="background-color:#77c296;">Projects</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in projects %}
+                      <tr>
+                        <th><a href="{% url 'project:details' project.proj_id %}" >{{project.title}}</a></th>
+                        {% empty %}
+                        <th>None</th>
+                      </tr>
+                        {% endfor %}
+                    </tbody>
+                </table><br>
+              </div>
             </div>
-          </div>
+        </div>
 
+    {% if user.is_authenticated %}
+    <div class="record">
+      <div class="row">
+        <h3>Record Tracking</h3>
+        <div class="column">
+          <table id="table_cmi" class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col" style="background-color:#77c296;">Program Leader</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for history in history %}
+              <tr>
+                {% ifchanged %}
+                <th>{{history.program_leader}}</th>
+                {% endifchanged %}
+                {% empty %}
+                <th>None</th>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="column">
+          <table id="table_cmi" class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col" style="background-color:#77c296;">Date Extended</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for history in history %}
+              <tr>
+                {% ifchanged %}
+                <th>{{history.daterequestedext}}</th>
+                {% endifchanged %}
+                {% empty %}
+                <th>None</th>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
+    {% endif %}
+      
                
 
         <script>

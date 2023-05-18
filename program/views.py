@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProgramForm 
 from program.models import Researcher 
-from program.models import Program 
+from program.models import Program, HistoricalRecords 
 from .filters import ProgramFilter, ProgramFilterDB
 from django.http import HttpResponse
 from django.template.loader import get_template
@@ -42,9 +42,10 @@ def report(request, prog_id):
 
 def details(request, prog_id):
     program = Program.objects.get(prog_id=prog_id)
+    history = Program.history.filter(prog_id=prog_id).order_by('-history_date').reverse().distinct()
     projects = program.proj_prog.all()
     context = {
-        'program' : program, 'projects' : projects,
+        'program' : program, 'projects' : projects, 'history' : history,
     }
     return render(request, 'program/details.html',context)
 
