@@ -1,4 +1,5 @@
 from django.conf import settings
+from simple_history.models import HistoricalRecords
 from auditlog.registry import auditlog
 from operator import mod
 from unittest.util import _MAX_LENGTH
@@ -98,6 +99,35 @@ class Project(models.Model):
     created_by = models.ForeignKey(User, related_name="+", on_delete=models.CASCADE)
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
+    history = HistoricalRecords(excluded_fields=[
+        "prog_id",
+        "proj_description",
+        "status",
+        "proj_type",
+        "commodity",
+        "priority",
+        "sdg_no",
+        "proj_team",
+        "proj_stakeholder",
+        "impl_agency",
+        "co_impl_agency",
+        "coop_agency",
+        "fund_agency",
+        "start_date",
+        "end_date",
+        "final_impl_date",
+        "duration",
+        "approved_budget",
+        "approved_date",
+        "requested_by",
+        "ext_duration",
+        "proj_file",
+        "date_uploaded",
+        "created_at",
+        "created_by",
+        "modified_at",
+        "modified_by",
+    ])
 
     def __str__(self):
         return self.title

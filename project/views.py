@@ -43,8 +43,9 @@ def report(request, proj_id):
 
 def details(request, proj_id):
     project = Project.objects.get(proj_id=proj_id)
+    history_list = Project.history.filter(proj_id=proj_id).order_by('-history_date').reverse().distinct()
     context = {
-        'project' : project,
+        'project' : project, 'history_list' : history_list,
     }
     return render(request, 'project/details.html',context)
 

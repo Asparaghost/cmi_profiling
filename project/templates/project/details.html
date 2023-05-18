@@ -198,6 +198,57 @@
         </div>
                     
 
+            {% if user.is_authenticated %}
+    <div class="record">
+      <div class="row">
+        <h3>Record Tracking</h3>
+        <div class="column">
+          <table id="table_cmi" class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col" style="background-color:#2ac688;">Project Leader</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for history in history_list %}
+              <tr>
+                {% ifchanged %}
+                <th>{{history.proj_leader}}</th>
+                {% endifchanged %}
+                {% empty %}
+                <th>None</th>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="column">
+          <table id="table_cmi" class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col" style="background-color:#2ac688;">Date Extended</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for history in history_list %}
+              <tr>
+                {% ifchanged %}
+                <th>{{history.daterequestedext}}</th>
+                {% endifchanged %}
+                {% empty %}
+                <th>None</th>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+
+
         <script>
             $(function(){
               $("#nav-placeholder").load("{% url 'consortium:nav' %}");

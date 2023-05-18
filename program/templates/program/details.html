@@ -173,11 +173,11 @@
           <table id="table_cmi" class="table table-sm">
             <thead>
               <tr>
-                <th scope="col" style="background-color:#77c296;">Program Leader</th>
+                <th scope="col" style="background-color:#2ac688;">Program Leader</th>
               </tr>
             </thead>
             <tbody>
-              {% for history in history %}
+              {% for history in history_list %}
               <tr>
                 {% ifchanged %}
                 <th>{{history.program_leader}}</th>
@@ -194,11 +194,11 @@
           <table id="table_cmi" class="table table-sm">
             <thead>
               <tr>
-                <th scope="col" style="background-color:#77c296;">Date Extended</th>
+                <th scope="col" style="background-color:#2ac688;">Date Extended</th>
               </tr>
             </thead>
             <tbody>
-              {% for history in history %}
+              {% for history in history_list %}
               <tr>
                 {% ifchanged %}
                 <th>{{history.daterequestedext}}</th>

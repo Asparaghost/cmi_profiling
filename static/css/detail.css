@@ -131,9 +131,24 @@ td a{
 }
 
 .record{
-    background-color: #619565;
-    
+    background-color: #339933;
     padding: 0 100px;
+}
+
+.record .row .column{
+    margin-top: 10px;
+}
+
+.record .row h3{
+    font-family: Poppins;
+    font-size: 25px;
+     margin-top: 40px;
+     color: white;
+}
+.record .row .column #table_cmi{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #00800096;
 }
 
 
