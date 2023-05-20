@@ -94,6 +94,9 @@ def delete(request, prog_id):
             return redirect('/programs')
     return render(request, 'program/delete.html', context)
 
+
+# to generate pdf---------------------------------------------
+
 @login_required
 def pdf_report_create(request, prog_id):
     program = Program.objects.get(prog_id=prog_id)

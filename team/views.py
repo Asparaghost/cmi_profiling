@@ -86,6 +86,9 @@ def delete(request, member_id):
             return redirect('/teams')
     return render(request, 'team/delete.html', context)
 
+
+# to generate pdf---------------------------------------------
+
 @login_required
 def pdf_report_create(request, member_id):
     team = Team.objects.get(member_id=member_id)

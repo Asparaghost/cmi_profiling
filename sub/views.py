@@ -36,6 +36,8 @@ def summary(request):
     cmis = CMI.objects.all() 
     return render(request, "sub/cmi_summary.html", {'cmis':cmis})
 
+
+# indexes of sub---------------------------------------------
 @login_required
 def index_iec(request):  
     iecmaterials = IecMaterial.objects.all()  
@@ -76,6 +78,8 @@ def index_projimp(request):
     projectimpsites = ProjectImplementingSite.objects.all()  
     return render(request,"sub/tbl_projectimpsite.html",{'projectimpsites':projectimpsites})
 
+
+# dashboard---------------------------------------------
 @login_required
 def dashboard(request):
     no_cmi = CMI.objects.count()
@@ -98,7 +102,7 @@ def dashboard(request):
     }
     return render(request, "sub/dashboard.html", context)
 
-#----------------------------------------------------------------------------------
+# details----------------------------------------------------------------------------------
 @login_required
 def detail_iecmaterial(request, title):
     iecmaterial = IecMaterial.objects.get(title=title)
@@ -162,7 +166,8 @@ def detail_projimp(request, projimp):
         'projectimp' : projectimp,
     }
     return render(request, 'sub/detail_projectimp.html',context)
-#---------------------------------------------------------------------------------------
+
+# to add---------------------------------------------------------------------------------------
 @login_required
 def add_iecmaterial(request):  
     if request.method == "POST":  
@@ -289,7 +294,8 @@ def add_projimp(request):
     else:  
         form = ProjectImplementingSiteForm()  
     return render(request,'sub/add_projimp.html',{'form':form})
-#---------------------------------------------------------------------------------------
+
+# to edit---------------------------------------------------------------------------------------
 @login_required
 def edit_iecmaterial(request, title):
     iecmaterial = IecMaterial.objects.get(title=title)
@@ -425,7 +431,7 @@ def edit_projimp(request, projimp):
             except:  
                 pass
     return render(request, 'sub/edit_projectimp.html', {'form':form})
-#---------------------------------------------------------------------------------------
+# to delete---------------------------------------------------------------------------------------
 @login_required
 def delete_iecmaterial(request, title):  
     iecmaterial = IecMaterial.objects.get(title=title)  

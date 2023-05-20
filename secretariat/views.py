@@ -84,6 +84,9 @@ def delete(request, secretariat_id):
             return redirect('/secretariats')
     return render(request, 'secretariat/delete.html', context)
 
+
+# to generate pdf---------------------------------------------
+
 @login_required
 def pdf_report_create(request, secretariat_id):
     secretariat = Secretariat.objects.get(secretariat_id=secretariat_id)

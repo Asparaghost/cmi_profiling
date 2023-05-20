@@ -97,6 +97,9 @@ def delete(request, name):
             return redirect('/commodities')
     return render(request, 'commodity/delete.html', context)
 
+
+# to generate pdf---------------------------------------------
+
 @login_required
 def pdf_report_create(request, name):
     commodity = Commodity.objects.get(name=name)

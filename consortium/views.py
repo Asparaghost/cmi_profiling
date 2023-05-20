@@ -101,6 +101,9 @@ def delete(request, name):
             return redirect('/CMIs')
     return render(request, 'consortium/delete.html', context)
 
+
+# to generate pdf---------------------------------------------
+
 @login_required
 def pdf_report_create(request, name):
     cmi = CMI.objects.get(name=name)

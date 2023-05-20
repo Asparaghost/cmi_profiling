@@ -94,6 +94,9 @@ def delete(request, proj_id):
             return redirect('/projects')
     return render(request, 'project/delete.html', context)
 
+
+# to generate pdf---------------------------------------------
+
 @login_required
 def pdf_report_create(request, proj_id):
     project = Project.objects.get(proj_id=proj_id)
