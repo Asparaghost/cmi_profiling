@@ -42,7 +42,7 @@ def report(request, prog_id):
 
 def details(request, prog_id):
     program = Program.objects.get(prog_id=prog_id)
-    history_list = Program.history.filter(prog_id=prog_id).order_by('-history_date').reverse().distinct()
+    history_list = Program.history.filter(prog_id=prog_id).order_by('-history_date').distinct()
     projects = program.proj_prog.all()
     context = {
         'program' : program, 'projects' : projects, 'history_list' : history_list,

@@ -124,7 +124,7 @@ body {
 
 .box h3{
     color: #ffffff;
-    font-size: 25px;
+    font-size: 21px;
     line-height: 0.7;
     font-weight: 700;
 }
@@ -177,35 +177,43 @@ body {
 /*Card Colors*/
 
 #card1{
-    background-color: #01b8aa;    
+    background-color: #d5b398;    
+    /* background-color: #01b8aa;     */
 }
 
 #card1 h2 a:hover{
-    color: #177169;    
+    color: #987c64;   
+    /* color: #177169;     */
 }
 
 #card2{
-    background-color: #405256;    
+    background-color: #cb8aa4; 
+    /* background-color: #405256;     */
 }
 
 #card2 h2 a:hover{
-    color: #181b1c;    
+    color: #985a74;
+    /* color: #181b1c;     */
 }
 
 #card3{
-    background-color: #fd625e;    
+    background-color: #a09ac0;   
+    /* background-color: #fd625e;     */
 }
 
 #card3 h2 a:hover{
-    color: #b43c37;    
+    color: #6f679b;
+    /* color: #b43c37;     */
 }
 
 #card4{
-    background-color: #f2c80f;    
+    background-color: #aac291;  
+    /* background-color: #f2c80f;     */
 }
 
 #card4 h2 a:hover{
-    color: #b49406;    
+    color: #78915d;
+    /* color: #b49406;     */
 }
 
 #card5{
