@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import SignUpForm, LoginForm
+from django.contrib import messages
 from consortium.models import CMI
 from .models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -14,7 +15,7 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-
+            messages.success(request, 'Registration successful')
             return redirect('/signup')
     else:
         form = SignUpForm()

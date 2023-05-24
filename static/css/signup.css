@@ -128,6 +128,13 @@ form .row .btn:hover{
   background: #339933;
 }
 
+.messages{
+  color: #008000;
+  list-style-type: none;
+  margin-bottom: -15px;
+  margin-top: 10px;
+  font-weight: 600;
+}
 
 @media (max-width: 500px) {
   .wrapper .title{
