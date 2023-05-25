@@ -40,6 +40,7 @@
                             {%else%}{% endif %}
                         </tr>
 
+                        {% if user.is_superuser or user.secretariat %}
                         <tr>
                             <th>Sex:</th>
                             <td>{{stakeholder.sex}}</td>
@@ -79,6 +80,7 @@
                             <th>Date of Birth:</th>
                             <td>{{stakeholder.dob}}</td>
                         </tr>
+                        {% endif %}
                         
                         {% if user.is_superuser %}
                         <tr>

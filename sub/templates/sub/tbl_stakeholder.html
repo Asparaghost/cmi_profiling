@@ -36,9 +36,9 @@
 			<thead>
 			  <tr>
 				<th scope="col">NAME</th>
-				<th scope="col">BARANGAY</th>
+				<th scope="col">SEX</th>
 				<th scope="col">CITY</th>
-				<th scope="col">CONTACT NUMBER</th>
+				<th scope="col">ZIPCODE</th>
 				
 				<th scope="col">ACTION</th>
 				
@@ -48,9 +48,9 @@
 			<tbody>
 			  <tr>
 				<td>{{stakeholder.lname}}, {{stakeholder.fname}}</td>
-				<td>{{stakeholder.barangay}}</td>
+				<td>{{stakeholder.sex}}</td>
 				<td>{{stakeholder.city}}</td>
-				<td>{{stakeholder.contact_no}}</td>
+				<td>{{stakeholder.zipcode}}</td>
 
 				<td>
 					<a href="{% url 'sub:detail_stakeholder' stakeholder.stakeholder_id %}" class="btn btn-primary">View</a>&nbsp;

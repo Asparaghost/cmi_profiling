@@ -38,7 +38,7 @@
 				<th scope="col">PHOTO</th>
 				<th scope="col">NAME</th>
 				<th scope="col">AGENCY</th>
-				<th scope="col">EMAIL</th>
+				<th scope="col">SEX</th>
 				
 				<th scope="col">ACTION</th>
 				
@@ -54,7 +54,7 @@
 				{% endif %}</td>
 				<td >{{researcher.fname}} {{researcher.lname}}</td>
 				<td>{{researcher.cmi}}</td>
-				<td>{{researcher.email}}</td>
+				<td>{{researcher.sex}}</td>
 
 				<td>
 					<a href="{% url 'sub:detail_researcher' researcher.researcher_id %}" class="btn btn-primary">View</a>&nbsp;

@@ -44,6 +44,8 @@
                                 <th>Cluster/Unit:</th>
                                 <td>{{team.teams}}</td>
                             </tr>
+
+                            {% if user.is_superuser or user.secretariat %}
                             <tr>
                                 <th>Sex: </th>
                                 <td>{{team.sex}}</td>
@@ -68,14 +70,15 @@
                                 <th>Specialization: </th>
                                 <td>{{team.specialization}}</td>
                             </tr>
+                            {% endif %}
 
-                            {% if user.is_authenticated %}
-                        <tr>
+                            {% if user.is_superuser or user.secretariat %}
+                            <tr>
                             {% if team.pds_file %}
                             <th>Pds File: </th>
                             <td><a href="{{ team.pds_file.url }}" target="_blank">Download File</a></td>
                             {% endif %}
-                        </tr>
+                            </tr>
 
                         {% if user.is_superuser %}
                         <tr>

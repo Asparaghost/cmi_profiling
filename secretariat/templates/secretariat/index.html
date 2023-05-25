@@ -33,6 +33,7 @@
 		<img src="{% static 'images/chart.png' %}" alt="org chart">
 		</div>
 
+		{% if user.is_authenticated %}
 		<button id="btn">View Secretariat Profiles<i class="bx bx-chevrons-right" style="font-weight: 40px;"></i></button>
 		<div class="wrapper">
 			<h2 style="font-weight: 700; color: #ffffff;">PROFILES</h2>
@@ -52,6 +53,7 @@
 	  
 			</div>
 		  </div>
+		{% endif %}
 
 		<script>
 			$(function(){

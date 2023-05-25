@@ -40,6 +40,7 @@
                                 <td>{{researcher.cmi}}</td>
                             </tr>
     
+                            {% if user.is_superuser or user.secretariat %}
                             <tr>
                                 <th>Address:</th>
                                 <td>{{researcher.address}}</td>
@@ -68,14 +69,15 @@
                                 <th>Specialization: </th>
                                 <td>{{researcher.specialization}}</td>
                             </tr>
+                            {% endif %}
 
-                            {% if user.is_authenticated %}
-                        <tr>
+                            {% if user.is_superuser or user.secretariat %}
+                            <tr>
                             {% if researcher.pds_file %}
                             <th>Pds File: </th>
                             <td><a href="{{ researcher.pds_file.url }}" target="_blank">Download File</a></td>
                             {% endif %}
-                        </tr>
+                            </tr>
 
                         {% if user.is_superuser %}
                         <tr>

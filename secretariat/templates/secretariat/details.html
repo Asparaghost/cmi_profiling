@@ -40,6 +40,7 @@
                             <td>{{secretariat.consortium_id}}</td>
                         </tr>
 
+                        {% if user.is_superuser or user.secretariat %}
                         <tr>
                             <th>Email Address:</th>
                             <td>{{secretariat.email_add}}</td>
@@ -83,8 +84,10 @@
                             <th>Specialization: </th>
                             <td>{{secretariat.specialization}}</td>
                         </tr>
+                        {% endif %}
 
-                        {% if user.is_authenticated %}
+
+                        {% if user.is_superuser or user.secretariat %}
                         <tr>
                             {% if secretariat.pds_file %}
                             <th>Pds File: </th>
