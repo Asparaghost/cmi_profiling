@@ -9,7 +9,6 @@ class SecretariatFilter(django_filters.FilterSet):
         model = Secretariat
         fields = {
                   'consortium_id': ['exact'],
-                  'sex': ['exact'],
                   'position': ['icontains'],
                   'specialization': ['icontains'],
                 }
@@ -17,7 +16,5 @@ class SecretariatFilter(django_filters.FilterSet):
     def __init__(self, *args, **kwargs):
         super(SecretariatFilter, self).__init__(*args, **kwargs)
         self.filters['consortium_id'].label = 'Consortium'
-        self.filters['consortium_id'].extra['empty_label'] = "All"    
-        self.filters['sex'].label = 'Sex'
-        self.filters['sex'].extra['empty_label'] = "All"    
+        self.filters['consortium_id'].extra['empty_label'] = "All"     
         

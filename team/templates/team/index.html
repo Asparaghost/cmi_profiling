@@ -20,7 +20,7 @@
    
     <table id="head">
       <tr>
-        <th class="title">TEAMS</th>
+        <th class="title">CLUSTER</th>
         {% if user.is_superuser or user.secretariat %}
         <th class="add"><a href="{% url 'team:add' %}">Add Member</a>&nbsp;&nbsp;&nbsp;
                         <a href="{% url 'team:pdf' %}">PDF</a></th>
@@ -42,6 +42,10 @@
           <div class="form-group col-sm-4 col-md-3">
             {{ team_filter.form.lname.label_tag }}
             {% render_field team_filter.form.lname class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
+            {{ team_filter.form.teams.label_tag }}
+            {% render_field team_filter.form.teams class="form-control" %}
           </div>
         </div>
         <br>

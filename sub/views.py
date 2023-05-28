@@ -11,12 +11,18 @@ from program.forms import ResearcherForm, StakeholderForm, ProgramBudgetForm
 from project.forms import SdgForm, PriorityAreaForm, ProjectOutputForm, ProjectImplementingSiteForm
 from django.http import HttpResponse
 from django.template.loader import get_template
+from auth_user.models import User
 from xhtml2pdf import pisa
 
 
 # Create your views here.
 def about(request):
     return render(request, "sub/about.html")
+
+@login_required
+def manage(request):
+    users = User.objects.all()
+    return render(request, "sub/manage.html", {'users':users})
 
 def home(request):
     commodities = Commodity.objects.all()
@@ -479,3 +485,10 @@ def delete_projimp(request, projimp):
     projimp = ProjectImplementingSite.objects.get(projimp=projimp)  
     projimp.delete()  
     return redirect("/ProjectImplementingSites")
+
+@login_required
+def delete_user(request, username):  
+    user = User.objects.get(username=username)  
+    user.delete()  
+    return redirect("/manage_accounts")
+

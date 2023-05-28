@@ -52,12 +52,12 @@ auditlog.register(PriorityArea)
 
 
 class Project(models.Model):
-    ONGOING = 'ongoing'
-    COMPLETED = 'completed'
+    ONGOING = 'Ongoing'
+    COMPLETED = 'Completed'
 
     CHOICE_STATUS = (
-        (ONGOING, 'ongoing'),
-        (COMPLETED, 'completed'),
+        (ONGOING, 'Ongoing'),
+        (COMPLETED, 'Completed'),
     )
 
     R_AND_D = 'R&D'
@@ -87,11 +87,11 @@ class Project(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     final_impl_date = models.DateField(blank=True, null=True)
-    duration = models.CharField(max_length=100)
+    duration = models.IntegerField(blank=True, null=True)
     approved_budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     approved_date = models.DateField(blank=True, null=True)
     daterequestedext = models.DateField(blank=True, null=True)
-    requested_by = models.ForeignKey(Researcher, related_name='+', on_delete=models.CASCADE)
+    requested_by = models.ForeignKey(Researcher, null=True, blank=True, related_name='+', on_delete=models.CASCADE)
     ext_duration = models.IntegerField(blank=True, null=True)
     proj_file = models.FileField(upload_to='project_files/', blank=True, null=True)
     date_uploaded = models.DateField(blank=True, null=True)

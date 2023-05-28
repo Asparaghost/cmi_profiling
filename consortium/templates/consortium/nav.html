@@ -56,9 +56,9 @@
 
         {% if user.is_superuser %}
           <li>
-            <a href="{% url 'auth_user:signup' %}">
-              <i class='bx bx-user-plus' ></i>
-              <span class="link_name">Create Account</span>
+            <a href="{% url 'sub:manage' %}">
+              <i class='bx bx-id-card' ></i>
+              <span class="link_name">Manage Accounts</span>
             </a>
           </li>
           {% endif %}
@@ -89,7 +89,7 @@
           <li>
             <a href="{% url 'team:team' %}">
               <i class='bx bx-chalkboard' ></i>
-              <span class="link_name">Teams</span>
+              <span class="link_name">Cluster</span>
             </a>
           </li>
 

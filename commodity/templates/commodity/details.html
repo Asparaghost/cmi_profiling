@@ -85,7 +85,7 @@
                       {% endif %}
                   </table>
                   
-                  {% if user.is_superuser or user.secretariat or user.researcher or user.stakeholder %}
+                  {% if user.is_superuser or user.secretariat or request.user == commodity.created_by %}
                       <a href="{% url 'commodity:edit' commodity.name %}" class="btn btn-success">Edit</a>
                       <a href="{% url 'commodity:delete' commodity.name %}" class="btn btn-danger">Delete</a>
                   {% endif %}

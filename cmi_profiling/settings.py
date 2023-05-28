@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'django_filters',
     'simple_history',
     'auditlog',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'project',
     'sub',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
+    {% load humanize %}
     <meta charset="UTF-8">
     <title>Report</title>
     <style>
@@ -63,7 +64,7 @@
 
         {% if program.duration %}
         <label>Duration:</label>
-        {{program.duration}} month/s<br><br>
+        {{program.duration}} month(s)<br><br>
         {%else%}
         <label>Duration:<br></label>None<br><br>
         {% endif %}
@@ -90,7 +91,7 @@
 
         {% if program.total_budget %}
         <label>Total Budget:</label>
-        P{{program.total_budget}}<br><br>
+        Php {{program.total_budget}}<br><br>
         {%else%}
                          
         {% endif %}
@@ -116,9 +117,10 @@
           <tr>
             <td>Year: {{budget.yr}}<br>
               Fund Source: {{budget.fund_source}}<br>
-              Personal Services: P{{budget.ps|floatformat:2}}<br>
-              Maintenance and Other Operating Expenses: P{{budget.mooe|floatformat:2}}<br>
-              Executive Order: {{budget.eo|floatformat:0}}
+              Personal Services: Php {{budget.ps|floatformat:2|intcomma}}<br>
+              Maintenance and Other Operating Expenses: Php {{budget.mooe|floatformat:2|intcomma}}<br>
+              Equipment Outlay: Php {{budget.eo|floatformat:2|intcomma}}<br>
+              Budget Total: Php {{budget.total|floatformat:2|intcomma}}
             </td>
             {% empty %}
             <td>None</td>

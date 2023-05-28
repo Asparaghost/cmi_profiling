@@ -8,6 +8,8 @@ class ProjectFilter(django_filters.FilterSet):
     class Meta:
         model = Project
         fields = {'proj_type': ['exact'],
+                  'status': ['exact'],
+                  'impl_agency': ['exact'],
                 'title': ['icontains'],
         }
 
@@ -15,6 +17,10 @@ class ProjectFilter(django_filters.FilterSet):
         super(ProjectFilter, self).__init__(*args, **kwargs)
         self.filters['proj_type'].label = 'Types'
         self.filters['proj_type'].extra['empty_label'] = "All"
+        self.filters['status'].label = 'Status'
+        self.filters['status'].extra['empty_label'] = "All"
+        self.filters['impl_agency'].label = 'Implementing Agency'
+        self.filters['impl_agency'].extra['empty_label'] = "All"
         
 
 class ProjectFilterDB(django_filters.FilterSet):
@@ -25,7 +31,7 @@ class ProjectFilterDB(django_filters.FilterSet):
         fields = {'proj_type': ['exact'],
                   'proj_leader': ['exact'],
                   'status': ['exact'],
-                  'fund_agency': ['exact'],
+                  'impl_agency': ['exact'],
                   'title': ['icontains'],
         }
 
@@ -39,5 +45,5 @@ class ProjectFilterDB(django_filters.FilterSet):
         self.filters['proj_leader'].extra['empty_label'] = "All"
         self.filters['status'].label = 'Status'
         self.filters['status'].extra['empty_label'] = "All"
-        self.filters['fund_agency'].label = 'Funding Agency'
-        self.filters['fund_agency'].extra['empty_label'] = "All"
+        self.filters['impl_agency'].label = 'Implementing Agency'
+        self.filters['impl_agency'].extra['empty_label'] = "All"

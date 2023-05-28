@@ -12,6 +12,54 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     	<link href="{% static 'images/wesmalogo.png' %}" rel="icon">
     	<title>WESMAARRDEC</title>
+		<style>
+			.modal {
+			  display: none;
+			  position: fixed;
+			  z-index: 1;
+			  padding-top: 100px; 
+			  left: 0;
+			  top: 0;
+			  width: 100%; 
+			  height: 100%;
+			  overflow: auto; 
+			  background-color: rgb(0,0,0);
+			  background-color: rgba(0,0,0,0.4);
+			}
+			
+			.modal-content {
+			  color: #008000;
+			  background: white;
+			  margin: auto;
+			  padding: 10px 10px 50px;
+			  width: 90%;
+			  margin-bottom: 30px;
+			}
+			
+			.close {
+			  color: #008000;
+			  float: right;
+			  font-size: 28px;
+			  font-weight: bold;
+			}
+			
+			.close:hover,
+			.close:focus {
+			  color: #000;
+			  text-decoration: none;
+			  cursor: pointer;
+			}
+	  
+			@media (max-width: 500px) {
+			.modal-content {
+			  color: #008000;
+			  background: white;
+			  margin: auto;
+			  padding: 10px;
+			  width: 90%;
+			}
+		  }
+			</style>
 	</head>
 
 	<body>
@@ -28,15 +76,11 @@
 			</tr>
 		  </table>
 
-		<h2 style="font-weight: 700; color: #008000;">ORGANIZATIONAL CHART</h2>
-		<div class="center">
-		<img src="{% static 'images/chart.png' %}" alt="org chart">
-		</div>
+		  <a href="#" id="myBtn" class="org_chart">View Organization Chart</a>
 
-		{% if user.is_authenticated %}
-		<button id="btn">View Secretariat Profiles<i class="bx bx-chevrons-right" style="font-weight: 40px;"></i></button>
-		<div class="wrapper">
-			<h2 style="font-weight: 700; color: #ffffff;">PROFILES</h2>
+
+		  <div class="wrapper">
+			<h2 style="font-weight: 600; color: #008000;">WESMAARRDEC SECRETARIAT</h2>
 			<div class="container">
 			  {% for secretariat in secretariats %}
 			  <div class="box">
@@ -53,7 +97,30 @@
 	  
 			</div>
 		  </div>
-		{% endif %}
+
+
+		  <div id="myModal" class="modal">
+
+      
+			<div class="modal-content">
+			  <span class="close">&times;</span>
+			  <h2 style="font-weight: 700; color: #008000;">ORGANIZATIONAL CHART</h2>
+				<div class="center">
+					<img src="{% static 'images/chart.png' %}" alt="org chart">
+				</div>
+			</div>
+		  
+		  </div>
+		  
+		<!-- <h2 style="font-weight: 700; color: #008000;">ORGANIZATIONAL CHART</h2>
+		<div class="center">
+		<img src="{% static 'images/chart.png' %}" alt="org chart">
+		</div> -->
+
+		
+		<!-- <button id="btn">View Secretariat Profiles<i class="bx bx-chevrons-right" style="font-weight: 40px;"></i></button> -->
+		
+		
 
 		<script>
 			$(function(){
@@ -62,16 +129,32 @@
 		</script>	
 
 		<script>
-			let btn = document.querySelector("button");
-			let div = document.querySelector(".wrapper");
-			btn.addEventListener("click", () => {
-			if (div.style.display === "block") {
-				div.style.display = "none";
-			} else {
-				div.style.display = "block";
+			
+			var modal = document.getElementById("myModal");
+			
+			
+			var btn = document.getElementById("myBtn");
+			
+		
+			var span = document.getElementsByClassName("close")[0];
+			
+			
+			btn.onclick = function() {
+			modal.style.display = "block";
 			}
-			});
-		</script>
+			
+			
+			span.onclick = function() {
+			modal.style.display = "none";
+			}
+			
+			
+			window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+			}
+			</script>
 
 	</body>
 </html>

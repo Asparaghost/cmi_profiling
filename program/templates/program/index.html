@@ -36,6 +36,10 @@
             {% render_field program_filter.form.status class="form-control" %}
           </div>
           <div class="form-group col-sm-4 col-md-3">
+            {{ program_filter.form.program_leader.label_tag }}
+            {% render_field program_filter.form.program_leader class="form-control" %}
+          </div>
+          <div class="form-group col-sm-4 col-md-3">
             {{ program_filter.form.title.label_tag }}
             {% render_field program_filter.form.title class="form-control" %}
           </div>

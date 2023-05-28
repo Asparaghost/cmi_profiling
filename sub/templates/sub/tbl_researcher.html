@@ -58,8 +58,10 @@
 
 				<td>
 					<a href="{% url 'sub:detail_researcher' researcher.researcher_id %}" class="btn btn-primary">View</a>&nbsp;
+					{% if user.is_superuser or user.secretariat or request.user == researcher.created_by %}
 					<a href="{% url 'sub:edit_researcher' researcher.researcher_id %}" class="btn btn-success">Edit</a>&nbsp;
-					<a href="{% url 'sub:delete_researcher' researcher.researcher_id %}" class="btn btn-danger">Delete</a>
+					<a href="{% url 'sub:delete_researcher' researcher.researcher_id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+					{% endif %}
 				</td>
 
 			  </tr>

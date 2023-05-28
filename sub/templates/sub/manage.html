@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/manage.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'images/wesmalogo.png' %}" rel="icon">
+    <title>WESMAARRDEC</title>
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <table id="head">
+			<tr>
+			  <th class="title">Manage Accounts</th>
+			  {% if user.is_superuser %}
+			  <th class="add"><a href="{% url 'auth_user:signup' %}" id="myBtn">Create Account</a>&nbsp;&nbsp;&nbsp;
+			
+			  
+			  {% endif %}
+			</tr>
+		  </table> 
+		  
+
+    <div class="container">
+        <table class="table table-striped" id="tbl">
+            <thead>
+              <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Date Joined</th>
+                <th scope="col">Authorization</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+              <tr>
+                <td>{{u.username}}</td>
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.date_joined|date:"d M Y"}}</td>
+                <td>
+                  {% if u.stakeholder %}Stakeholder{% endif %}
+                  {% if u.researcher %}Researcher{% endif %}
+                  {% if u.secretariat %}Secretariat{% endif %}
+                  {% if u.is_superuser %}Admin{% endif %}
+                </td>
+                <td>
+                    {% if u.is_superuser %}
+                      Unavailable
+                    {% else %}
+                      <a href="{% url 'sub:delete_user' u.username %}" onclick="return confirm('Are you sure you want to delete this?')">Delete User</a>
+                    {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+
+    <img src="{% static 'images/left2.png' %}" id="left">
+    <img src="{% static 'images/right2.png' %}" id="right">
+
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("{% url 'consortium:nav' %}");
+        });
+    </script>
+
+  </body>
+</html>
+
+
+
+
+

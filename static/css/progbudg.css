@@ -121,8 +121,8 @@ body {
 
 #tbl th:nth-of-type(1) {width:25%;}
 #tbl th:nth-of-type(2) {width:18%;}
-#tbl th:nth-of-type(3) {width:22%;}
-#tbl th:nth-of-type(4) {width:15%;}
+#tbl th:nth-of-type(3) {width:19%;}
+#tbl th:nth-of-type(4) {width:18%;}
 #tbl th:nth-of-type(5) {width:20%;}
 
 @media (max-width: 800px) {

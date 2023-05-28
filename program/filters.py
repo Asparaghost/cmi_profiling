@@ -8,16 +8,19 @@ class ProgramFilter(django_filters.FilterSet):
     class Meta:
         model = Program
         fields = {'status': ['exact'],
-                'title': ['icontains'],
+                'program_leader': ['exact'],
                 'impl_agency': ['exact'],
+                'title': ['icontains'],
         }
 
     def __init__(self, *args, **kwargs):
         super(ProgramFilter, self).__init__(*args, **kwargs)
         self.filters['status'].label = 'Status'
         self.filters['status'].extra['empty_label'] = "All Status"
-        self.filters['impl_agency'].label = 'Status'
+        self.filters['impl_agency'].label = 'Implementing Agency'
         self.filters['impl_agency'].extra['empty_label'] = "All Agencies"
+        self.filters['program_leader'].label = 'Leader'
+        self.filters['program_leader'].extra['empty_label'] = "All"
         
 
 class ProgramFilterDB(django_filters.FilterSet):

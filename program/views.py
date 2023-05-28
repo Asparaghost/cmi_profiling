@@ -42,10 +42,11 @@ def report(request, prog_id):
 
 def details(request, prog_id):
     program = Program.objects.get(prog_id=prog_id)
+    budget = program.prog_budg.all()
     history_list = Program.history.filter(prog_id=prog_id).order_by('-history_date').distinct()
     projects = program.proj_prog.all()
     context = {
-        'program' : program, 'projects' : projects, 'history_list' : history_list,
+        'program' : program, 'projects' : projects, 'history_list' : history_list, 'budget' : budget,
     }
     return render(request, 'program/details.html',context)
 

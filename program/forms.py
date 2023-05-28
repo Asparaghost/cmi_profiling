@@ -52,7 +52,7 @@ class ProgramForm(forms.ModelForm):
             'duration': 'Duration',
             'ext_duration': 'Extension Duration',
             'final_impl_date': 'Final Implementation Date',
-            'total_budget': 'Total Budget',
+            # 'total_budget': 'Total Budget',
             'daterequestedext': 'Date Requested Extension',
             'requested_by': 'Requested By',
             'date_uploaded': 'Date Uploaded',
@@ -128,13 +128,13 @@ class ProgramBudgetForm(forms.ModelForm):
 
     class Meta:  
           model = ProgramBudget  
-          exclude = ('created_by', 'modified_by')
+          exclude = ('created_by', 'modified_by', 'total')
           fields = '__all__'
           labels = {
               'prog_id': 'Program',
               'yr': 'Year',
               'fund_source': 'Fund Source',
-              'ps': 'PS',
-              'mooe': 'MOOE',
-              'eo': 'EO',
+              'ps': 'Personal Services',
+              'mooe': 'Maintenance and Other Operating Expenses',
+              'eo': 'Equipment Outlay',
           }

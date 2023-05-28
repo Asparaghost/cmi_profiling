@@ -3,6 +3,7 @@
 
     <head>
         {% load static %}
+        {% load humanize %}
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'css/detail.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
@@ -134,7 +135,7 @@
 
                         <tr>{% if project.approved_budget %}
                             <th>Approved Budget: </th>
-                            <td>P{{project.approved_budget}}</td>
+                            <td>Php {{project.approved_budget|floatformat:2|intcomma}}</td>
                             {%else%}{% endif %}
                         </tr>
 
@@ -188,7 +189,7 @@
                         {% endif %}
                     </table>
                     
-                    {% if user.is_superuser or user.secretariat or user.researcher %}
+                    {% if user.is_superuser or user.secretariat or request.user == project.created_by %}
                         <a href="{% url 'project:edit' project.proj_id %}" class="btn btn-success">Edit</a>
                         <a href="{% url 'project:delete' project.proj_id %}" class="btn btn-danger">Delete</a>
                     {% endif %}

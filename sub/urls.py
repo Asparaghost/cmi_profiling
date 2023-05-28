@@ -11,6 +11,10 @@ urlpatterns = [
     path('about_us/',views.about,name='about'),
     path('CMI_summary/',views.summary,name='summary'),
     path('audit_trail/',views.audit_trail,name='audit_trail'),
+    path('manage_accounts/',views.manage,name='manage'),
+
+    #-----delete user
+    path('delete_account/<username>',views.delete_user,name='delete_user'),
     
     #-----IEC MATERIAL
     path('nav/',views.nav,name='nav'),

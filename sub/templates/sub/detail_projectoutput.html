@@ -35,7 +35,7 @@
 
                         <tr>
                             <th>IEC Material:</th>
-                            <td>{{projectoutput.iec_id}}</td>
+                            <td><a href="{% url 'sub:detail_iecmaterial' projectoutput.iec_id %}">{{projectoutput.iec_id}}</a></td>
                         </tr>
 
                         {% if user.is_superuser %}

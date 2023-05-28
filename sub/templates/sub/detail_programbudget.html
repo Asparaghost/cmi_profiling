@@ -3,6 +3,7 @@
 
     <head>
         {% load static %}
+        {% load humanize %}
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'css/detail.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
@@ -36,7 +37,7 @@
                         <tr>
                             <th>Personal Services:</th>
                             {% if programbudget.ps %}
-                            <td>P{{programbudget.ps|floatformat:2}}</td>
+                            <td>Php {{programbudget.ps|floatformat:2|intcomma}}</td>
                             {%else%}
                             <td>None</td>
                             {% endif %}
@@ -45,16 +46,25 @@
                         <tr>
                             <th>Maintenance and Other Operating Expenses:</th>
                             {% if programbudget.mooe %}
-                            <td>P{{programbudget.mooe|floatformat:2}}</td>
+                            <td>Php {{programbudget.mooe|floatformat:2|intcomma}}</td>
                             {%else%}
                             <td>None</td>
                             {% endif %}
                         </tr>
 
                         <tr>
-                            <th>Executive Order:</th>
+                            <th>Equipment Outlay:</th>
                             {% if programbudget.eo %}
-                            <td>{{programbudget.eo|floatformat:0}}</td>
+                            <td>Php {{programbudget.eo|floatformat:2|intcomma}}</td>
+                            {%else%}
+                            <td>None</td>
+                            {% endif %}
+                        </tr>
+
+                        <tr>
+                            <th>Total Budget:</th>
+                            {% if programbudget.total %}
+                            <td>Php {{programbudget.total|floatformat:2|intcomma}}</td>
                             {%else%}
                             <td>None</td>
                             {% endif %}

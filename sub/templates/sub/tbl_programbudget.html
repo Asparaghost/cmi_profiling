@@ -38,7 +38,7 @@
 				<th scope="col">PROGRAM</th>
 				<th scope="col">YEAR</th>
 				<th scope="col">FUND SOURCE</th>
-				<th scope="col">PS</th>
+				<th scope="col">BUDGET</th>
 				
 				<th scope="col">ACTION</th>
 				
@@ -50,16 +50,18 @@
 				<th scope="row">{{progbudg.prog_id}}</th>
 				<td>{{progbudg.yr}}</td>
 				<td>{{progbudg.fund_source}}</td> 
-				{% if progbudg.ps %}
-				<td>P{{progbudg.ps|floatformat:2}}</td>
+				{% if progbudg.total %}
+				<td>Php {{progbudg.total|floatformat:2}}</td>
 				{% else %}
 				<td>None</td>
 				{% endif %}
 
 				<td>
 					<a href="{% url 'sub:detail_progbudg' progbudg.progbdg_id %}" class="btn btn-primary">View</a>&nbsp;
+					{% if user.is_superuser or user.secretariat or request.user == progbudg.created_by %}
 					<a href="{% url 'sub:edit_progbudg' progbudg.progbdg_id %}" class="btn btn-success">Edit</a>&nbsp;
-					<a href="{% url 'sub:delete_progbudg' progbudg.progbdg_id %}" class="btn btn-danger">Delete</a>
+					<a href="{% url 'sub:delete_progbudg' progbudg.progbdg_id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+					{% endif %}
 				</td>
 
 			  </tr>

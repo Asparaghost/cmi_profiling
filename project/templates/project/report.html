@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
+    {% load humanize %}
     <meta charset="UTF-8">
     <title>Report</title>
     <style>
@@ -119,7 +120,7 @@
 
             {% if project.approved_budget %}
             <label>Approved Budget:</label>
-            P{{project.approved_budget}}<br>
+            Php {{project.approved_budget|floatformat:2|intcomma}}<br>
             {%else%}
                          
             {% endif %}

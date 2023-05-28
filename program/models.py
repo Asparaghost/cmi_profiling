@@ -45,12 +45,12 @@ class Researcher(models.Model):
 auditlog.register(Researcher)
 
 class Program(models.Model):
-    ONGOING = 'ongoing'
-    COMPLETED = 'completed'
+    ONGOING = 'Ongoing'
+    COMPLETED = 'Completed'
 
     CHOICE_STATUS = (
-        (ONGOING, 'ongoing'),
-        (COMPLETED, 'completed'),
+        (ONGOING, 'Ongoing'),
+        (COMPLETED, 'Completed'),
     )
 
     prog_id = models.AutoField(primary_key=True)
@@ -65,7 +65,7 @@ class Program(models.Model):
     start_date = models.DateField(blank=True, null=True)
     duration = models.IntegerField()
     final_impl_date = models.DateField(blank=True, null=True)
-    total_budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # total_budget = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     daterequestedext = models.DateField(blank=True, null=True)
     requested_by = models.ForeignKey(Researcher, null=True, blank=True, related_name='+', on_delete=models.CASCADE)
     ext_duration = models.IntegerField(blank=True, null=True)
@@ -116,14 +116,27 @@ class ProgramBudget(models.Model):
     ps = models.FloatField(blank=True, null=True)
     mooe = models.FloatField(blank=True, null=True)
     eo = models.FloatField(blank=True, null=True)
+    total = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, related_name="+", on_delete=models.CASCADE)
     modified_at = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
+    @property
+    def get_total(self):
+        total = self.ps + self.mooe + self.eo
+        return total
+    
+    def save(self, *args, **kwargs):
+        self.total = self.get_total
+        super(ProgramBudget, self).save(*args, **kwargs)
+
     
     class Meta:
         db_table = "program_budget"
+
+
+
 
 auditlog.register(ProgramBudget)
 
