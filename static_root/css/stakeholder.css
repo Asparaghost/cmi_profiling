@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* background-image: url("https://www.transparenttextures.com/patterns/climpek.png");  */
+}
+
+#head {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+    font-family: Poppins;
+    width: 98%;
+    background-color: #66b366;
+}
+  
+#head tr th {
+    padding: 4px;
+    border-collapse: collapse;
+}
+
+#head tr .title{
+    padding-left: 20px;
+    width: 84%;
+    font-weight: 600;
+    color: white;
+    font-size: 33px;
+    background-color:transparent;
+    cursor: pointer;
+}
+
+#head tr .add{
+    text-align: center;
+    font-size: 1.4vw;
+    cursor: pointer;
+}
+
+#head tr .add .pdf{
+    text-align: center;
+    font-size: 1.4vw;
+    cursor: pointer;
+}
+
+#head tr .add a{
+    padding: 5px 10px;
+    background-color: #008000;
+    border-radius: 1px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+}
+  
+#head tr .add a:hover {
+    background-color: #339933;
+}
+  
+#head th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: rgb(29, 29, 29);
+}
+
+#tbl {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    max-width: 95%;
+    text-align: center;
+    color: #1b641b;
+    border: 2px solid #008000;
+    table-layout:fixed;
+    word-break:keep-all;
+}
+
+#tbl thead tr th{
+    color: #ffffff;
+    background-color: #008000;
+}
+
+#tbl tbody tr td .btn{
+    text-decoration: none;
+    color: #ffffff;
+    word-spacing: 100px;
+    padding: 4px 6px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+#tbl tbody tr td a{
+    text-decoration: none;
+    color: #0d560d;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#tbl tbody tr td a i{
+    text-decoration: none;
+    color: #0d560d;
+    letter-spacing: 5px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#tbl tbody tr td a i:hover{
+    color: #117911;
+}
+
+#tbl thead tr th{
+    overflow:hidden;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#tbl tbody tr th{
+    font-weight: 600;
+}
+
+#tbl th:nth-of-type(1) {width:24%;}
+#tbl th:nth-of-type(2) {width:18%;}
+#tbl th:nth-of-type(3) {width:20%;}
+#tbl th:nth-of-type(4) {width:18%;}
+#tbl th:nth-of-type(5) {width:20%;}
+
+@media (max-width: 800px) {
+    #head tr .title{
+        padding-left: 20px;
+        width: 81%;
+        font-weight: 600;
+        color: white;
+        font-size: 22px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #btn{
+        font-size: 12px;
+    }
+    #tbl tbody tr td{
+        font-size: 15px;
+    }
+    #tbl tbody tr td .btn{
+        text-decoration: none;
+        color: #ffffff;
+        word-spacing: 100px;
+        padding: 2px 5px;
+        font-size: 13px;
+        border-radius: 2px;
+        font-size: 12px;
+    }
+    #tbl thead tr th:nth-child(3){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(3){
+        display: none;
+    }
+    #tbl thead tr th:nth-child(4){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(4){
+        display: none;
+    }
+    #tbl th:nth-of-type(1) {width:34%;}
+    #tbl th:nth-of-type(2) {width:32%;}
+    #tbl th:nth-of-type(5) {width:34%;}
+}
+
+@media (max-width: 500px) {
+    #head tr .title{
+        padding-left: 10px;
+        width: 64%;
+        font-weight: 600;
+        color: white;
+        font-size: 22px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #head tr .add{
+        text-align: center;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    #tbl thead tr th{
+        font-size: 14px;
+    }
+    #tbl tbody tr td{
+        font-size: 13px;
+    }
+    #tbl tbody tr td a i{
+        font-size: 13px;
+    }
+    #tbl tbody tr td .btn{
+        text-decoration: none;
+        color: #ffffff;
+        word-spacing: 100px;
+        padding: 1px 3px;
+        font-size: 13px;
+    }
+    #tbl thead tr th:nth-child(2){
+        display: none;
+    }
+    #tbl thead tr th:nth-child(3){
+        display: none;
+    }
+    #tbl thead tr th:nth-child(4){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(2){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(3){
+        display: none;
+    }
+    #tbl tbody tr td:nth-child(4){
+        display: none;
+    }
+}
