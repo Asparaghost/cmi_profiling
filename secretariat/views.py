@@ -50,7 +50,7 @@ def add(request):
                 instance = form.save(commit=False)  
                 instance.created_by = request.user
                 instance.save()
-                return redirect('/secretariats')  
+                return redirect('/secretariat')  
             except:  
                 pass
     else:  
@@ -68,7 +68,7 @@ def edit(request, secretariat_id):
                 instance = form.save(commit=False)  
                 instance.modified_by = request.user
                 instance.save()
-                return redirect('/secretariats')  
+                return redirect('/secretariat')  
             except:  
                 pass
     return render(request, 'secretariat/edit.html', {'form':form})
@@ -81,7 +81,7 @@ def delete(request, secretariat_id):
     }
     if request.method == 'POST':
             secretariat.delete()
-            return redirect('/secretariats')
+            return redirect('/secretariat')
     return render(request, 'secretariat/delete.html', context)
 
 

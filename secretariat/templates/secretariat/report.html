@@ -20,7 +20,7 @@
 
         h3{
             font-size: 19px;
-            padding: -60px 0;
+            padding: -50px 0;
             font-weight: 500;
         }
 
@@ -32,14 +32,14 @@
 </head>
 <body>
 
-    <img src="static/images/letterhead.PNG" alt="letterhead" style="width: 650px; height: 100px; top: -330px;"><br>
+    <img src="static/images/letterhead.PNG" alt="letterhead" style="width: 650px; height: 100px;"><br>
 
         {% if secretariat.photo %}
         <br>
         <img src="{{ secretariat.photo.path }}" alt="img_commodity" style="width: 100px; height: 100px;"><br><br>
         {%else%}
-        <br>
-        <p>No Photo</p>
+        <br><br><br>
+        
         {% endif %}
 
         <!-- <label>Fullname:</label> -->
