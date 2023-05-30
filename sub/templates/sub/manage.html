@@ -34,7 +34,7 @@
             <thead>
               <tr>
                 <th scope="col">Username</th>
-                <th scope="col">Password</th>
+                <th scope="col">Name</th>
                 <th scope="col">Email Address</th>
                 <th scope="col">Date Joined</th>
                 <th scope="col">Authorization</th>
@@ -45,7 +45,7 @@
                 {% for u in users %}
               <tr>
                 <td>{{u.username}}</td>
-                <td>{{u.username}}</td>
+                <td>{{u.first_name}} {{u.last_name|default_if_none:""}}</td>
                 <td>{{u.email}}</td>
                 <td>{{u.date_joined|date:"d M Y"}}</td>
                 <td>

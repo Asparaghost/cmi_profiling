@@ -88,17 +88,22 @@ table tbody td a{
     background-color: #339933;
 }
 
-#tbl th:nth-of-type(1) {width:17%;}
-#tbl th:nth-of-type(2) {width:20%;}
-#tbl th:nth-of-type(3) {width:20%;}
-#tbl th:nth-of-type(4) {width:20%;}
+#tbl tbody tr td a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#tbl th:nth-of-type(1) {width:18%;}
+#tbl th:nth-of-type(2) {width:22%;}
+#tbl th:nth-of-type(3) {width:22%;}
+#tbl th:nth-of-type(4) {width:15%;}
 #tbl th:nth-of-type(5) {width:13%;}
 #tbl th:nth-of-type(6) {width:10%;}
-  
-@media (max-width: 500px) {
+
+@media (max-width: 800px) {
     #head tr .title{
         padding-left: 20px;
-        width: 81%;
+        width: 82%;
         font-weight: 600;
         color: white;
         font-size: 22px;
@@ -109,7 +114,7 @@ table tbody td a{
         font-size: 12px;
     }
     #tbl tbody tr td{
-        font-size: 15px;
+        font-size: 14px;
     }
     #tbl tbody tr td .btn{
         text-decoration: none;
@@ -120,4 +125,61 @@ table tbody td a{
         border-radius: 2px;
         font-size: 12px;
     }
+    #tbl thead tr th:nth-of-type(4) {display: none;}
+    #tbl tbody tr td:nth-of-type(4) {display: none;}
+    #tbl thead tr th:nth-of-type(2) {display: none;}
+    #tbl tbody tr td:nth-of-type(2) {display: none;}
+}
+
+@media (max-width: 700px) {
+    #tbl thead tr th:nth-of-type(2) {display: none;}
+    #tbl tbody tr td:nth-of-type(2) {display: none;}
+
+    #tbl thead tr th:nth-of-type(4) {display: none;}
+    #tbl tbody tr td:nth-of-type(4) {display: none;}
+
+    #tbl tbody tr td{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    #head tr .title{
+        padding-left: 20px;
+        width: 70%;
+        font-weight: 600;
+        color: white;
+        font-size: 18px;
+        background-color:transparent;
+        cursor: pointer;
+    }
+    #head tr .add{
+        text-align: center;
+        font-size: 8px;
+        cursor: pointer;
+    }
+    #btn{
+        font-size: 12px;
+    }
+    #tbl tbody tr td{
+        font-size: 13px;
+    }
+    #tbl tbody tr td .btn{
+        text-decoration: none;
+        color: #ffffff;
+        word-spacing: 100px;
+        padding: 2px 5px;
+        font-size: 13px;
+        border-radius: 2px;
+        font-size: 12px;
+    }
+    #tbl thead tr th:nth-of-type(2) {display: none;}
+    #tbl tbody tr td:nth-of-type(2) {display: none;}
+
+    #tbl thead tr th:nth-of-type(4) {display: none;}
+    #tbl tbody tr td:nth-of-type(4) {display: none;}
+
+    #tbl thead tr th:nth-of-type(3) {display: none;}
+    #tbl tbody tr td:nth-of-type(3) {display: none;}
 }
