@@ -66,19 +66,22 @@
                                     <td>{{secretariat.sex}}</td>
                                 </tr>
                                 
-                                <tr>
+                                <tr>{% if secretariat.bach_deg %}
                                     <th>Bachelor's Degree: </th>
                                     <td>{{secretariat.bach_deg}}, {{secretariat.bdyearcompleted}}</td>
+                                    {% else %}{% endif %}
                                 </tr>
                         
-                                <tr>
+                                <tr>{% if secretariat.mas_deg %}
                                     <th>Master's Degree: </th>
                                     <td>{{secretariat.mas_deg}}, {{secretariat.mdyearcompleted}}</td>
+                                    {% else %}{% endif %}
                                 </tr>
                                 
-                                <tr>
+                                <tr>{% if secretariat.doc_deg %}
                                     <th>Doctorate Degree: </th>
                                     <td>{{secretariat.doc_deg}}, {{secretariat.ddyearcompleted}}</td>
+                                    {% else %}{% endif %}
                                 </tr>
                                 
                                 <tr>
