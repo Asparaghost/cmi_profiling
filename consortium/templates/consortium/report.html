@@ -61,10 +61,10 @@
 
       <img src="static/images/letterhead.PNG" alt="letterhead" style="width: 650px; height: 100px;"><br>
         <br>
-        {{cmi.name}} ({{cmi.agency_code}})<br><br>
+        <div style="font-weight: 600;">{{cmi.name}} ({{cmi.agency_code}})</div><br>
         <table width="100%">
           <tr>
-            <td>Commodities:</td>
+            <td style="font-weight: 600;">Commodities:</td>
           </tr>
           {% for commodity in commodities %}
           <tr>
@@ -77,7 +77,7 @@
 
         <table width="100%">
           <tr>
-            <td>Programs:</td>
+            <td style="font-weight: 600;">Programs:</td>
           </tr>
           {% for program in programs %}
           <tr>
@@ -90,7 +90,7 @@
 
         <table width="100%" >
           <tr>
-            <td>Projects:</td>
+            <td style="font-weight: 600;">Projects:</td>
           </tr>
           {% for project in projects %}
           <tr>
