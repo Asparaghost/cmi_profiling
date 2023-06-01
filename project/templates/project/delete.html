@@ -3,6 +3,7 @@
 
     <head>
         {% load static %}
+        {% load humanize %}
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'css/detail.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
@@ -135,7 +136,7 @@
 
                         <tr>{% if project.approved_budget %}
                             <th>Approved Budget: </th>
-                            <td>P{{project.approved_budget}}</td>
+                            <td>Php {{project.approved_budget|floatformat:2|intcomma}}</td>
                             {%else%}{% endif %}
                         </tr>
 

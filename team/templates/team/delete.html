@@ -28,7 +28,7 @@
                     {% endif %}
                 </div>
                     <div class="about-content">
-                        <h1>{{team.lname}}, {{team.fname}} {{team.mname|default_if_none:""}}</h1>
+                        <h1>{{team.fname}} {{team.mname|default_if_none:""}} {{team.lname}}</h1>
                         <h5>{{team.position}}</h5>
                         <table>
                             <tr>

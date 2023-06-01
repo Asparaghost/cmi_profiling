@@ -27,7 +27,7 @@
                     {% endif %}
                 </div>
                     <div class="about-content">
-                    <h1>{{secretariat.lname}}, {{secretariat.fname}} {{secretariat.mname|default_if_none:""}}</h1>
+                    <h1>{{secretariat.fname}} {{secretariat.mname|default_if_none:""}} {{secretariat.lname}}</h1>
                     <h5>{{secretariat.position}}</h5>
                     <table>
                         <tr>

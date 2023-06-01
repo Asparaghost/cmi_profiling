@@ -3,6 +3,7 @@
 
     <head>
         {% load static %}
+        {% load humanize %}
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'css/detail.css' %}">
         <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
@@ -86,10 +87,15 @@
                             <td>{{program.final_impl_date}}</td>
                         </tr>
                         
-                        <tr>{% if program.total_budget %}
+                        <tr>
                             <th>Total Budget: </th>
-                            <td>P{{program.total_budget}}</td>
-                            {%else%}{% endif %}
+                            <td>
+                                {% for program in budget %}
+                                Php {{program.total|escape|floatformat:2|intcomma}}<br>
+                                {% empty %}
+                                None
+                                {% endfor %}
+                            </td>
                         </tr>
   
                         <tr>{% if program.daterequestedext %}

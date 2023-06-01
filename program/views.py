@@ -86,9 +86,11 @@ def edit(request, prog_id):
 
 @login_required
 def delete(request, prog_id):  
-    program = Program.objects.get(prog_id=prog_id)  
+    program = Program.objects.get(prog_id=prog_id)
+    budget = program.prog_budg.all()  
     context = {
             'program' : program,
+            'budget' : budget,
     }
     if request.method == 'POST':
             program.delete()
