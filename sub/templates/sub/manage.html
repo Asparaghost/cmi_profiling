@@ -60,6 +60,14 @@
                     {% else %}
                       <a href="{% url 'sub:delete_user' u.username %}" onclick="return confirm('Are you sure you want to delete this?')">Delete User</a>
                     {% endif %}
+
+                    {% if u.stakeholder or u.secretariat or u.researcher %}
+                    {% if u.is_active%}
+                    <a href="{% url 'sub:deactivate' u.username %}" onclick="return confirm('Are you sure you want to deactivate this?')">Deactivate</a>
+                    {% else %}
+                    <a href="{% url 'sub:activate' u.username %}" onclick="return confirm('Are you sure you want to activate this?')">Activate</a>
+                    {% endif %}
+                    {% endif %}
                 </td>
               </tr>
               {% endfor %}

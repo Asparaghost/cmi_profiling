@@ -15,6 +15,8 @@ urlpatterns = [
 
     #-----delete user
     path('delete_account/<username>',views.delete_user,name='delete_user'),
+    path('deactivate/<username>',views.deactivate,name='deactivate'),
+    path('activate/<username>',views.activate,name='activate'),
     
     #-----IEC MATERIAL
     path('nav/',views.nav,name='nav'),

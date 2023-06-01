@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from auditlog.models import LogEntry
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from commodity.models import IecMaterial, Commodity
@@ -21,7 +22,7 @@ def about(request):
 
 @login_required
 def manage(request):
-    users = User.objects.all()
+    users = User.objects.all().order_by('is_superuser').reverse()
     return render(request, "sub/manage.html", {'users':users})
 
 def home(request):
@@ -492,3 +493,16 @@ def delete_user(request, username):
     user.delete()  
     return redirect("/manage_accounts")
 
+@login_required
+def deactivate(request, username):        
+    user = User.objects.get(username=username)
+    user.is_active = False
+    user.save()
+    return redirect('/manage_accounts')
+
+@login_required
+def activate(request, username):        
+    user = User.objects.get(username=username)
+    user.is_active = True
+    user.save()
+    return redirect('/manage_accounts')

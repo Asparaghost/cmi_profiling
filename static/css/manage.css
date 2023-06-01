@@ -20,10 +20,11 @@ body {
     position: relative;
     z-index: 2;
     margin-top: 15px;
+    margin-bottom: 50px;
 }
 
 table{
-    font-size: 14px;
+    font-size: 13px;
     /* background-color: #ffffff; */
 }
 
@@ -33,13 +34,13 @@ table tbody td a{
 
 #left{
     width: 18%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 
 #right{
     width: 24%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     
