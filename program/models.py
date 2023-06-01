@@ -123,7 +123,7 @@ class ProgramBudget(models.Model):
     modified_by = models.ForeignKey(User, related_name="+", blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Program Budget ({self.total}) for {self.prog_id}"
+        return f"Program Budget (Php {self.total}) for {self.prog_id}"
 
     @property
     def get_total(self):
